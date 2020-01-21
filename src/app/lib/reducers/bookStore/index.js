@@ -1,4 +1,4 @@
-import { actions } from "../actions/bookstoreActions";
+import { actions } from "../../actions/bookStore";
 const {
   FETCH_BOOKS_PENDING,
   FETCH_BOOKS_SUCCESS,

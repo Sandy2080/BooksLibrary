@@ -1,18 +1,15 @@
 const Constants = {
     BASE_URL: "http://henri-potier.xebia.fr",
 };
-
-//returns a string to build the URL with parameters
+//returns a string to build the URL with parameters if applicable
 function uriParams(parameters: string[]) {
     return parameters
         .map(param => param)
         .join(',');
 }
-
 enum Endpoint {
     Book = "books", Offer = "commercialOffers"  
 }
-
 export const buildURL = (endpoint: Endpoint, parameters: string[]) => {
     const ISBNs = uriParams(parameters)
     switch (endpoint) {
@@ -33,7 +30,6 @@ export const get = (endpoint: Endpoint, withParameters: string[]) => {
         .catch((e: any) => onFailure(e));
     });
 };
-
 export {
     Constants,
     Endpoint,

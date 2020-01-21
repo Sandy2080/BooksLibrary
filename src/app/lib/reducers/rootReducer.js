@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import bookstoreReducer from "./bookstoreReducer";
-import visibilityFilterReducer from "./visibilityFilterReducer";
-import shoppingCartReducer from "./shoppingCartReducer";
+import bookstoreReducer from "./bookStore";
+import visibilityFilterReducer from "./visibilityFilter";
+import shoppingCartReducer from "./shoppingCart";
 
 const bookstoreApp = combineReducers({
   bookstoreReducer,

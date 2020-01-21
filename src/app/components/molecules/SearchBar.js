@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
-import { setFilter, visibilityFilters } from '../../lib/actions/visibilityFilterActions'
+import { setFilter, visibilityFilters } from '../../lib/actions/visibilityFilter'
 import { StyledSearchBar } from './styles'
 
 const SearchBar = () => {

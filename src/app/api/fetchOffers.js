@@ -4,7 +4,7 @@ import {
   fetchOffersError,
   setTotalCart,
   setDiscount
-} from "../lib/actions/shoppingCartActions";
+} from "../lib/actions/shoppingCart";
 import { get, Endpoint } from "./service";
 import { store } from "../lib/store";
 
@@ -16,7 +16,7 @@ export function fetchOffers(items) {
       store.dispatch(fetchOffersSuccess(res['offers']));
       store.dispatch(setTotalCart());
     })
-    .then(() =>  store.dispatch(setDiscount()))
+    .then(() => store.dispatch(setDiscount()))
     .catch(error => {
       store.dispatch(fetchOffersError(error));
     });

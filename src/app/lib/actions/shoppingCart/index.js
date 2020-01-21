@@ -1,4 +1,4 @@
-import { Offer } from "../../models/Offer";
+import { Offer } from "../../../models/Offer";
 export const actions = {
          ADD_TO_CART: "ADD_TO_CART",
          UPDATE_CART: "UPDATE_CART",

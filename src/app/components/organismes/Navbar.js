@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { saveCart } from "../../lib/actions/shoppingCartActions";
+import { saveCart } from "../../lib/actions/shoppingCart";
 
 export const Navbar =  ({ showFiltered }) => {
   const { items } = useSelector(state => ({ ...state.shoppingCartReducer}));

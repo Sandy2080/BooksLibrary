@@ -1,4 +1,4 @@
-import { Book } from "../../models/Book";
+import { Book } from "../../../models/Book";
 export const actions = {
     FETCH_BOOKS_PENDING: "FETCH_BOOKS_PENDING",
     FETCH_BOOKS_SUCCESS: "FETCH_BOOKS_SUCCESS",

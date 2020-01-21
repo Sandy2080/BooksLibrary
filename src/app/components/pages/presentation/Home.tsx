@@ -11,7 +11,7 @@ const Home = (
   }) => {
   const loadBooks = () => props.getBooks();
   const loadOffers = () => props.getOffers(items);
-  const { items, books, search } = props;
+  const { items, books } = props;
 
   useEffect(() => {
    loadBooks()

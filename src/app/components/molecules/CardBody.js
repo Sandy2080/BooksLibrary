@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import { TextTruncate } from "../atoms/Text";
-import { addToCart } from "../../lib/actions/shoppingCartActions";
+import { addToCart } from "../../lib/actions/shoppingCart";
 
 const AddToCart = ({ item, children }) => {
   const dispatch = useDispatch()

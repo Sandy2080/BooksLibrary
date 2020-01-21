@@ -1,4 +1,4 @@
-import { actions } from "../actions/shoppingCartActions";
+import { actions } from "../../actions/shoppingCart";
 const {
   ADD_TO_CART,
   SAVE_CART,

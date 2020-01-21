@@ -2,7 +2,7 @@ import React from "react";
 import { ProductImage } from "../atoms/Image";
 import { TextSmall } from "../atoms/Text"; 
 import { useSelector, useDispatch } from "react-redux";
-import { updateCart, removeFromCart} from "../../lib/actions/shoppingCartActions";
+import { updateCart, removeFromCart} from "../../lib/actions/shoppingCart";
 
 const Styles = {
   width5: "5%",

@@ -1,4 +1,4 @@
-import { actions, visibilityFilters } from "../actions/visibilityFilterActions";
+import { actions, visibilityFilters } from "../../actions/visibilityFilter";
 const { SET_FILTER } = actions;
 
 const initialState = {

@@ -4,7 +4,7 @@ import { StyledFooter, StyledRow } from './styles'
 import { TextBold } from "../atoms/Text"
 import { Divider } from '../atoms/Divider' 
 import { useDispatch, useSelector } from "react-redux";
-import { setDiscount } from "../../lib/actions/shoppingCartActions";
+import { setDiscount } from "../../lib/actions/shoppingCart";
 
 const TotalRow = ({ subTotal, discountedOffer }) => {
   const { discount, offer } = discountedOffer

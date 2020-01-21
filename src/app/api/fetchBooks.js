@@ -1,4 +1,4 @@
-import {  fetchBooksPending, fetchBooksSuccess, fetchBooksError } from '../lib/actions/bookstoreActions'
+import {  fetchBooksPending, fetchBooksSuccess, fetchBooksError } from '../lib/actions/bookStore'
 import { get, Endpoint } from './service'
 import { store } from "../lib/store"
 
