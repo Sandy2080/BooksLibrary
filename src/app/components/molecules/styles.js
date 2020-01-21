@@ -45,5 +45,17 @@ export const StyledSearchBar = styled.div`
   button {
     width: 60% !important;
   }
-  
+`
+export const StyledShoppingBag = styled.div`
+position: relative;
+a {
+  color: #333;
+}
+.badge {
+  position : absolute;
+  top: 10px;
+  left: -5px;
+  font-size: 15px;
+}
+
 `

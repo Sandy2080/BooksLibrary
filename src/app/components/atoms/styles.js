@@ -15,6 +15,11 @@ export const Title = styled.h5`
     margin-bottom: 0.75rem;
 `;
 
+export const TitleBold = styled(Title)`
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+`;
+
 export const SubTitle = styled.h6`
     color: #6c757d !important;
 `;
