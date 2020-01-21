@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setDiscount } from "../../lib/actions/shoppingCart";
 
 const TotalRow = ({ subTotal, discountedOffer }) => {
-  const { discount, offer } = discountedOffer
+  const { discount, type, value } = discountedOffer
   return (
     <StyledRow>
       <ul>
@@ -15,12 +15,12 @@ const TotalRow = ({ subTotal, discountedOffer }) => {
           <TextBold>Subtotal: &nbsp; &nbsp;{subTotal.toFixed(2)}€</TextBold>
         </li>
         <li>
-          {(offer.type == "minus" || offer.type == "slice") && (
-            <TextBold>Discount: &nbsp; - {offer.value.toFixed(2)}€</TextBold>
+          {(type == "minus" || type == "slice") && (
+            <TextBold>Discount: &nbsp; - {value.toFixed(2)}€</TextBold>
           )}
-          {offer.type == "percentage" && (
+          { type == "percentage" && (
             <TextBold>
-              Discount: ({offer.value}%)  &nbsp; -{subTotal * offer.value / 100}€
+              Discount: ({value}%)  &nbsp; -{subTotal * value / 100}€
             </TextBold>
           )}
         </li>
@@ -67,6 +67,7 @@ export const CartFooter = () => {
   const dispatch = useDispatch()
   useLayoutEffect(() => {
     dispatch(setDiscount())
+    console.log(discountedOffer)
   }, [total_cart])
 return (
   <Fragment>
@@ -76,7 +77,7 @@ return (
       <Divider />
       <div className="footer">
           <ShoppingButton />
-          <TotalCart total={discountedOffer.discount} />
+        <TotalCart total={discountedOffer.discountedValue} />
       </div>
     </StyledFooter>
   </Fragment>
