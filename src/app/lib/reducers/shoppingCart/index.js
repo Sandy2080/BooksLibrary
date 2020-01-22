@@ -14,6 +14,8 @@ const {
 
 const ITEMS_KEY = "items"
 const initialState = {
+  isPending: false, 
+  hasError: null,
   total_cart: 0, 
   discountedOffer: {},
   offers: [],
@@ -49,6 +51,7 @@ const shoppingCartReducer = (state = initialState, action) => {
     case SET_DISCOUNT:
           return {
             ...state,
+            isPending: false,
             discountedOffer: helpers.calculateBestOffer(state.total_cart, state.offers)
           }
     case SAVE_CART:
@@ -62,7 +65,6 @@ const shoppingCartReducer = (state = initialState, action) => {
     case FETCH_OFFERS_SUCCESS:
       return {
         ...state,
-        isPending: false,
         offers: action.payload.offers
       };
     case FETCH_OFFERS_ERROR:

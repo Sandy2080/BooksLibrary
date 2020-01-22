@@ -23,8 +23,8 @@ export const get = (endpoint: Endpoint, withParameters: string[]) => {
     return new Promise((onSuccess, onFailure) => {
         fetch(URL)
         .then((response: { ok: any; statusText: string | undefined; json: () => unknown; }) => {
-            if (!response.ok) { throw Error(response.statusText) }
-            onSuccess(response.json());
+            if (response.ok) { onSuccess(response.json()); } 
+            throw Error(response.statusText)
         })
         .catch((e: any) => onFailure(e));
     });

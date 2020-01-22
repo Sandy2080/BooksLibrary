@@ -13,11 +13,13 @@ export function fetchOffers(items) {
   store.dispatch(fetchOffersPending());
   get(Endpoint.Offer, isbns)
     .then(res => {
-      store.dispatch(fetchOffersSuccess(res['offers']));
-      store.dispatch(setTotalCart());
+      const offers = res['offers']
+      store.dispatch(fetchOffersSuccess(offers))
     })
-    .then(() => store.dispatch(setDiscount()))
-    .catch(error => {
-      store.dispatch(fetchOffersError(error));
-    });
-}
+    .then(() => {
+      store.dispatch(setTotalCart());
+      store.dispatch(setDiscount())
+    })
+    .catch(error => dispatch => dispatch(fetchOffersError(error)));
+  }
+

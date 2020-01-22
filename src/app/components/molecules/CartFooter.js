@@ -7,13 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setDiscount } from "../../lib/actions/shoppingCart";
 import Button from "../atoms/button/index";
 
-const TotalRow = ({ subTotal, discountedOffer }) => {
+const TotalRow = ({ total_cart, discountedOffer }) => {
   const { type, value, discountValue } = discountedOffer
   return (
     <StyledRow>
       <ul>
         <li>
-          <TextBold>Subtotal: &nbsp; &nbsp;{subTotal.toFixed(2)}€</TextBold>
+          <TextBold>Subtotal: &nbsp; &nbsp;{total_cart.toFixed(2)}€</TextBold>
         </li>
         <li>
           {(type === "minus" || type === "slice") && (
@@ -42,12 +42,15 @@ const ShoppingButton = () => (
   </ul>
 );
 
-const TotalCart = ({ total }) => (
-  <div>
+const TotalCart = ({ total_cart, discountedOffer }) => {
+  const { discountValue } = discountedOffer
+  const total = total_cart - discountValue
+  return (<div>
     <TextBold> Total: &nbsp; {total.toFixed(2)}€</TextBold>
     <CheckoutButton />
-  </div>
-)
+  </div>)
+}
+
  
 const CheckoutButton = () => {
   const onCheckoutClick = e => {
@@ -61,31 +64,35 @@ const CheckoutButton = () => {
  
 }
 export const CartFooter = () => {
-  const { total_cart, discountedOffer } = useSelector(state => ({
+  const props = useSelector(state => ({
     ...state.shoppingCartReducer
   }));
+  const { total_cart, discountedOffer, isPending, hasError } = props
   const dispatch = useDispatch()
-  const [total, setTotal] = useState(0)
-
   useEffect(() => {
     dispatch(setDiscount())
   }, [dispatch])
 
-  useEffect(() => { 
-    setTotal(total_cart - discountedOffer.discountValue)
-  }, [total_cart, discountedOffer])
+  useEffect(() => {
+    dispatch(setDiscount())
+  }, [])
   
 return (
   <Fragment>
     <Divider />
-    <TotalRow subTotal={total_cart} discountedOffer={discountedOffer} />
-    <StyledFooter>
-      <Divider />
-      <div className="footer">
+    {isPending ?
+    <p>...connexion en cours</p> :
+    <Fragment>
+      <TotalRow {...props} />
+      <StyledFooter>
+        <Divider />
+        <div className="footer">
           <ShoppingButton />
-        <TotalCart total={total} />
-      </div>
-    </StyledFooter>
+            <TotalCart {...props}  />
+        </div>
+      </StyledFooter>
+      </Fragment>
+    }
   </Fragment>
 );
 

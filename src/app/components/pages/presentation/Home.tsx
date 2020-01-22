@@ -21,7 +21,6 @@ const Home = (props: IHomeProps &
 
   useEffect(() => {
    loadBooks()
-   loadOffers()
   }, [loadOffers, loadBooks]);
 
   return (
