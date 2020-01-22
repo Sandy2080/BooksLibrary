@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import { Book } from '../../../models/Book'
 import { fetchOffers } from "../../../api/fetchOffers";
 import Cart from "../presentation/Cart";
 

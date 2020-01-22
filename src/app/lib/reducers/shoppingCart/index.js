@@ -1,5 +1,4 @@
 import { actions } from "../../actions/shoppingCart";
-import { CommercialOffer } from "../../../models/Offer" 
 import * as helpers from "../../../utils/helpers"
 const {
   ADD_TO_CART,
@@ -12,8 +11,8 @@ const {
   FETCH_OFFERS_SUCCESS,
   FETCH_OFFERS_ERROR
 } = actions;
-const ITEMS_KEY = "items"
 
+const ITEMS_KEY = "items"
 const initialState = {
   total_cart: 0, 
   discountedOffer: {},
@@ -40,7 +39,7 @@ const shoppingCartReducer = (state = initialState, action) => {
       return {
           ...state,
         items: state.items.filter(item => {
-          return item.id != action.payload.id;
+          return item.id !== action.payload.id;
         })
       };
     case SET_CART_TOTAL:
@@ -50,7 +49,7 @@ const shoppingCartReducer = (state = initialState, action) => {
     case SET_DISCOUNT:
           return {
             ...state,
-            discountedOffer: helpers.calculateTotalBestOffer(state.total_cart, state.offers)
+            discountedOffer: helpers.calculateBestOffer(state.total_cart, state.offers)
           }
     case SAVE_CART:
       helpers.saveToLocalStorage(ITEMS_KEY, action.payload.items)

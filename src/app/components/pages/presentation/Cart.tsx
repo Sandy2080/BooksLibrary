@@ -1,6 +1,5 @@
-import React, { useEffect, Fragment, useState, useLayoutEffect } from "react";
+import React, { useEffect, Fragment, useCallback } from "react";
 import { ShoppingCart } from '../../organismes/ShoppingCart'
-import { Book } from "../../../models/Book";
 import { Offer } from "../../../models/Offer";
 
 export interface Props {
@@ -11,12 +10,12 @@ const Cart = (
     getOffers: (items: any[]) => void;
   }
 ) => {
-  const { items } = props;
-  const loadOffers = () => props.getOffers(items);
-  
+  const { items, getOffers } = props;
+  const loadOffers = useCallback(() => getOffers(items), [items, getOffers]);
+
   useEffect(() => {
       loadOffers()
-  }, [items]);
+  }, [items, loadOffers]);
 
   return (
     <Fragment>

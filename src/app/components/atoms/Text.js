@@ -2,9 +2,7 @@ import React from "react";
 import { Text, StyledTextSmall, StyledTextBold } from './styles'
 
 const TextTruncate = ({ children }) => (
-  <Text>
-    <p>{children.length > 100 && children.substring(0, 150)} ...</p>
-  </Text>
+  <Text>{children.length > 100 && children.substring(0, 150)} ...</Text>
 );
 const Title = ({ children }) => <h5 className="card-title">{children}</h5>;
 const SubTitle = ({ children }) => (

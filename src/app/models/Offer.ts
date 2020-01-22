@@ -1,35 +1,42 @@
-export class Offer {
+
+class Offer {
     type: string;
     value: number;
     sliceValue?: number;
     constructor(obj: any) {
-      return (
-        this.type = obj.type,
-        this.value = obj.value,
-        this.sliceValue = obj.sliceValue
-      );
+      this.type = obj.type;
+      this.value = obj.value;
+      this.sliceValue = obj.sliceValue && obj.sliceValue;
     }
 }
-export class CommercialOffer extends Offer {
-  discountedValue: number = 0
+
+class CommercialOffer extends Offer {
+  discountValue: number = 0
   constructor(offer: Offer) { 
     super(offer); 
   }
   calculate = (total: number, offer: Offer) => {
     switch (offer.type) {
-      case "percentage": this.percentage(total)
-      case "minus": this.minus(total)
-      case "slice": this.slice(total)
+      case "percentage": return this.percentage(total) 
+      case "minus": return this.minus()
+      case "slice": return this.slice(total)
+      default: return false
     }
   }
-  percentage = (price: number) => this.discountedValue = price - (price * this.value) / 100;
-  minus = (price: number) => this.discountedValue = price - this.value
+  percentage = (price: number) => {
+    this.discountValue = (price * this.value) / 100;
+  }
+  minus = () => {
+    this.discountValue = this.value
+  }
   slice = (price: number) => {
-    if (!this.sliceValue) { return }
-    if (price < this.sliceValue) { return }
+    if (!this.sliceValue || price < this.sliceValue) { return }
     const slices = price / this.sliceValue;
-    this.discountedValue = price - (slices * this.sliceValue!);
+    this.discountValue = (slices * this.sliceValue!)
   };
 }
 
-
+export {
+  Offer, 
+  CommercialOffer
+}

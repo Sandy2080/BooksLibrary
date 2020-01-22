@@ -11,12 +11,12 @@ export const Navbar =  () => {
 
   useEffect(() => {
     if (items.length) { dispatch(saveCart(items)) } // saves to localstorage upon cart change and update
-  }, [items])
+  }, [items, dispatch])
   
   const Title = "La Bibliothèque d'Henri Potier"
   return (
     <nav className="navbar navbar-light bg-light">
-      <Link a className="navbar-brand" to="/"><TitleBold>{Title}</TitleBold></Link>
+      <Link className="navbar-brand" to="/"><TitleBold>{Title}</TitleBold></Link>
       <ShoppingBag items={items} />
     </nav>
   );

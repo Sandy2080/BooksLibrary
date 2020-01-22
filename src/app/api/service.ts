@@ -20,7 +20,6 @@ export const buildURL = (endpoint: Endpoint, parameters: string[]) => {
 }
 export const get = (endpoint: Endpoint, withParameters: string[]) => {
     const URL = buildURL(endpoint, withParameters)
-    console.log(URL)
     return new Promise((onSuccess, onFailure) => {
         fetch(URL)
         .then((response: { ok: any; statusText: string | undefined; json: () => unknown; }) => {

@@ -10,9 +10,8 @@ const SearchBar = () => {
 
     return (
     <StyledSearchBar >
-    <form className="form-inline" className="row"
-    onSubmit={e => e.preventDefault()}
-    >
+    <form className="form-inline row"
+    onSubmit={e => e.preventDefault()}>
         <input
             className="form-control  form-control-lg col-sm-12"
             type="search"
