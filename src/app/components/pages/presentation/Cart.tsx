@@ -8,8 +8,6 @@ export interface Props {
 }
 const Cart = (
   props: { items: any; offers: Offer[] } & {
-    updateCart: (item: Book, quantity: number) => any;
-    removeFromCart: (item: Book) => any;
     getOffers: (items: any[]) => void;
   }
 ) => {

@@ -2,7 +2,10 @@
 import { CommercialOffer } from "../models/Offer" 
 
 export const calculateTotal = ($0, $1) => $0 + $1;
-export const checkout = (items) => items.map(item => item.details.price).reduce(calculateTotal, 0);
+export const checkout = items => {
+    console.log(`TOTAL ${items.map(item => item.details.price * item.quantity).reduce(calculateTotal, 0)}`)
+    return items.map(item => item.details.price * item.quantity).reduce(calculateTotal, 0)
+};
 
 export const calculateTotalBestOffer = (subTotal, offers) => {
     let commercialOffers = offers.map(offer => {
