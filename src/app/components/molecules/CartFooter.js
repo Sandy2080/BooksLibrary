@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setDiscount } from "../../lib/actions/shoppingCart";
 import Button from "../atoms/button/index";
 
-const TotalRow = ({ total_cart, discountedOffer }) => {
+const TotalRow = ({ total_cart, discountedOffer, isPending }) => {
   const { type, value, discountValue } = discountedOffer
   return (
     <StyledRow>
@@ -42,9 +42,9 @@ const ShoppingButton = () => (
   </ul>
 );
 
-const TotalCart = ({ total_cart, discountedOffer }) => {
+const TotalCart = ({ total_cart, discountedOffer, isPending  }) => {
   const { discountValue } = discountedOffer
-  const total = total_cart - discountValue
+  const total = total_cart - discountValue  
   return (<div>
     <TextBold> Total: &nbsp; {total.toFixed(2)}€</TextBold>
     <CheckoutButton />
@@ -67,7 +67,7 @@ export const CartFooter = () => {
   const props = useSelector(state => ({
     ...state.shoppingCartReducer
   }));
-  const { total_cart, discountedOffer, isPending, hasError } = props
+  const {  isPending } = props
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(setDiscount())
@@ -79,10 +79,9 @@ export const CartFooter = () => {
   
 return (
   <Fragment>
-    <Divider />
-    {isPending ?
-    <p>...connexion en cours</p> :
-    <Fragment>
+    {!isPending &&
+      <Fragment>
+        <Divider />
       <TotalRow {...props} />
       <StyledFooter>
         <Divider />
@@ -91,9 +90,9 @@ return (
             <TotalCart {...props}  />
         </div>
       </StyledFooter>
-      </Fragment>
+    </Fragment>
     }
-  </Fragment>
+   </Fragment>
 );
 
 }

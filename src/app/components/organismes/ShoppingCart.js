@@ -5,7 +5,11 @@ import { CartFooter } from "../molecules/CartFooter";
 
 export const ShoppingCart = ({ items }) => (
          <div className="card">
-           <CartBody items={items} />
+           {items.length ?
+              <CartBody items={items} /> :
+              <p>Your cart is empty</p>
+           }
+           
            <CartFooter />
          </div>
        );
