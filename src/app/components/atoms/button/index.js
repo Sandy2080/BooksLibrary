@@ -63,6 +63,16 @@ Button.INFO = props => {
     ></Button>
   );
 };
+
+Button.SUCCESS = props => {
+  return (
+    <Button
+      type={ButtonType.BUTTON}
+      color={ButtonColor.SUCCESS}
+      {...props}
+    ></Button>
+  );
+};
 Button.WARNING = props => {
   return (
     <Button
@@ -82,5 +92,6 @@ Button.INFO.LG = props =><Button.INFO size={ButtonSize.LARGE} {...props}></Butto
 Button.WARNING.SM = props => <Button.WARNING size={ButtonSize.SMALL} {...props}></Button.WARNING>
 Button.WARNING.LG = props => <Button.WARNING size={ButtonSize.LARGE} {...props}></Button.WARNING>
 
-
+Button.SUCCESS.SM = props => <Button.SUCCESS size={ButtonSize.SMALL} {...props}></Button.SUCCESS>
+Button.SUCCESS.LG = props => <Button.SUCCESS size={ButtonSize.LARGE} {...props}></Button.SUCCESS>
 export default Button;
