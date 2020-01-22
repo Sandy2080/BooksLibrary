@@ -2,10 +2,17 @@ import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import { TextTruncate } from "../atoms/Text";
 import { addToCart } from "../../lib/actions/shoppingCart";
+import Button from '../atoms/button/index'
 
 const AddToCart = ({ item, children }) => {
   const dispatch = useDispatch()
-  return (<button className="btn btn-info btn-sm float-right" onClick={() => dispatch(addToCart(item))}>{children}</button>);
+  const addCart = () => dispatch(addToCart(item))
+  return (
+    <Button.INFO.SM classNames="float-right" action={addCart} customColor="tomato">
+      {children}
+    </Button.INFO.SM>
+  );
+
 }
 export const CardBody = ({ item }) => (
   <Fragment>

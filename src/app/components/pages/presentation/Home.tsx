@@ -4,8 +4,14 @@ import SearchBar from "../../molecules/SearchBar"
 import { Book } from "../../../models/Book";
 import { Offer } from "../../../models/Offer";
 
-const Home = (
-  props: { items: any; offers: Offer[]; books: Book[], search: string } & 
+export interface IHomeProps { 
+  items: any; 
+  offers: Offer[]; 
+  books: Book[], 
+  search: string 
+}
+
+const Home = (props: IHomeProps & 
   { getBooks: () => void; 
     getOffers: (items: any[]) => void; 
   }) => {
