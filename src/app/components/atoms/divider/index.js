@@ -1,4 +1,5 @@
 import React from "react";
 import { StyledDivider } from './styles'
 
-export const Divider = ({ thickness }) => ( <StyledDivider thickness={thickness} />);
+const Divider = ({ thickness, spacing }) => ( <StyledDivider thickness={thickness} spacing={spacing}/>);
+export default Divider;

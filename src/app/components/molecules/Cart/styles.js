@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+export const StyledCartRow = styled.div`
+  display: flex;
+`
 export const StyledFooter = styled.div`
     padding: 0 20px;
 
@@ -37,27 +40,3 @@ export const StyledRow = styled.div`
     list-style-type: none;
   }
 `;
-
-export const StyledSearchBar = styled.div`
-  margin-bottom: 20px;
-  padding-right: 15px;
-  form {
-    margin-left: 0;
-  }
-  button {
-    width: 60% !important;
-  }
-`
-export const StyledShoppingBag = styled.div`
-position: relative;
-a {
-  color: #333;
-}
-.badge {
-  position : absolute;
-  top: 10px;
-  left: -5px;
-  font-size: 15px;
-}
-
-`

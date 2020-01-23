@@ -1,7 +1,7 @@
 
 import React from "react";
-import { CartBody } from "../molecules/CartBody";
-import { CartFooter } from "../molecules/CartFooter";
+import { CartBody } from "../molecules/Cart/CartBody";
+import { CartFooter } from "../molecules/Cart/CartFooter";
 
 export const ShoppingCart = ({ items }) => (
          <div className="card">

@@ -1,12 +1,12 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect  } from "react";
 import { Link } from "react-router-dom";
 import { StyledFooter, StyledRow } from './styles'
-import { TextBold } from "../atoms/text/Text"
-import { Divider } from '../atoms/divider' 
+import { TextBold } from "../../atoms/text/Text"
+import  Divider  from '../../atoms/divider' 
 import { useDispatch, useSelector } from "react-redux";
-import { setDiscount } from "../../lib/actions/shoppingCart";
-import Button from "../atoms/button/";
-import Icon from "../atoms/icon"
+import { setDiscount } from "../../../lib/actions/shoppingCart";
+import Button, { ButtonTheme } from "../../atoms/button";
+import Icon from "../../atoms/icon"
 
 const TotalRow = ({ total_cart, discountedOffer, isPending }) => {
   const { type, value, discountValue } = discountedOffer
@@ -36,7 +36,10 @@ const ShoppingButton = () => (
   <ul>
     <li>
       <Link to="/">
-        <Button.INFO><Icon.CHEVRON_LEFT /> &nbsp; Continue Shopping </Button.INFO>
+        <Button.INFO theme={ButtonTheme.ROUNDED}>
+          <Icon.CHEVRON_LEFT /> 
+          &nbsp; Continue Shopping 
+        </Button.INFO>
       </Link>
     </li>
   </ul>
@@ -55,8 +58,11 @@ const TotalCart = ({ total_cart, discountedOffer, isPending  }) => {
 const CheckoutButton = () => {
   const handleCheckout = e => e.preventDefault()
   return(
-    <Button.SUCCESS className="checkout" action={handleCheckout}>
-    Checkout&nbsp; <Icon.CHEVRON_RIGHT />
+    <Button.SUCCESS 
+      className="checkout" 
+      theme={ButtonTheme.ROUNDED}
+      action={handleCheckout}>
+        Checkout&nbsp; <Icon.CHEVRON_RIGHT />
     </Button.SUCCESS>)
  
 }
@@ -78,7 +84,6 @@ return (
   <Fragment>
     {!isPending &&
       <Fragment>
-        <Divider />
       <TotalRow {...props} />
       <StyledFooter>
         <Divider />

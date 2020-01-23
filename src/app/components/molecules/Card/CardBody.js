@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
-import { TextTruncate } from "../atoms/text/Text";
-import { addToCart } from "../../lib/actions/shoppingCart";
-import Button, { ButtonSize, ButtonTheme }  from '../atoms/button/index'
+import { TextTruncate } from "../../atoms/text/Text";
+import { addToCart } from "../../../lib/actions/shoppingCart";
+import Button, { ButtonSize, ButtonTheme }  from '../../atoms/button/index'
 
 const AddToCart = ({ item, children }) => {
   const dispatch = useDispatch()
@@ -19,9 +19,11 @@ const AddToCart = ({ item, children }) => {
   );
 
 }
-export const CardBody = ({ item }) => (
+export const CardBody = ({ item }) => {
+  const { synopsis } = item
+  return (
   <Fragment>
-    <TextTruncate>{item.synopsis}</TextTruncate>
+    <TextTruncate>{synopsis}</TextTruncate>
     <AddToCart item={item}>Add to Cart</AddToCart>
-  </Fragment>
-);
+  </Fragment>)
+}

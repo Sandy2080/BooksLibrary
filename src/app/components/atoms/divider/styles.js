@@ -4,6 +4,7 @@ export const StyledDivider = styled.div`
     margin-bottom: 10px;
     float: none;    
     height: ${props => (props.thickness ? `${props.thickness}px` : "1px")};
+    margin-top: ${props => (props.spacing ? `${props.spacing }px` : "")};
     background: #eee;
 `;
 

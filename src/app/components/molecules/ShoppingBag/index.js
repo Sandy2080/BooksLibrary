@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { StyledShoppingBag } from './styles'
-import Icon, { IconSize } from '../atoms/icon'
-import Badge, { BadgeTheme } from '../atoms/badge'
+import Icon, { IconSize } from '../../atoms/icon'
+import Badge, { BadgeTheme } from '../../atoms/badge'
 
 export const ShoppingBag = ({ items }) => (
          <StyledShoppingBag className="ml-auto">
