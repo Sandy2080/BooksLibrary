@@ -32,7 +32,7 @@ class CommercialOffer extends Offer {
   slice = (price: number) => {
     if (!this.sliceValue || price < this.sliceValue) { return }
     const slices = price / this.sliceValue;
-    this.discountValue = (slices * this.sliceValue!)
+    this.discountValue = slices * this.value
   };
 }
 
