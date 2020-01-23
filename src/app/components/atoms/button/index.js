@@ -12,7 +12,8 @@ const Button = props => {
     classNames,
     color,
     size,
-    customColor
+    customColor, 
+    theme
   } = props;
   const classProps = classnames(color, size, classNames);
   return (
@@ -23,6 +24,7 @@ const Button = props => {
       customColor={customColor}
       size={size}
       customColor={customColor}
+      theme={theme}
     >
       {children}
     </StyledButton>
@@ -41,8 +43,9 @@ Button.propTypes = {
 
 Button.defaultProps = {
   type: ButtonType.BUTTON,
-  onClick: () => {},
-  disabled: false
+  disabled: false,
+  theme: ButtonTheme.DEFAULT,
+  onClick: () => { }
 };
 
 Button.PRIMARY = (props) => {
@@ -83,15 +86,8 @@ Button.WARNING = props => {
   );
 };
 
-Button.PRIMARY.SM = props =>  <Button.PRIMARY size={ButtonSize.SMALL} {...props}></Button.PRIMARY>
-Button.PRIMARY.LG = props => <Button.PRIMARY size={ButtonSize.LARGE} {...props}></Button.PRIMARY>
-
-Button.INFO.SM = props => <Button.INFO size={ButtonSize.SMALL} {...props}></Button.INFO>
-Button.INFO.LG = props =><Button.INFO size={ButtonSize.LARGE} {...props}></Button.INFO>
-
-Button.WARNING.SM = props => <Button.WARNING size={ButtonSize.SMALL} {...props}></Button.WARNING>
-Button.WARNING.LG = props => <Button.WARNING size={ButtonSize.LARGE} {...props}></Button.WARNING>
-
-Button.SUCCESS.SM = props => <Button.SUCCESS size={ButtonSize.SMALL} {...props}></Button.SUCCESS>
-Button.SUCCESS.LG = props => <Button.SUCCESS size={ButtonSize.LARGE} {...props}></Button.SUCCESS>
+export {
+  ButtonSize, 
+  ButtonTheme
+}
 export default Button;

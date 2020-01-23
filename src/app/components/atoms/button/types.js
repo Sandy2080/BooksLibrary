@@ -6,6 +6,7 @@ export const ButtonType = {
 
 export const ButtonTheme = {
   DEFAULT: 'default',
+  RADIUS: 'radius',
   ROUNDED: 'rounded',
 }
 
@@ -13,8 +14,8 @@ export const ButtonColor = {
     PRIMARY: 'btn-primary', 
     SUCCESS: 'btn-success', 
     INFO: 'btn-info', 
-    WARNING: 'warning',
-    CUSTOM: 'custom',
+    WARNING: 'btn-warning',
+    DANGER: 'btn-danger',
 }
 
 export const ButtonSize = {
