@@ -10,6 +10,7 @@ export const StyledTextSmall = styled(Text)`
 
 export const StyledTextBold = styled(Text)`
   font-weight: 700;
+  margin-bottom: 0;
 `;
 export const Title = styled.h5`
     margin-bottom: 0.75rem;

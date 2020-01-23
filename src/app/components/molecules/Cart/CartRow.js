@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { ProductImage } from "../../atoms/image/Image";
-import { TextSmall } from "../../atoms/text/Text"; 
+import { TextSmall, TextBold } from "../../atoms/text/Text"; 
 import { useDispatch } from "react-redux";
 import { updateCart, removeFromCart} from "../../../lib/actions/shoppingCart";
 import Icon from "../../atoms/icon"
@@ -18,7 +18,7 @@ const Styles = {
 };
 
 const TrashButton = ({ remove }) => (
-  <Button.DANGER action={remove} size={ButtonSize.SMALL}>
+  <Button.DANGER action={remove} size={ButtonSize.SMALL} classNames="float-right">
     <Icon.TRASH color="#dc3545" />
   </Button.DANGER>
 )
@@ -46,17 +46,17 @@ export const CartRow = ({ item }) => {
   }
   return (
     <StyledCartRow>
-      <div className="half-block">
-        <ProductImage {...details} width="80" height="130" />
+      <div className="half-block first-half">
+        <ProductImage {...details} width="80" height="130"s/>
         <div>
-          <p>{title}</p> 
+          <TextBold>{title}</TextBold> 
           <TextSmall>isbn: {isbn}</TextSmall>
         </div>
-         <div><strong>€{price}</strong></div>
+        <div><strong>€{price.toFixed(2)}</strong></div>
       </div>
 
-      <div className="half-block">
-        <div >
+      <div className="half-block second-half">
+        <div className="input">
           <Input {...item} />
         </div>
         <div >
