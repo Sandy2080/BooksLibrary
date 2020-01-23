@@ -5,7 +5,8 @@ import { TextBold } from "../atoms/text/Text"
 import { Divider } from '../atoms/divider' 
 import { useDispatch, useSelector } from "react-redux";
 import { setDiscount } from "../../lib/actions/shoppingCart";
-import Button from "../atoms/button/index";
+import Button from "../atoms/button/";
+import Icon from "../atoms/icon"
 
 const TotalRow = ({ total_cart, discountedOffer, isPending }) => {
   const { type, value, discountValue } = discountedOffer
@@ -34,9 +35,8 @@ const TotalRow = ({ total_cart, discountedOffer, isPending }) => {
 const ShoppingButton = () => (
   <ul>
     <li>
-
-      <Link to="/" className="btn btn-info">
-        <i className="fas fa-chevron-left"></i>&nbsp; Continue Shopping
+      <Link to="/">
+        <Button.INFO><Icon.CHEVRON_LEFT /> &nbsp; Continue Shopping </Button.INFO>
       </Link>
     </li>
   </ul>
@@ -53,14 +53,11 @@ const TotalCart = ({ total_cart, discountedOffer, isPending  }) => {
 
  
 const CheckoutButton = () => {
-  const onCheckoutClick = e => {
-    e.preventDefault()
-  };
+  const handleCheckout = e => e.preventDefault()
   return(
-  <Button.SUCCESS className="checkout" action={onCheckoutClick}>
-          Checkout&nbsp;
-        <i className="fas fa-chevron-right"></i>
-  </Button.SUCCESS>)
+    <Button.SUCCESS className="checkout" action={handleCheckout}>
+    Checkout&nbsp; <Icon.CHEVRON_RIGHT />
+    </Button.SUCCESS>)
  
 }
 export const CartFooter = () => {

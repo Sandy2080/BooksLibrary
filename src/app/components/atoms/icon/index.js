@@ -18,9 +18,9 @@ Icon.SHOPPING_BAG = (props) => {
     const { size } = props
     return(<Icon type={IconType.SHOPPING_BAG} size={size}></Icon>)
 }
-Icon.CHEVRON_RIGTH = props => {
+Icon.CHEVRON_RIGHT = props => {
   const { size } = props;
-  return <Icon type={IconType.CHEVRON_RIGTH} size={size}></Icon>;
+  return <Icon type={IconType.CHEVRON_RIGHT} size={size}></Icon>;
 };
 Icon.CHEVRON_LEFT = props => {
   const { size } = props;
