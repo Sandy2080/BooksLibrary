@@ -1,6 +1,6 @@
 import React from "react";
-import { ProductImage } from "../atoms/Image";
-import { TextSmall } from "../atoms/Text"; 
+import { ProductImage } from "../atoms/image/Image";
+import { TextSmall } from "../atoms/text/Text"; 
 import { useDispatch } from "react-redux";
 import { updateCart, removeFromCart} from "../../lib/actions/shoppingCart";
 import Icon from "../atoms/icon"

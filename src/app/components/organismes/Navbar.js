@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { saveCart } from "../../lib/actions/shoppingCart";
 import { ShoppingBag } from "../molecules/ShoppingBag"
-import { TitleBold } from "../atoms/styles" 
+import { TitleBold } from "../atoms/text/styles" 
 
 export const Navbar =  () => {
   const { items } = useSelector(state => ({ ...state.shoppingCartReducer}));

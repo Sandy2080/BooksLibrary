@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
-import { TextTruncate } from "../atoms/Text";
+import { TextTruncate } from "../atoms/text/Text";
 import { addToCart } from "../../lib/actions/shoppingCart";
 import Button, { ButtonSize, ButtonTheme }  from '../atoms/button/index'
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../organismes/Card";
-import { SubTitle } from "../atoms/Text";
+import { SubTitle } from "../atoms/text/Text";
 
 const EmptyResults = () => {
     return <SubTitle>No Results</SubTitle>;

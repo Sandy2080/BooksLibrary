@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Title, SubTitle } from "../atoms/Text";
+import { Title, SubTitle } from "../atoms/text/Text";
 
 export const CardHeader = ({ item }) => (
   <Fragment>

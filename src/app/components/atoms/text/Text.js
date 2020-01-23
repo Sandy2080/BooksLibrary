@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyledTextSmall, StyledTextBold } from '../styles'
+import { Text, StyledTextSmall, StyledTextBold } from './styles'
 
 const TextTruncate = ({ children }) => (
   <Text>{children.length > 100 && children.substring(0, 150)} ...</Text>
