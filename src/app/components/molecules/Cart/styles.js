@@ -2,6 +2,19 @@ import styled from "styled-components";
 
 export const StyledCartRow = styled.div`
   display: flex;
+  justify-content: space-evenly;
+  .half-block {
+     width: 100%;
+     display: flex;
+     justify-content: space-evenly;
+     margin-bottom: 20px;
+     div {
+       margin-right: 10px;
+     }
+  }
+  @media screen and (max-width: 640px) {
+    display:block;
+  }
 `
 export const StyledFooter = styled.div`
     padding: 0 20px;
@@ -40,3 +53,8 @@ export const StyledRow = styled.div`
     list-style-type: none;
   }
 `;
+
+
+export const HalfBlock = styled.div`
+  width: 50%
+`

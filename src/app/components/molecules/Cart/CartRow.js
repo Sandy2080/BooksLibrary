@@ -4,8 +4,8 @@ import { TextSmall } from "../../atoms/text/Text";
 import { useDispatch } from "react-redux";
 import { updateCart, removeFromCart} from "../../../lib/actions/shoppingCart";
 import Icon from "../../atoms/icon"
-import { StyledCartRow } from './styles'
 import Button, { ButtonSize} from "../../atoms/button"
+import { StyledCartRow, Wrapper } from './styles'
 
 const Styles = {
   width5: "5%",
@@ -14,6 +14,7 @@ const Styles = {
   width25: "25%",
   width30: "30%",
   width50: "50%",
+  width80: "80%"
 };
 
 const TrashButton = ({ remove }) => (
@@ -26,7 +27,7 @@ const Input = ({ id, quantity }) => {
   const dispatch = useDispatch();
   return (<input
     className="form-control input-sm"
-    style={{ width: Styles.width50 }}
+    
     max="100"
     min="1"
     name="size"
@@ -46,23 +47,30 @@ export const CartRow = ({ item }) => {
   }
   return (
     <StyledCartRow>
-      <div style={{ width: Styles.width10 }}>
-        <ProductImage {...details} width="80" height="130" />
+
+      <div className="half-block">
+        <div className="image">
+          <ProductImage {...details} width="80" height="130" />
+        </div>
+        <div className="title">
+          <p>{title}</p> 
+          <TextSmall>isbn: {isbn}</TextSmall>
+        </div>
+        <div >
+          <strong>€{price}</strong>
+        </div>
       </div>
-      <div style={{ width: Styles.width30 }}>
-        {title} <br /><TextSmall>isbn: {isbn}</TextSmall>
-      </div>
-      <div style={{ width: Styles.width10 }}>
-        <strong>€{price}</strong>
-      </div>
-      <div style={{ width: Styles.width20 }}>
-        <Input {...item} />
-      </div>
-      <div style={{ width: Styles.width25 }}>
-        <strong>€{(price * quantity).toFixed(2)}</strong>
-      </div>
-      <div style={{ width: Styles.width5 }}>
-        <TrashButton remove={remove} />
+
+      <div className="half-block">
+        <div >
+          <Input {...item} />
+        </div>
+        <div >
+          <strong>€{(price * quantity).toFixed(2)}</strong>
+        </div>
+        <div >
+          <TrashButton remove={remove} />
+        </div>
       </div>
     </StyledCartRow>
   );
