@@ -14,6 +14,9 @@ export const StyledCartRow = styled.div`
   }
   @media screen and (max-width: 640px) {
     display:block;
+    .half-block {
+       justify-content: space-between;
+    }
   }
 `
 export const StyledFooter = styled.div`
