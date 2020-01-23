@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { StyledFooter, StyledRow } from './styles'
 import { TextBold } from "../atoms/Text"
-import { Divider } from '../atoms/Divider' 
+import { Divider } from '../atoms/divider' 
 import { useDispatch, useSelector } from "react-redux";
 import { setDiscount } from "../../lib/actions/shoppingCart";
 import Button from "../atoms/button/index";

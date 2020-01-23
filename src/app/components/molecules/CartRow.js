@@ -3,6 +3,8 @@ import { ProductImage } from "../atoms/Image";
 import { TextSmall } from "../atoms/Text"; 
 import { useDispatch } from "react-redux";
 import { updateCart, removeFromCart} from "../../lib/actions/shoppingCart";
+import Icon from "../atoms/icon"
+import Button, { ButtonSize} from "../atoms/button"
 
 const Styles = {
   width5: "5%",
@@ -17,6 +19,10 @@ export const CartRow = ({ item }) => {
   const { id, details, quantity } = item
   const { isbn, title, price } = details
   const dispatch = useDispatch();
+
+  const remove = () => {
+    dispatch(removeFromCart(id))
+  }
   return (
     <tr style={{ height: Styles.height }}>
       <td>
@@ -46,13 +52,9 @@ export const CartRow = ({ item }) => {
         <strong>€{(price * quantity).toFixed(2)}</strong>
       </td>
       <td>
-        <button
-          type="button"
-          className="btn btn-outline-danger btn-xs"
-          onClick={() => dispatch(removeFromCart(id))}
-        >
-          <i className="fa fa-trash" aria-hidden="true"></i>
-        </button>
+          <Button.DANGER action={remove} size={ButtonSize.SMALL}>
+            <Icon.TRASH color="#dc3545" />
+          </Button.DANGER>
       </td>
     </tr>
   );

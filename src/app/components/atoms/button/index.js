@@ -13,9 +13,11 @@ const Button = props => {
     color,
     size,
     customColor, 
-    theme
+    theme, 
+    outline
   } = props;
-  const classProps = classnames(color, size, classNames);
+  const btnColor = outline ? `btn-outline-${color}` : `btn-${color}`
+  const classProps = classnames(btnColor, size, classNames);
   return (
     <StyledButton
       onClick={action}
@@ -24,8 +26,7 @@ const Button = props => {
       customColor={customColor}
       size={size}
       customColor={customColor}
-      theme={theme}
-    >
+      theme={theme}>
       {children}
     </StyledButton>
   );
@@ -81,6 +82,16 @@ Button.WARNING = props => {
     <Button
       type={ButtonType.BUTTON}
       color={ButtonColor.WARNING}
+      {...props}
+    ></Button>
+  );
+};
+
+Button.DANGER = props => {
+  return (
+    <Button
+      type={ButtonType.BUTTON}
+      color={ButtonColor.DANGER}
       {...props}
     ></Button>
   );

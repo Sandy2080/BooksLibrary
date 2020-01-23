@@ -3,7 +3,8 @@ export const IconType = {
   DEFAULT: "fa-question",
   SHOPPING_BAG: "fa-shopping-bag",
   CHEVRON_LEFT: "fa-chevron-left",
-  CHEVRON_RIGHT: "fa-chevron-right"
+  CHEVRON_RIGHT: "fa-chevron-right", 
+  TRASH: "fa-trash"
 };
 
 export const IconSize = {

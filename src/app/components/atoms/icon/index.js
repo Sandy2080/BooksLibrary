@@ -26,6 +26,10 @@ Icon.CHEVRON_LEFT = props => {
   const { size } = props;
   return <Icon type={IconType.CHEVRON_LEFT} size={size}></Icon>;
 };
+Icon.TRASH = props => {
+  const { size } = props;
+  return <Icon type={IconType.TRASH} size={size}></Icon>;
+}
 
 Icon.propTypes = {
   color: PropTypes.string, 
@@ -35,11 +39,10 @@ Icon.propTypes = {
 
 Icon.defaultProps = {   
   type: IconType.DEFAULT,
-  size: IconSize.XXLARGE, 
+  size: IconSize.LARGE, 
 };
 export {
     IconSize, 
     IconType
 }
-
 export default Icon;

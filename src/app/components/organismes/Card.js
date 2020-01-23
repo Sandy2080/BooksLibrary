@@ -1,5 +1,5 @@
 import React, { Fragment}  from "react";
-import { ProductImage } from '../atoms/Image'
+import { ProductImage } from '../atoms/image/Image'
 import { CardHeader, CardBody } from '../molecules/index'
 
 const Card = ({ item }) => (

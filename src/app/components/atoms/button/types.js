@@ -8,14 +8,15 @@ export const ButtonTheme = {
   DEFAULT: 'default',
   RADIUS: 'radius',
   ROUNDED: 'rounded',
+  OUTLINE: 'outline',
 }
 
 export const ButtonColor = {
-    PRIMARY: 'btn-primary', 
-    SUCCESS: 'btn-success', 
-    INFO: 'btn-info', 
-    WARNING: 'btn-warning',
-    DANGER: 'btn-danger',
+    PRIMARY: 'primary', 
+    SUCCESS: 'success', 
+    INFO: 'info', 
+    WARNING: 'warning',
+    DANGER: 'danger',
 }
 
 export const ButtonSize = {
