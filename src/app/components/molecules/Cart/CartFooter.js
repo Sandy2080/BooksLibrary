@@ -48,10 +48,16 @@ const ShoppingButton = () => (
 const TotalCart = ({ total_cart, discountedOffer, isPending  }) => {
   const { discountValue } = discountedOffer
   const total = total_cart - discountValue  
-  return (<div>
-    <TextBold> Total: &nbsp; {total.toFixed(2)}€</TextBold>
-    <CheckoutButton />
-  </div>)
+  return (
+    <div className="footer">
+      <ShoppingButton />
+      <div>
+        <TextBold> Total: &nbsp; {total.toFixed(2)}€</TextBold>
+        <CheckoutButton />
+      </div>
+    </div>
+    
+)
 }
 
  
@@ -83,14 +89,13 @@ export const CartFooter = () => {
 return (
   <Fragment>
     {!isPending &&
+      
       <Fragment>
+
       <TotalRow {...props} />
       <StyledFooter>
         <Divider />
-        <div className="footer">
-          <ShoppingButton />
-            <TotalCart {...props}  />
-        </div>
+        <TotalCart {...props} />
       </StyledFooter>
     </Fragment>
     }

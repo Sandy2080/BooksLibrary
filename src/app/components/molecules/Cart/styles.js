@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledCartRow = styled.div`
   display: flex;
-  justify-content: space-evenly;
+
   .half-block {
      width: 100%;
      display: flex;
@@ -21,13 +21,15 @@ export const StyledCartRow = styled.div`
 `
 export const StyledFooter = styled.div`
     padding: 0 20px;
-
     .footer {
       display: flex;
       justify-content: space-between;
       spadding: 5px 15px;
+      div {
+        margin-bottom: 16px;
+      }
     }
-    a {
+    a, button {
       display: inline-table;
     }
     a.btn-info {
@@ -45,6 +47,12 @@ export const StyledFooter = styled.div`
     li {
       margin-left: 0;
     }
+    @media screen and (max-width: 640px) {
+    .footer {
+      display: block;
+      text-align: center;
+    }
+  }
 `;
 
 export const StyledRow = styled.div`

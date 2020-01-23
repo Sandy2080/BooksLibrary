@@ -27,7 +27,6 @@ const Input = ({ id, quantity }) => {
   const dispatch = useDispatch();
   return (<input
     className="form-control input-sm"
-    
     max="100"
     min="1"
     name="size"
@@ -47,18 +46,13 @@ export const CartRow = ({ item }) => {
   }
   return (
     <StyledCartRow>
-
       <div className="half-block">
-        <div className="image">
-          <ProductImage {...details} width="80" height="130" />
-        </div>
-        <div className="title">
+        <ProductImage {...details} width="80" height="130" />
+        <div>
           <p>{title}</p> 
           <TextSmall>isbn: {isbn}</TextSmall>
         </div>
-        <div >
-          <strong>€{price}</strong>
-        </div>
+         <div><strong>€{price}</strong></div>
       </div>
 
       <div className="half-block">
