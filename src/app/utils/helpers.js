@@ -23,4 +23,4 @@ export const getLocalStorage = (key) => {
     return JSON.parse(localStorage.getItem(key)) === null ||
         JSON.parse(localStorage.getItem(key)) === undefined ? 
         [] : JSON.parse(localStorage.getItem(key))
- }
+ } 

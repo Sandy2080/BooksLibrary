@@ -10,28 +10,20 @@ import Icon from "../../atoms/icon"
 
 const TotalRow = ({ total_cart, discountedOffer, isPending }) => {
   const { type, value, discountValue } = discountedOffer
+  const isMinus = type === "minus", isSlice = type === "slice"
   return (
     <StyledRow>
       <ul>
+        <li><TextBold>Subtotal: &nbsp; &nbsp;{total_cart.toFixed(2)}€</TextBold></li>
         <li>
-          <TextBold>Subtotal: &nbsp; &nbsp;{total_cart.toFixed(2)}€</TextBold>
-        </li>
-        <li>
-          {(type === "minus" || type === "slice") && (
-            <TextBold>Discount: &nbsp; - {discountValue.toFixed(2)}€</TextBold>
-          )}
-          { type === "percentage" && (
-            <TextBold>
-              Discount: ({value}%)  &nbsp; -{discountValue}€
-            </TextBold>
-          )}
+          {isMinus || isSlice ? <TextBold>Discount: &nbsp; - {discountValue.toFixed(2)}€</TextBold> :
+          <TextBold>Discount: ({value}%)  &nbsp; -{discountValue}€</TextBold>}
         </li>
       </ul>
       <br />
     </StyledRow>
   );
 };
-
 const ShoppingButton = () => (
   <ul>
     <li>
@@ -45,27 +37,22 @@ const ShoppingButton = () => (
   </ul>
 );
 
-const TotalCart = ({ total_cart, discountedOffer, isPending  }) => {
+const TotalCart = ({ total_cart, discountedOffer }) => {
   const { discountValue } = discountedOffer
   const total = total_cart - discountValue  
-  return (
+  return(
     <div className="footer">
       <ShoppingButton />
       <div>
         <TextBold> Total: &nbsp; {total.toFixed(2)}€</TextBold>
         <CheckoutButton />
       </div>
-    </div>
-    
-)
+    </div>)
 }
-
- 
 const CheckoutButton = () => {
   const handleCheckout = e => e.preventDefault()
   return(
     <Button.SUCCESS 
-      className="checkout" 
       theme={ButtonTheme.ROUNDED}
       action={handleCheckout}>
         Checkout&nbsp; <Icon.CHEVRON_RIGHT />
@@ -84,22 +71,16 @@ export const CartFooter = () => {
 
   useEffect(() => {
     dispatch(setDiscount())
-  }, [])
-  
+  }, []) 
 return (
   <Fragment>
     {!isPending &&
-      
-      <Fragment>
-
+    <Fragment>
       <TotalRow {...props} />
       <StyledFooter>
         <Divider />
         <TotalCart {...props} />
       </StyledFooter>
-    </Fragment>
-    }
+    </Fragment>}
    </Fragment>
-);
-
-}
+)}

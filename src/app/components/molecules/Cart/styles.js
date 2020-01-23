@@ -13,6 +13,9 @@ export const StyledCartRow = styled.div`
   }
   .first-half {
     width: 60%;
+    p {
+      margin-bottom: 0;
+    }
   }
   .second-half {
     width: 40%;
@@ -33,6 +36,9 @@ export const StyledFooter = styled.div`
       div {
         margin-bottom: 16px;
       }
+      p {
+        margin-bottom: 16px;
+      }
     }
     a, button {
       display: inline-table;
@@ -40,7 +46,7 @@ export const StyledFooter = styled.div`
     a.btn-info {
       vertical-align: bottom;
     }
-    ul: first-child {
+    ul:first-child {
       display: flex;
       justify-content: flex-end;
       flex-direction: column;

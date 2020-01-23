@@ -1,16 +1,26 @@
 import React, { Fragment } from "react";
 import { CartRow } from "./CartRow";
 import Divider from "../../atoms/divider"
+import { TitleBold } from "../../atoms/text/styles";
 
-export const CartBody = ({ items }) => (
-  <div className="card-body">
+const CartEmpty = () => (<TitleBold>Your cart is empty</TitleBold>)
+const CartContent = ({ items }) => {
+  return(<div className="card-body">
     {items.map((item, index) => {
-      return(
+      return (
         <Fragment>
           <CartRow key={index} item={item} />
-          <Divider spacing="20"/>
+          <Divider spacing="20" />
         </Fragment>
       )
     })}
-  </div>
-);
+  </div>)
+}
+
+export const CartBody = ({ items }) => {
+  const isEmpty = items.length == 0
+  if (isEmpty) {
+    return <CartEmpty />
+  }
+  return <CartContent items={items} />
+}
