@@ -4,7 +4,7 @@ import  Divider  from '../../atoms/divider'
 import { useDispatch, useSelector } from "react-redux";
 import { setDiscount } from "../../../lib/actions/shoppingCart";
 import {
-  CartSubtotalRow,
+  CartButtons,
   CartTotalRow
 } from "./_components"
 
@@ -20,9 +20,8 @@ return (
   <Fragment>
     {!isPending &&
       <StyledFooter>
-        <CartSubtotalRow {...props} />
-          <Divider />
         <CartTotalRow {...props} />
+        <CartButtons />
       </StyledFooter>}
    </Fragment>
 )}

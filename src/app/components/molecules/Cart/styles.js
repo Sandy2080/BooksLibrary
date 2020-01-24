@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 export const StyledCartRow = styled.div`
-  text-align: right;
-  display: flex;
-  justify-content: flex-end;
+  ul { 
+    text-align: right; 
+    display: flex; 
+    justify-content: flex-end; 
+  }
   li {
     list-style-type: none;
   }
 `;
+
 export const StyledCart = styled.div`
   display: flex;
   .stepper-input {
@@ -78,4 +81,8 @@ export const StyledFooter = styled.div`
     }
   }
 `;
-
+export const StyledCartButtons = styled.div` 
+display: flex; justify-content: 
+space-between; 
+padding-bottom: 20px;
+`
