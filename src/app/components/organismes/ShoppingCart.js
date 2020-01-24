@@ -1,11 +1,11 @@
-
 import React from "react";
 import { CartComponent } from "../molecules/Cart/CartBody";
-import { CartFooter } from "../molecules/Cart/CartFooter";
+import { CartFooter }  from "../molecules/Cart/CartFooter";
+import { StyledCard } from "../molecules/Card/styles"
 
 export const ShoppingCart = ({ items }) => (
-   <div className="card">
+   <StyledCard className="card">
       <CartComponent items={items} /> 
       <CartFooter />
-   </div>
+   </StyledCard>
 );

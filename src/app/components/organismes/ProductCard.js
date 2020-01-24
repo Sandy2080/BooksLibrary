@@ -1,6 +1,6 @@
-import React, { Fragment}  from "react";
+import React from "react";
 import { ProductImage } from '../atoms/image/Image'
-import { CardHeader, CardBody } from '../molecules/Card/index'
+import Card, { CardHeader, CardBody } from '../molecules/Card/index'
 
 const Content = ({ item }) => (
   <div className="col-sm">
@@ -9,17 +9,10 @@ const Content = ({ item }) => (
   </div>
 )
 const ProductCard = ({ item }) => (
-  <Fragment>
-    <div className="card">
-      <div className="card-body">
-        <div className="row">
-          <ProductImage {...item} grid="col-sm-2"/>
-          <Content item={item} />
-        </div>
-      </div>
-    </div>
-    <br />
-  </Fragment>
+    <Card>
+      <ProductImage {...item} grid="col-sm-2"/>
+      <Content item={item} />
+    </Card>
 );
 export default ProductCard;
 
