@@ -17,7 +17,7 @@ const bestOffer = calculateBestOffer(cart_total, commercialOffers)
      });
  });
 describe('calculateBestOffer', () => {
-    describe('when no URL', () => {
+    describe('when best offer is available', () => {
         it('calculate best offer should return 15', () => {
             expect(bestOffer.discountValue).toEqual(15);
         });
@@ -25,7 +25,7 @@ describe('calculateBestOffer', () => {
 });
 
 describe('calculate total with best offer', () => {
-    describe('when no URL', () => {
+    describe('when best offer is available', () => {
         it('total cart after best offer discount should return 50', () => {
             const cart_total_discount = cart_total - bestOffer.discountValue
             expect(cart_total_discount).toEqual(50);
