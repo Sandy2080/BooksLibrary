@@ -6,7 +6,7 @@ import { ShoppingBag } from "../molecules/ShoppingBag"
 import { TitleBold } from "../atoms/text/styles" 
 import Navbar, { NavbarPlacement } from "../atoms/nav"
 
-export const TopNavbar =  () => {
+export const TopNavbar =  (props) => {
   const { items } = useSelector(state => ({ ...state.shoppingCartReducer}));
   const dispatch = useDispatch();
   const Title = "La Bibliothèque d'Henri Potier"
@@ -16,7 +16,7 @@ export const TopNavbar =  () => {
   }, [items, dispatch])
 
   return (
-    <Navbar.LIGHT id="nav">
+    <Navbar.LIGHT id="nav" {...props}>
         <Link className="navbar-brand" to="/"><TitleBold>{Title}</TitleBold></Link>
         <ShoppingBag items={items} />
     </Navbar.LIGHT>

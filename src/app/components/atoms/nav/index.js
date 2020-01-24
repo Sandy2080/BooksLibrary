@@ -11,11 +11,13 @@ const Navbar = props => {
         theme, 
         color, 
         placement, 
-        customColor
+        customColor, 
+        margin
     } = props;
     const classProps = classnames(theme, color, placement);
     return (
         <StyledNavbar 
+            margin={margin}
             className={`navbar navbar-expand-lg ${classProps}`}
             customColor={customColor}>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target={`#${id}`} aria-controls={id} aria-expanded="false" aria-label="Toggle navigation">

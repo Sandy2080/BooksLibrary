@@ -9,7 +9,6 @@ export const StyledCard = styled.div`
         div:first-child {
             margin-bottom: 40px;
         }
-        
         h5, h6 {
             text-align: center;
         }
