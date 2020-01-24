@@ -15,7 +15,7 @@ const Input = props => {
         placeholder,
         aria,
     } = props;
-    const classProps = classnames( size, classNames);
+    const classProps = classnames(size, classNames);
     return (
         <StyledInput
             onChange={action}

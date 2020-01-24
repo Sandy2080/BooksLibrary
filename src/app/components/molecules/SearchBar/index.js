@@ -8,7 +8,7 @@ const SearchBar = () => {
     const dispatch = useDispatch()
     const { SHOW_ALL, SHOW_FILTERED } = visibilityFilters
     const handleInputChange = input => dispatch(setFilter(!input.length ? SHOW_ALL : SHOW_FILTERED, input))
-
+    const attributes = { 'placeholder': 'Search ...', 'type': 'text', 'aria': 'searcg' }
     return (
     <StyledSearchBar >
     <form className="form-inline row"
@@ -16,11 +16,8 @@ const SearchBar = () => {
         <Input.LARGE 
             classNames="col-sm-12 searchInput"
             theme={InputTheme.ROUNDED}
-            type="text"
-            placeholder="Search ..."
-            aria="Search"
-            action={handleInputChange}
-        >
+            action={e => handleInputChange(e.target.value)}
+            {...attributes}>
         </Input.LARGE> 
     </form>
     </StyledSearchBar>)
