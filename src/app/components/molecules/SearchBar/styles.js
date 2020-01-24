@@ -1,12 +1,12 @@
 import styled from "styled-components";
 export const StyledSearchBar = styled.div`
-  margin-bottom: 20px;
-  padding-right: 15px;
+  margin: 0 0 20px 0;
   form {
     margin-left: 0;
   }
   .searchInput {
     height: calc(2.5em + 1rem + 2px);
+    width: 100%;
   }
 
   button {

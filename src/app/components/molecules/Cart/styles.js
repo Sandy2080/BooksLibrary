@@ -11,11 +11,13 @@ export const StyledCartRow = styled.div`
 `;
 export const StyledCart = styled.div`
   display: flex;
-  .input {
-    margin-left: 40px;
+  .stepper-input {
+    width: 40%;
+    margin: 0 auto;
   }
   .trash-button {
     display: inline;
+   
   }
   @media screen and (max-width: 640px) {
     display:block;

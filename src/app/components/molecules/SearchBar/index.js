@@ -10,16 +10,13 @@ const SearchBar = () => {
     const handleInputChange = input => dispatch(setFilter(!input.length ? SHOW_ALL : SHOW_FILTERED, input))
     const attributes = { 'placeholder': 'Search ...', 'type': 'text', 'aria': 'searcg' }
     return (
-    <StyledSearchBar >
-    <form className="form-inline row"
-        onSubmit={e => e.preventDefault()}>
+    <StyledSearchBar>
         <Input.LARGE 
-            classNames="col-sm-12 searchInput"
+            classNames="searchInput"
             theme={InputTheme.ROUNDED}
             action={e => handleInputChange(e.target.value)}
             {...attributes}>
         </Input.LARGE> 
-    </form>
     </StyledSearchBar>)
  }
 

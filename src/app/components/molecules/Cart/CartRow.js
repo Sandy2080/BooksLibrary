@@ -5,20 +5,20 @@ import { updateCart, removeFromCart } from "../../../lib/actions/shoppingCart";
 import { TextBold } from "../../atoms/text/Text"; 
 import { StyledCart, StyledHalfBlock } from './styles'
 import { TrashButton, ProductInformationCol } from './_components'
+import Input, { InputSize } from "../../atoms/input"
 
 const QuantityInput = ({ id, quantity }) => {
   const dispatch = useDispatch();
+  const update = e => dispatch(updateCart(id, e.target.value))
+  const attributes = { 'min': '2', 'max': '100', 'stepValue': '1', 'defaultValue': quantity }
   return (
   <div>
-    <input className="form-control input-sm"
-      max="100"
-      min="1"
-      name="size"
-      step="1"
-      type="number"
-      defaultValue={quantity}
-      onChange={e => dispatch(updateCart(id, e.target.value))}
-    />
+    <Input.STEPPER
+      classNames="stepper-input"
+      action={e => update(e)}
+      size={InputSize.SMALL}
+      {...attributes}>
+    </Input.STEPPER>
     </div>)
 }
 export const CartRow = ({ item }) => {

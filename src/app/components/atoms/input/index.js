@@ -14,6 +14,9 @@ const Input = props => {
         type, 
         placeholder,
         aria,
+        defaultValue,
+        max,
+        min,
     } = props;
     const classProps = classnames(size, classNames);
     return (
@@ -24,6 +27,8 @@ const Input = props => {
             theme={theme}
             placeholder={placeholder}
             aria-label={aria}
+            defaultValue={defaultValue}
+            max={max}
             border={border}>
         </StyledInput>
     );
@@ -57,7 +62,19 @@ Input.LARGE = (props) => {
         ></Input>
     );
 }
+Input.STEPPER = props => {
+    return(
+        <Input
+            name="size"
+            type="number"
+            {...props}
+            >
+        </Input>
+    )
+}
+
 export {
-   InputTheme
+   InputTheme, 
+   InputSize
 }
 export default Input;
