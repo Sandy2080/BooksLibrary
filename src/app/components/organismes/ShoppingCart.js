@@ -1,11 +1,17 @@
 import React from "react";
-import { CartComponent } from "../molecules/Cart/CartBody";
+import { CartBody } from "../molecules/Cart/CartBody";
 import { CartFooter }  from "../molecules/Cart/CartFooter";
 import { StyledCard } from "../molecules/Card/styles"
+import { TitleBold } from "../atoms/text/styles";
 
-export const ShoppingCart = ({ items }) => (
-   <StyledCard className="card">
-      <CartComponent items={items} /> 
-      <CartFooter />
-   </StyledCard>
-);
+const CartEmpty = () => (<TitleBold color="#666">Your cart is empty</TitleBold>)
+
+export const ShoppingCart = ({ items }) => {
+   const isEmpty = items.length == 0
+
+   if (isEmpty) { return <CartEmpty /> }
+   return (<StyledCard className="card">
+            <CartBody items={items} />
+            <CartFooter />
+         </StyledCard>)
+};
