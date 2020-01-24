@@ -28,7 +28,7 @@ const Input = props => {
             placeholder={placeholder}
             aria-label={aria}
             defaultValue={defaultValue}
-            max={max}
+            min="1"
             border={border}>
         </StyledInput>
     );
