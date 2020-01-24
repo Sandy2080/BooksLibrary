@@ -1,11 +1,11 @@
 
 import React from "react";
-import { CartBody } from "../molecules/Cart/CartBody";
+import { CartComponent } from "../molecules/Cart/CartBody";
 import { CartFooter } from "../molecules/Cart/CartFooter";
 
 export const ShoppingCart = ({ items }) => (
-         <div className="card">
-            <CartBody items={items} /> 
-            <CartFooter />
-         </div>
-       );
+   <div className="card">
+      <CartComponent items={items} /> 
+      <CartFooter />
+   </div>
+);

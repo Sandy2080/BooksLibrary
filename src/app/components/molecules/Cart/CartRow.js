@@ -1,71 +1,46 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { ProductImage } from "../../atoms/image/Image";
-import { TextSmall, TextBold } from "../../atoms/text/Text"; 
 import { useDispatch } from "react-redux";
-import { updateCart, removeFromCart} from "../../../lib/actions/shoppingCart";
-import Icon from "../../atoms/icon"
-import Button, { ButtonSize} from "../../atoms/button"
-import { StyledCartRow, Wrapper } from './styles'
+import { updateCart, removeFromCart } from "../../../lib/actions/shoppingCart";
+import { TextBold } from "../../atoms/text/Text"; 
+import { StyledCart, StyledHalfBlock } from './styles'
+import { TrashButton, ProductInformationCol } from './_components'
 
-const Styles = {
-  width5: "5%",
-  width10: "10%",
-  width20: "20%",
-  width25: "25%",
-  width30: "30%",
-  width50: "50%",
-  width80: "80%"
-};
-
-const TrashButton = ({ remove }) => (
-  <Button.DANGER action={remove} size={ButtonSize.SMALL} classNames="float-right">
-    <Icon.TRASH color="#dc3545" />
-  </Button.DANGER>
-)
-
-const Input = ({ id, quantity }) => {
+const QuantityInput = ({ id, quantity }) => {
   const dispatch = useDispatch();
-  return (<input
-    className="form-control input-sm"
-    max="100"
-    min="1"
-    name="size"
-    step="1"
-    type="number"
-    defaultValue={quantity}
-    onChange={e => dispatch(updateCart(id, e.target.value))}
-  />)
+  return (
+  <div>
+    <input className="form-control input-sm"
+      max="100"
+      min="1"
+      name="size"
+      step="1"
+      type="number"
+      defaultValue={quantity}
+      onChange={e => dispatch(updateCart(id, e.target.value))}
+    />
+    </div>)
 }
 export const CartRow = ({ item }) => {
   const { id, details, quantity } = item
-  const { isbn, title, price } = details
+  const { price } = details
   const dispatch = useDispatch();
-
   const remove = () => {
     dispatch(removeFromCart(id))
   }
   return (
-    <StyledCartRow>
-      <div className="half-block first-half">
-        <ProductImage {...details} width="80" height="130"s/>
-        <div>
-          <TextBold>{title}</TextBold> 
-          <TextSmall>isbn: {isbn}</TextSmall>
-        </div>
-        <div><strong>€{price.toFixed(2)}</strong></div>
-      </div>
+    <StyledCart>
+      <StyledHalfBlock className="first-half">
+        <ProductImage {...details} width="80" height="130" s />
+        <ProductInformationCol {...details} />
+        <TextBold>€{price.toFixed(2)}</TextBold>
+      </StyledHalfBlock>
 
-      <div className="half-block second-half">
-        <div className="input">
-          <Input {...item} />
-        </div>
-        <div >
-          <strong>€{(price * quantity).toFixed(2)}</strong>
-        </div>
-        <div >
-          <TrashButton remove={remove} />
-        </div>
-      </div>
-    </StyledCartRow>
+      <StyledHalfBlock className=" second-half">
+        <QuantityInput {...item} />
+        <TextBold>€{(price * quantity).toFixed(2)}</TextBold>
+        <TrashButton remove={remove} /> 
+      </StyledHalfBlock>
+    </StyledCart>
   );
 }

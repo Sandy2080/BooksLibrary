@@ -8,7 +8,6 @@ const Content = ({ item }) => (
     <CardBody item={item} />
   </div>
 )
-
 const ProductCard = ({ item }) => (
   <Fragment>
     <div className="card">
