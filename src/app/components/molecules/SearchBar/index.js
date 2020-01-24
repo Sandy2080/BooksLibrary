@@ -13,9 +13,9 @@ const SearchBar = () => {
     <form className="form-inline row"
     onSubmit={e => e.preventDefault()}>
         <input
-            className="form-control  form-control-lg col-sm-12"
+            className="form-control form-control-lg col-sm-12 searchInput"
             type="search"
-            placeholder="Search"
+            placeholder="Search ..."
             aria-label="Search"
             onChange={e => handleInputChange(e.target.value)} />
                 
