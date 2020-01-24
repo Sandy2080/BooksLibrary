@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Title, SubTitle } from "../../atoms/text/Text";
 
 export const CardHeader = ({ title, isbn }) => (
-  <Fragment>
+  <div>
     <Title>{title}</Title>
     <SubTitle>{isbn}</SubTitle>
-  </Fragment>
+  </div>
 );

@@ -61,15 +61,9 @@ const CartTotalRow = ({ total_cart, discountedOffer }) => {
             </div>
         </div>)
 }
-const ProductInformationCol = ({ title, isbn }) => (
-    <div>
-        <TextBold>{title}</TextBold>
-        <TextSmall>isbn: {isbn}</TextSmall>
-    </div>
-)
+
 export {
     CartSubtotalRow,
     CartTotalRow, 
-    ProductInformationCol,
     TrashButton
 }

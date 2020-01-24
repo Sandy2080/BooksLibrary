@@ -4,7 +4,7 @@ import { CardBody } from "./CardBody";
 import { StyledCard } from './styles' 
 
 const Card = ({ children }) => (
-    <StyledCard className="card">
+    <StyledCard className="card" margin="20">
         <div className="card-body">
             <div className="row">
                 {children}

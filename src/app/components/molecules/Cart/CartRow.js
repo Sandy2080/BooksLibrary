@@ -4,7 +4,8 @@ import { useDispatch } from "react-redux";
 import { updateCart, removeFromCart } from "../../../lib/actions/shoppingCart";
 import { TextBold } from "../../atoms/text/Text"; 
 import { StyledCart, StyledHalfBlock } from './styles'
-import { TrashButton, ProductInformationCol } from './_components'
+import { CardHeader } from '../Card'
+import { TrashButton } from './_components'
 import Input, { InputSize } from "../../atoms/input"
 
 const QuantityInput = ({ id, quantity }) => {
@@ -31,12 +32,12 @@ export const CartRow = ({ item }) => {
   return (
     <StyledCart>
       <StyledHalfBlock className="first-half">
-        <ProductImage {...details} width="80" height="130" s />
-        <ProductInformationCol {...details} />
+        <ProductImage {...details} width="80" height="130"  />
+        <CardHeader {...details} />
         <TextBold>€{price.toFixed(2)}</TextBold>
       </StyledHalfBlock>
 
-      <StyledHalfBlock className=" second-half">
+      <StyledHalfBlock className="second-half">
         <QuantityInput {...item} />
         <TextBold>€{(price * quantity).toFixed(2)}</TextBold>
         <TrashButton remove={remove} /> 

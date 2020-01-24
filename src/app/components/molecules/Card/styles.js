@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledCard = styled.div` 
-    margin-bottom: 20px;
+    margin-bottom: ${props => props.margin}px;
     .row {
         margin-bottom: 0!important;
     }
@@ -9,9 +9,7 @@ export const StyledCard = styled.div`
         div:first-child {
             margin-bottom: 40px;
         }
-        div {
-            margin: 0 auto;
-        }
+        
         h5, h6 {
             text-align: center;
         }

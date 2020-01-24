@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledCartRow = styled.div`
-  padding-right: 20px;
   text-align: right;
   display: flex;
   justify-content: flex-end;
@@ -17,28 +16,29 @@ export const StyledCart = styled.div`
   }
   .trash-button {
     display: inline;
-   
   }
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 768px) {
     display:block;
+    .stepper-input {
+      margin: 0;
+    }
   }
 `
 export const StyledHalfBlock = styled.div`
-width: 100%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     margin: 20px 20px 0 0;
-   
- .first-half {
-    width: 60%;
-    p {
-      margin-bottom: 0;
+    div:first-child {
+        margin-right: 20px!important;
+        p {
+          font-size: 12px;
+        }
     }
-  }
-  .second-half {
-    width: 40%;
-  }
+    @media screen and (max-width: 768px) {
+      margin-top: 20px;
+    }
 `
 export const StyledFooter = styled.div`
     padding: 0 20px;
@@ -71,7 +71,7 @@ export const StyledFooter = styled.div`
     li {
       margin-left: 0;
     }
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 768px) {
     .footer {
       display: block;
       text-align: center;
