@@ -43,10 +43,15 @@ a {
   color: #333;
 }
 .badge {
-  position : absolute;
+  position: absolute;
   top: 10px;
   left: -5px;
   font-size: 15px;
 }
-
+@media screen and (max-width: 640px) {
+    .badge {
+      position: relative;
+      margin-bottom: -10px;
+    }
+}
 `
