@@ -14,7 +14,8 @@ const ProductInformation = ({ title, isbn, classNames }) =>  {
     classNames={classNames}
     title={title}
     subTitle={isbn}
-    fontSize={isMobile ? "12" : "18"} />)
+    titleFontSize={isMobile ? "14" : "19"}
+    subTitleFontSize={isMobile ? "9" : "12"} />)
 }
 
 const UnitPrice = ({ price }) => (<Text.BOLD>€{price.toFixed(2)}</Text.BOLD>)

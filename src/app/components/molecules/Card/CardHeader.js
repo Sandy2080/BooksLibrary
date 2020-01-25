@@ -3,16 +3,16 @@ import { Text } from "../../atoms/text";
 import { StyledCardHeader } from "./styles"
 
 const Title = props => {
-    const { margin, title, fontSize } = props
-    return (<Text margin={margin} color="#333" fontSize={fontSize}>{title}</Text>)
+    const { margin, title, titleFontSize } = props
+    return (<Text margin={margin} color="#333" fontSize={titleFontSize}>{title}</Text>)
 }
 const SubTitle = props => {
-    const { subTitle } = props
-    return (<Text.SMALL color="gray" classNames="card-subtitle mb-2">isbn: {subTitle}</Text.SMALL>)
+    const { subTitle, subTitleFontSize } = props
+    return (<Text.SMALL color="gray" classNames="card-subtitle mb-2" fontSize={subTitleFontSize}>isbn: {subTitle}</Text.SMALL>)
 }
 export const CardHeader = props => {
     const { margin } = props
-    return (<StyledCardHeader margin={margin} className="product-information">
+    return (<StyledCardHeader margin={margin}>
                 <Title {...props}/>
                 <SubTitle  {...props}/>
             </StyledCardHeader>)

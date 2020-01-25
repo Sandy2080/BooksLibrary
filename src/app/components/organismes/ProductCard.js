@@ -32,7 +32,8 @@ const ProductInformation = ({ item, fontSize }) => {
             <CardHeader 
               title={title} 
               subTitle={isbn} 
-              fontSize={fontSize}/>
+              titleFontSize={isMobile ? "17" : "32"} 
+              subTitleFontSize={isMobile ? "11" : "13"} />
             <Text.TRUNCATED>{synopsis}</Text.TRUNCATED>
           </Fragment>)
 }
@@ -40,7 +41,7 @@ const ProductCard = ({ item }) => (
     <Card>
       <ProductImage {...item} grid="col-sm-2"/>
       <StyledProductCard className="col-sm">
-        <ProductInformation item={item} fontSize={isMobile ? "17" : "32"} />
+        <ProductInformation item={item} />
         <AddToCartButton item={item}>Add to Cart</AddToCartButton>
       </StyledProductCard>
     </Card>
