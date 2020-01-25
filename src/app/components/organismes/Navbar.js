@@ -14,9 +14,8 @@ export const TopNavbar =  (props) => {
   useEffect(() => {
     if (items.length > 0) { dispatch(saveCart(items)) } // saves to localstorage upon cart change and update
   }, [items, dispatch])
-
   return (
-    <Navbar.LIGHT id="nav" {...props} placement={NavbarPlacement.FIXED_TOP}>
+    <Navbar.LIGHT id="nav" placement={NavbarPlacement.FIXED_TOP} {...props}>
       <Link className="navbar-brand" to="/"><SubTitle>{title}</SubTitle></Link>
         <ShoppingBag items={items} />
     </Navbar.LIGHT>

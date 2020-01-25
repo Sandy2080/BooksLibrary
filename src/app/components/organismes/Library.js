@@ -2,9 +2,7 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import { SubTitle } from "../atoms/text";
 
-const EmptyResults = () => {
-    return <SubTitle>No Results</SubTitle>;
-};
+const EmptyResults = () => <SubTitle>No Results</SubTitle>;
 const Library = ({ items }) => (
 <div>
     {items && items.length ? (
