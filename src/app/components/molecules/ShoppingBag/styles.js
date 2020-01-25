@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-export const StyledRow = styled.div`
-  padding-right: 20px;
-  text-align: right;
-  display: flex;
-  justify-content: flex-end;
-  li {
-    list-style-type: none;
-  }
-`;
 export const StyledShoppingBag = styled.div`
 position: relative;
 a {

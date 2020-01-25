@@ -24,7 +24,7 @@ const QuantityInput = ({ id, quantity }) => {
 }
 export const CartRow = ({ item }) => {
   const { id, details, quantity } = item
-  const { price } = details
+  const { price, title, isbn } = details
   const dispatch = useDispatch();
   const remove = () => {
     dispatch(removeFromCart(id))
@@ -33,7 +33,11 @@ export const CartRow = ({ item }) => {
     <StyledCart>
       <StyledHalfBlock className="first-half">
         <ProductImage {...details} width="80" height="130"  />
-        <CardHeader {...details} margin="5" fontSize="22" />
+        <CardHeader 
+          title={title}
+          subTitle={isbn}
+          margin="5" 
+          fontSize="18" />
         <Text.BOLD>€{price.toFixed(2)}</Text.BOLD>
       </StyledHalfBlock>
 

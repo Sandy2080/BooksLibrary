@@ -1,9 +1,7 @@
 import React, { Fragment } from "react";
 import { CartRow } from "../../molecules/Cart/CartRow";
 import Divider from "../../atoms/divider"
-
 import { StyledCard } from "../Card/styles";
-
 
 export const CartBody = ({ items }) => {
     return (<StyledCard className="card-body">
