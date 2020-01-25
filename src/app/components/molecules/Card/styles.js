@@ -9,6 +9,6 @@ export const StyledCardHeader = styled.div`
         margin: 0 auto!important; 
     }
     @media screen and (max-width: 375px) {
-        padding: 20px;
+        padding: 0 20px;
     }
 `

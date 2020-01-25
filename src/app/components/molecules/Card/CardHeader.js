@@ -1,11 +1,11 @@
 import React from "react";
+import useWindowDimensions from '../../../utils/hooks/useWindowDimensions';
 import { Text } from "../../atoms/text";
 import { StyledCardHeader } from "./styles"
 
 const Title = props => {
     const { margin, title } = props
-    const { width } = useWindowDimensions();
-    const isMobile = width < 640
+    const { isMobile } = useWindowDimensions();
     return (<Text fontSize={isMobile ? "12" : "18"} margin={margin} color="#333">{title}</Text>)
 }
 const SubTitle = props => {

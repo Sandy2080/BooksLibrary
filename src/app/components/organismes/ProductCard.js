@@ -11,8 +11,7 @@ import { StyledProductCard } from "./styles"
 const AddToCartButton = ({ item, children }) => {
   const dispatch = useDispatch()
   const addCart = () => dispatch(addToCart(item))
-  const { width } = useWindowDimensions();
-  const isMobile = width < 640
+  const { isMobile } = useWindowDimensions();
   const { SMALL, LARGE } = ButtonSize
   const { ROUNDED } = ButtonTheme
   return (

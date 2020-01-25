@@ -9,15 +9,13 @@ import { CardHeader } from '../Card'
 import { TrashButton, QuantityInput } from './_components'
 
 const ProductInformation = ({ title, isbn, classNames }) =>  {
-  const { width } = useWindowDimensions();
-  const isMobile = width < 640
+  const { isMobile } = useWindowDimensions();
   return (<CardHeader
     classNames={classNames}
     title={title}
     subTitle={isbn}
     fontSize={isMobile ? "12" : "18"} />)
 }
-
 
 const UnitPrice = ({ price }) => (<Text.BOLD>€{price.toFixed(2)}</Text.BOLD>)
 const PriceTotal = ({ price, quantity }) => (<Text.BOLD>€{(price * quantity).toFixed(2)}</Text.BOLD>)
@@ -32,8 +30,8 @@ export const CartRow = ({ item }) => {
   return (
     <StyledCart>
       <StyledHalfBlock className="first-half">
-        <ProductImage {...details} width="80" height="130" />
-        <ProductInformation {...details} classNames="product-information"/>
+        <ProductImage {...details} width="80"  />
+        <ProductInformation {...details} className="product-information"/>
         <UnitPrice {...details} />
       </StyledHalfBlock>
 

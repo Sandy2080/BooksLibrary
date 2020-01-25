@@ -7,9 +7,11 @@ export default function useWindowDimensions() {
     function getWindowDimensions() {
         const width = hasWindow ? window.innerWidth : null;
         const height = hasWindow ? window.innerHeight : null;
+        const isMobile = width < 640
         return {
             width,
             height,
+            isMobile
         };
     }
 
