@@ -10,7 +10,6 @@ export interface IHomeProps {
   books: Book[], 
   search: string 
 }
-
 const Home = (props: IHomeProps & 
   { getBooks: () => void; 
     getOffers: (items: any[]) => void; 
@@ -18,7 +17,7 @@ const Home = (props: IHomeProps &
   const { items, books, getOffers, getBooks } = props;
   const loadBooks = useCallback(() => getBooks(), [getBooks]);
   const loadOffers = useCallback(() => getOffers(items), [items, getOffers]);
-
+  
   useEffect(() => {
    loadBooks()
   }, [loadOffers, loadBooks]);

@@ -8,5 +8,4 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: any) => ({
   getOffers: (items: any[]) => fetchOffers(items),
 });
-
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
