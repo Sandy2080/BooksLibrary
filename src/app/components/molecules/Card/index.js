@@ -1,7 +1,7 @@
 import React from "react";
 import { CardHeader } from './CardHeader'
 import { CardBody } from "./CardBody";
-import { StyledCard } from './styles' 
+import { StyledCard } from './styles'
 
 const Card = ({ children }) => (
     <StyledCard className="card" margin="20">

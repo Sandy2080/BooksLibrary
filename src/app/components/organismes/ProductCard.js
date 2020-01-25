@@ -1,12 +1,14 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import { ProductImage } from '../atoms/image/Image'
 import Button, { ButtonSize, ButtonTheme } from '../atoms/button/index'
 import useWindowDimensions from '../../utils/hooks/useWindowDimensions';
-import Card, { CardHeader, CardBody } from '../molecules/Card/index'
+import { Text } from "../atoms/text"
+import Card, { CardHeader } from '../molecules/Card/index'
 import { addToCart } from "../../lib/actions/shoppingCart";
+import { StyledProductCard } from "./styles"
 
-const AddToCart = ({ item, children }) => {
+const AddToCartButton = ({ item, children }) => {
   const dispatch = useDispatch()
   const addCart = () => dispatch(addToCart(item))
   const { width } = useWindowDimensions();
@@ -27,17 +29,24 @@ const AddToCart = ({ item, children }) => {
     </div>
   );
 }
-export const ProductInformation = ({ item }) => (
-  <div className="col-sm product-information">
-    <CardHeader {...item} margin="10" fontSize="32"/>
-    <CardBody item={item} />
-    <AddToCart item={item}>Add to Cart</AddToCart>
-  </div>
-)
+const ProductInformation = ({ item }) => {
+  const { title, isbn, synopsis } = item
+  return (<Fragment>
+            <CardHeader 
+            title={title} 
+            subTitle={isbn} 
+            margin="10" 
+            fontSize="32"/>
+            <Text.TRUNCATED>{synopsis}</Text.TRUNCATED>
+          </Fragment>)
+}
 const ProductCard = ({ item }) => (
     <Card>
       <ProductImage {...item} grid="col-sm-2"/>
-      <ProductInformation item={item} />
+        <StyledProductCard className="col-sm">
+          <ProductInformation item={item} />
+          <AddToCartButton item={item}>Add to Cart</AddToCartButton>
+        </StyledProductCard>
     </Card>
 );
 export default ProductCard;
