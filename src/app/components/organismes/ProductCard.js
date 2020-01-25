@@ -22,8 +22,7 @@ const AddToCartButton = ({ item, children }) => {
         size={isMobile ? LARGE : SMALL}
         action={addCart}
         customColor="#2980b9"
-        classNames={`float-right add-cart-button ${isMobile && `btn-block`}`}
-      >
+        classNames={`float-right add-cart-button ${isMobile && `btn-block`}`}>
         {children}
       </Button.INFO >
     </div>
@@ -33,20 +32,20 @@ const ProductInformation = ({ item }) => {
   const { title, isbn, synopsis } = item
   return (<Fragment>
             <CardHeader 
-            title={title} 
-            subTitle={isbn} 
-            margin="10" 
-            fontSize="32"/>
+              title={title} 
+              subTitle={isbn} 
+              margin="10" 
+              fontSize="32"/>
             <Text.TRUNCATED>{synopsis}</Text.TRUNCATED>
           </Fragment>)
 }
 const ProductCard = ({ item }) => (
     <Card>
       <ProductImage {...item} grid="col-sm-2"/>
-        <StyledProductCard className="col-sm">
-          <ProductInformation item={item} />
-          <AddToCartButton item={item}>Add to Cart</AddToCartButton>
-        </StyledProductCard>
+      <StyledProductCard className="col-sm">
+        <ProductInformation item={item} />
+        <AddToCartButton item={item}>Add to Cart</AddToCartButton>
+      </StyledProductCard>
     </Card>
 );
 export default ProductCard;
