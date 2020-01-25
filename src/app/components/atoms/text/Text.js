@@ -14,13 +14,13 @@ export const Text = props => {
     } = props
     const classProps = classnames(classNames);
     return (<StyledText
-        margin={margin}
-        color={color}
-        fontSize={fontSize}
-        fontWeight={fontWeight}
-        className={classProps}>
-        {children}
-        </StyledText>)
+            margin={margin}
+            color={color}
+            fontSize={fontSize}
+            fontWeight={fontWeight}
+            className={classProps}>
+                {children}
+            </StyledText>)
 }
 
 Text.SEMIBOLD = props => <StyledText fontWeight="600" {...props}>{props.children}</StyledText >;

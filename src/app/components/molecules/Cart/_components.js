@@ -60,12 +60,12 @@ const CartTotal = ({ total_cart, discountedOffer }) => {
                 <li><Text.BOLD>Subtotal: &nbsp; &nbsp;{total_cart.toFixed(2)}€</Text.BOLD></li>
                 <li>
                     {isMinus || isSlice ?
-                    <Text.BOLD>Discount: &nbsp; - {discountValue.toFixed(2)}€</Text.BOLD> :
-                    <Text.BOLD>Discount: ({value}%)  &nbsp; -{discountValue}€</Text.BOLD>}
+                    <Text.BOLD color="tomato">Discount: &nbsp; - {discountValue.toFixed(2)}€</Text.BOLD> :
+                    <Text.BOLD color="tomato">Discount: ({value}%)  &nbsp; -{discountValue}€</Text.BOLD>}
                 </li>
             </ul>
             <Divider />
-            <ul><li><Text.BOLD> Total: &nbsp; {total.toFixed(2)}€</Text.BOLD></li></ul>
+            <ul><li><Text.SUPERBOLD> Total: &nbsp; {total.toFixed(2)}€</Text.SUPERBOLD></li></ul>
         </StyledCartRow>);
 }
 export {
