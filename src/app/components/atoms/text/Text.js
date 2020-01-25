@@ -9,11 +9,13 @@ export const Text = props => {
         fontSize,
         fontWeight,
         margin,
-        classNames
+        classNames, 
+        color
     } = props
     const classProps = classnames(classNames);
     return (<StyledText
         margin={margin}
+        color={color}
         fontSize={fontSize}
         fontWeight={fontWeight}
         className={classProps}>

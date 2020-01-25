@@ -33,6 +33,7 @@ export const StyledHalfBlock = styled.div`
     justify-content: space-between;
     flex-direction: row;
     margin: 20px 20px 0 0;
+  
     div:first-child {
         margin-right: 20px!important;
         p {

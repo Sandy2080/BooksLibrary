@@ -33,7 +33,7 @@ export const CartRow = ({ item }) => {
     <StyledCart>
       <StyledHalfBlock className="first-half">
         <ProductImage {...details} width="80" height="130"  />
-        <CardHeader {...details} />
+        <CardHeader {...details} margin="5" fontSize="22" />
         <Text.BOLD>€{price.toFixed(2)}</Text.BOLD>
       </StyledHalfBlock>
 

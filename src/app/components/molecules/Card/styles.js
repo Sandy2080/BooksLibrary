@@ -8,7 +8,7 @@ export const StyledCard = styled.div`
     .product-information {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
     .add-cart-button {
         float: right;
@@ -21,4 +21,9 @@ export const StyledCard = styled.div`
             text-align: center;
         }
     }
+`
+export const StyledCardHeader = styled.div`
+    p {
+        margin-top: -${props => props.margin}px!important;
+    }  
 `

@@ -30,12 +30,11 @@ const AddToCart = ({ item, children }) => {
   );
 }
 
-const ProductInformation = ({ item }) => (
+export const ProductInformation = ({ item }) => (
   <div className="col-sm product-information">
-    <CardHeader {...item} />
+    <CardHeader {...item} margin="10" fontSize="32"/>
     <CardBody item={item} />
     <AddToCart item={item}>Add to Cart</AddToCart>
-
   </div>
 )
 

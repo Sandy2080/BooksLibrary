@@ -1,9 +1,12 @@
 import React from "react";
-import { Text, SubTitle } from "../../atoms/text";
+import { Text } from "../../atoms/text";
+import { StyledCardHeader } from "./styles"
 
-export const CardHeader = ({ title, isbn }) => (
-  <div>
-    <SubTitle margin="10" >{title}</SubTitle>
-    <Text.SMALL className="card-subtitle mb-2">isbn: {isbn}</Text.SMALL>
-  </div>
-);
+export const CardHeader = props => {
+  const { title, isbn, fontSize, margin } = props
+  return (<StyledCardHeader margin={margin}>
+            <Text fontSize={fontSize} margin={margin} color="#333">{title}</Text>
+            <Text.SMALL color="gray" className="card-subtitle mb-2">isbn: {isbn}</Text.SMALL>
+          </StyledCardHeader>)
+}
+
