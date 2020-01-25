@@ -31,7 +31,7 @@ export const CartRow = ({ item }) => {
     <StyledCart>
       <StyledHalfBlock className="first-half">
         <ProductImage {...details} width="80"  />
-        <ProductInformation {...details} className="product-information"/>
+        <ProductInformation {...details}/>
         <UnitPrice {...details} />
       </StyledHalfBlock>
 

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import { ProductImage } from '../atoms/image/Image'
 import Button, { ButtonSize, ButtonTheme } from '../atoms/button/index'
-import useWindowDimensions from '../../utils/hooks/useWindowDimensions';
+import { isMobile } from '../../utils/hooks/useWindowDimensions';
 import { Text } from "../atoms/text"
 import Card, { CardHeader } from '../molecules/Card/index'
 import { addToCart } from "../../lib/actions/shoppingCart";
@@ -11,7 +11,6 @@ import { StyledProductCard } from "./styles"
 const AddToCartButton = ({ item, children }) => {
   const dispatch = useDispatch()
   const addCart = () => dispatch(addToCart(item))
-  const { isMobile } = useWindowDimensions();
   const { SMALL, LARGE } = ButtonSize
   const { ROUNDED } = ButtonTheme
   return (
@@ -27,16 +26,13 @@ const AddToCartButton = ({ item, children }) => {
     </div>
   );
 }
-const ProductInformation = ({ item }) => {
+const ProductInformation = ({ item, fontSize }) => {
   const { title, isbn, synopsis } = item
-  const { width } = useWindowDimensions();
-  const isMobile = width < 640
   return (<Fragment>
             <CardHeader 
               title={title} 
               subTitle={isbn} 
-              margin="10" 
-              fontSize={isMobile ? "20" : "32"}/>
+              fontSize={fontSize}/>
             <Text.TRUNCATED>{synopsis}</Text.TRUNCATED>
           </Fragment>)
 }
@@ -44,7 +40,7 @@ const ProductCard = ({ item }) => (
     <Card>
       <ProductImage {...item} grid="col-sm-2"/>
       <StyledProductCard className="col-sm">
-        <ProductInformation item={item} />
+        <ProductInformation item={item} fontSize={isMobile ? "17" : "32"} />
         <AddToCartButton item={item}>Add to Cart</AddToCartButton>
       </StyledProductCard>
     </Card>

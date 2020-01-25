@@ -9,6 +9,11 @@ export const StyledCardHeader = styled.div`
         margin: 0 auto!important; 
     }
     @media screen and (max-width: 375px) {
-        padding: 0 20px;
+        padding: 0 10px;
+        .product-information {
+        p {
+          margin-botttom: 5px!important;
+        }
+        }
     }
 `

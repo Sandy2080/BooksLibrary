@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+let isMobile;
 export default function useWindowDimensions() {
 
     const hasWindow = typeof window !== 'undefined';
@@ -7,14 +7,14 @@ export default function useWindowDimensions() {
     function getWindowDimensions() {
         const width = hasWindow ? window.innerWidth : null;
         const height = hasWindow ? window.innerHeight : null;
-        const isMobile = width < 640
+        isMobile = width < 640
         return {
             width,
             height,
             isMobile
         };
     }
-
+   
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
     useEffect(() => {
@@ -30,3 +30,4 @@ export default function useWindowDimensions() {
 
     return windowDimensions;
 }
+export { isMobile }
