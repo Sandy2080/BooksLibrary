@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Primary renders correctly when button is PRIMARY   1`] = `
+<button
+  className="sc-AykKC ifcwsQ btn btn-primary"
+  disabled={false}
+/>
+`;
+
+exports[`Button Primary renders correctly when there are no items 1`] = `
+<button
+  className="sc-AykKC ifcwsQ btn btn-primary"
+  disabled={false}
+/>
+`;
+
+exports[`Button Rounded renders correctly when button is ROUNDED and LARGE 1`] = `
+<button
+  className="sc-AykKC nBkZa btn btn-primary btn-lg"
+  disabled={false}
+  size="btn-lg"
+/>
+`;
+
+exports[`Button Rounded renders correctly when button is Rounded and LARGE 1`] = `
+<button
+  className="sc-AykKC nBkZa btn btn-primary btn-lg"
+  disabled={false}
+  size="btn-lg"
+/>
+`;
+
+exports[`Button Rounded renders correctly when there are no items 1`] = `
+<button
+  className="sc-AykKC ifcwsQ btn btn-primary"
+  disabled={false}
+/>
+`;
