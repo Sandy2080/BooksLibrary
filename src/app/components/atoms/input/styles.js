@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { InputTheme } from "./types"
-
 const { RADIUS, ROUNDED } = InputTheme
 
 export const StyledInput = styled.input`

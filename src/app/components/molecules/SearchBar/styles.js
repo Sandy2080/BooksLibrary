@@ -8,7 +8,6 @@ export const StyledSearchBar = styled.div`
     height: calc(2.5em + 1rem + 2px);
     width: 100%;
   }
-
   button {
     width: 60% !important;
   }

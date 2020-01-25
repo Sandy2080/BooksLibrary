@@ -7,7 +7,6 @@ export const StyledDivider = styled.div`
     margin-top: ${props => (props.spacing ? `${props.spacing }px` : "")};
     background: #eee;
 `;
-
 export const StyledDividerDark = styled(StyledDivider)`
     background: #333;
 `;

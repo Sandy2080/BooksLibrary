@@ -5,12 +5,11 @@ export const StyledCartRow = styled.div`
     text-align: right; 
     display: flex; 
     justify-content: flex-end; 
-  }
-  li {
-    list-style-type: none;
+    li {
+      list-style-type: none;
+    }
   }
 `;
-
 export const StyledCart = styled.div`
   display: flex;
   .stepper-input {
@@ -33,12 +32,11 @@ export const StyledHalfBlock = styled.div`
     justify-content: space-between;
     flex-direction: row;
     margin: 20px 20px 0 0;
-  
     div:first-child {
-        margin-right: 20px!important;
-        p {
-          font-size: 12px;
-        }
+      margin-right: 20px!important;
+      p {
+        font-size: 12px;
+      }
     }
     @media screen and (max-width: 768px) {
       margin-top: 20px;
@@ -59,21 +57,20 @@ export const StyledFooter = styled.div`
     }
     a, button {
       display: inline-table;
-    }
-    a.btn-info {
-      vertical-align: bottom;
-    }
-    ul:first-child {
-      display: flex;
-      justify-content: flex-end;
-      flex-direction: column;
+      .btn-info {
+        vertical-align: bottom;
+      }
     }
     ul {
       list-style-type: none;
       padding: 0;
-    }
-    li {
-      margin-left: 0;
+      &:first-child {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+       li {
+         margin-left: 0;
+       }
     }
     @media screen and (max-width: 768px) {
     .footer {
