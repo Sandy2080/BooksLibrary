@@ -1,6 +1,6 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-import { SubTitle } from "../atoms/text/Text";
+import { SubTitle } from "../atoms/text";
 
 const EmptyResults = () => {
     return <SubTitle>No Results</SubTitle>;

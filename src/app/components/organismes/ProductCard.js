@@ -32,9 +32,8 @@ const AddToCart = ({ item, children }) => {
 
 const ProductInformation = ({ item }) => (
   <div className="col-sm product-information">
-    <CardHeader {...item} /><br />
+    <CardHeader {...item} />
     <CardBody item={item} />
- 
     <AddToCart item={item}>Add to Cart</AddToCart>
 
   </div>

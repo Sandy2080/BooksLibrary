@@ -1,9 +1,9 @@
 import React from "react";
-import { Title, SubTitle } from "../../atoms/text/Text";
+import { Text, SubTitle } from "../../atoms/text";
 
 export const CardHeader = ({ title, isbn }) => (
   <div>
-    <Title>{title}</Title>
-    <SubTitle>{isbn}</SubTitle>
+    <SubTitle margin="10" >{title}</SubTitle>
+    <Text.SMALL className="card-subtitle mb-2">isbn: {isbn}</Text.SMALL>
   </div>
 );

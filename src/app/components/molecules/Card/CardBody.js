@@ -1,7 +1,7 @@
 import React from "react";
-import { TextTruncate } from "../../atoms/text/Text";
+import { Text } from "../../atoms/text";
 
 export const CardBody = ({ item }) => {
   const { synopsis } = item
-  return (<TextTruncate>{synopsis}</TextTruncate>)
+  return (<Text.TRUNCATED className="synopsis">{synopsis}</Text.TRUNCATED>)
 }

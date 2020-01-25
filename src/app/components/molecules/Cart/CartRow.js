@@ -2,7 +2,7 @@ import React from "react";
 import { ProductImage } from "../../atoms/image/Image";
 import { useDispatch } from "react-redux";
 import { updateCart, removeFromCart } from "../../../lib/actions/shoppingCart";
-import { TextBold } from "../../atoms/text/Text"; 
+import { Text } from "../../atoms/text"; 
 import { StyledCart, StyledHalfBlock } from './styles'
 import { CardHeader } from '../Card'
 import { TrashButton } from './_components'
@@ -34,12 +34,12 @@ export const CartRow = ({ item }) => {
       <StyledHalfBlock className="first-half">
         <ProductImage {...details} width="80" height="130"  />
         <CardHeader {...details} />
-        <TextBold>€{price.toFixed(2)}</TextBold>
+        <Text.BOLD>€{price.toFixed(2)}</Text.BOLD>
       </StyledHalfBlock>
 
       <StyledHalfBlock className="second-half">
         <QuantityInput {...item} />
-        <TextBold>€{(price * quantity).toFixed(2)}</TextBold>
+        <Text.BOLD>€{(price * quantity).toFixed(2)}</Text.BOLD>
         <TrashButton remove={remove} /> 
       </StyledHalfBlock>
     </StyledCart>

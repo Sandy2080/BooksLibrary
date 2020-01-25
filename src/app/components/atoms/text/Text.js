@@ -1,15 +1,44 @@
 import React from "react";
-import { Text, StyledTextSmall, StyledTextBold } from './styles'
+import classnames from "classnames";
+import PropTypes from "prop-types";
+import { StyledText } from './styles'
 
-const TextTruncate = ({ children }) => (
-  <Text>{children.length > 100 && children.substring(0, 150)} ...</Text>
-);
-const Title = ({ children }) => <h5 className="card-title">{children}</h5>;
-const SubTitle = ({ children }) => (
-  <h6 className="card-subtitle mb-2 text-muted">{children}</h6>
-);
-const TextSmall = ({ children }) => (
-  <StyledTextSmall className="text-muted">{children}</StyledTextSmall>
-);
-const TextBold = ({ children }) => <StyledTextBold>{children}</StyledTextBold>;
-export { TextTruncate, Title, SubTitle, TextSmall, TextBold };
+export const Text = props => {
+    const {
+        children,
+        fontSize,
+        fontWeight,
+        margin,
+        classNames
+    } = props
+    const classProps = classnames(classNames);
+    return (<StyledText
+        margin={margin}
+        fontSize={fontSize}
+        fontWeight={fontWeight}
+        className={classProps}>
+        {children}
+        </StyledText>)
+}
+
+Text.SEMIBOLD = props => <StyledText fontWeight="600" {...props}>{props.children}</StyledText >;
+Text.BOLD = props => <StyledText fontWeight="700" {...props}>{props.children}</StyledText >;
+Text.SUPERBOLD = props => <StyledText fontWeight="800" {...props}>{props.children}</StyledText >;
+Text.SMALL = props => (<StyledText fontSize="13" {...props}>{props.children}</StyledText>);
+Text.MUTED = props => <StyledText fontSize="11" className="text-muted" {...props}>{props.children}</StyledText >;
+Text.TRUNCATED = props => (<StyledText {...props}>{props.children.length > 100 && props.children.substring(0, 250)} ...</StyledText>);
+
+Text.propTypes = {
+    color: PropTypes.string,
+    fontSize: PropTypes.string,
+    fontWeight: PropTypes.string,
+};
+Text.defaultProps = {
+    color: "#6c757d", 
+    fontSize: '14',
+    fontWeight: '400',
+};
+
+
+
+

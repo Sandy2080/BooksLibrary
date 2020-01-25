@@ -9,9 +9,6 @@ export const StyledCard = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        p {
-            padding-bottom: 40px;
-        }
     }
     .add-cart-button {
         float: right;

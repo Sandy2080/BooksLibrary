@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { StyledCartRow } from './styles'
-import { TextBold } from "../../atoms/text/Text"
+import { Text } from "../../atoms/text"
 import Button, { ButtonTheme, ButtonSize } from "../../atoms/button";
 import Icon from "../../atoms/icon"
 import Divider from "../../atoms/divider";
@@ -42,15 +42,15 @@ const CartTotalRow = ({ total_cart, discountedOffer }) => {
     return (
         <StyledCartRow>
             <ul>
-                <li><TextBold>Subtotal: &nbsp; &nbsp;{total_cart.toFixed(2)}€</TextBold></li>
+                <li><Text.BOLD>Subtotal: &nbsp; &nbsp;{total_cart.toFixed(2)}€</Text.BOLD></li>
                 <li>
                     {isMinus || isSlice ?
-                    <TextBold>Discount: &nbsp; - {discountValue.toFixed(2)}€</TextBold> :
-                    <TextBold>Discount: ({value}%)  &nbsp; -{discountValue}€</TextBold>}
+                    <Text.BOLD>Discount: &nbsp; - {discountValue.toFixed(2)}€</Text.BOLD> :
+                    <Text.BOLD>Discount: ({value}%)  &nbsp; -{discountValue}€</Text.BOLD>}
                 </li>
             </ul>
             <Divider />
-            <ul><li><TextBold> Total: &nbsp; {total.toFixed(2)}€</TextBold></li></ul>
+            <ul><li><Text.BOLD> Total: &nbsp; {total.toFixed(2)}€</Text.BOLD></li></ul>
         </StyledCartRow>
     );
 }
