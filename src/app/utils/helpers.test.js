@@ -1,5 +1,6 @@
-import { calculateTotal,  checkout, calculateBestOffer } from "./helpers"
+import { calculateTotal, calculateBestOffer } from "./helpers"
 import { Offer } from "../models/Offer"
+import { isMobile } from "../utils/hooks/useWindowDimensions"
 import * as MOCKS from './mocks'
 const { data } = MOCKS
 const { books, offers } = data
@@ -28,6 +29,16 @@ describe('calculate total with best offer', () => {
         it('total cart after best offer discount should return 50', () => {
             const cart_total_discount = cart_total - bestOffer.discountValue
             expect(cart_total_discount).toEqual(50);
+        });
+    });
+});
+
+describe('detect viewport width', () => {
+    const container = document.querySelector(".container")
+    const top = container?.getClientRects()[0].top
+    describe('when viewport is <= 640 wide', () => {
+        it('offset top should return 140 when isMobile is truthy', () => {
+            if (isMobile) expect(top).toEqual(160);
         });
     });
 });
