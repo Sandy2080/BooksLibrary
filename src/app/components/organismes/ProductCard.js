@@ -30,12 +30,14 @@ const AddToCartButton = ({ item, children }) => {
 }
 const ProductInformation = ({ item }) => {
   const { title, isbn, synopsis } = item
+  const { width } = useWindowDimensions();
+  const isMobile = width < 640
   return (<Fragment>
             <CardHeader 
               title={title} 
               subTitle={isbn} 
               margin="10" 
-              fontSize="32"/>
+              fontSize={isMobile ? "20" : "32"}/>
             <Text.TRUNCATED>{synopsis}</Text.TRUNCATED>
           </Fragment>)
 }

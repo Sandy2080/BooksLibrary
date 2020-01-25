@@ -12,7 +12,6 @@ export const StyledCartRow = styled.div`
 `;
 export const StyledCart = styled.div`
   display: flex;
-  
   .trash-button {
     display: inline;
   }
@@ -29,6 +28,17 @@ export const StyledHalfBlock = styled.div`
     justify-content: space-between;
     flex-direction: row;
     margin: 20px auto;
+    .stepper-input {
+      width: 60%; 
+    }
+    &.second-half { 
+      p {
+        width: 100%;
+        text-align: center;
+      }
+    }
+    
+    @media screen and (min-width: 1024px) {
     &.first-half {
       margin-right: 20px!important; 
     }
@@ -36,16 +46,14 @@ export const StyledHalfBlock = styled.div`
       div: first-child {
         margin: 0 auto
       }
-      p {
-        width: 100%;
-        text-align: center;
-      }
       .stepper-input {
-        width: 60%;
-        margin: 0 0 0 80px;
+         margin: 0 0 0 80px;
       }
     }
     @media screen and (max-width: 768px) {
+      &.first-half { 
+        margin : 0 20px;
+      }
       margin-top: 20px;
     }
 `

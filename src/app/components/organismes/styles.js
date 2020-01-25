@@ -9,7 +9,8 @@ export const StyledProductCard = styled.div`
     }
     @media screen and (max-width: 640px) {
         div:first-child {
-            margin-bottom: 40px;
+            margin: 20px 0;
+            text-align: center;
         }
         h5, h6 {
             text-align: center;

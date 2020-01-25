@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import useWindowDimensions from '../../../utils/hooks/useWindowDimensions';
 import { ProductImage } from "../../atoms/image/Image";
 import { removeFromCart } from "../../../lib/actions/shoppingCart";
 import { Text } from "../../atoms/text"; 
@@ -7,18 +8,22 @@ import { StyledCart, StyledHalfBlock } from './styles'
 import { CardHeader } from '../Card'
 import { TrashButton, QuantityInput } from './_components'
 
+const ProductInformation = ({ title, isbn, classNames }) =>  {
+  const { width } = useWindowDimensions();
+  const isMobile = width < 640
+  return (<CardHeader
+    classNames={classNames}
+    title={title}
+    subTitle={isbn}
+    fontSize={isMobile ? "12" : "18"} />)
+}
 
-const ProductInformation = ({ title , isbn }) => (<CardHeader
-  title={title}
-  subTitle={isbn}
-  margin="5"
-  fontSize="18" />)
+
 const UnitPrice = ({ price }) => (<Text.BOLD>€{price.toFixed(2)}</Text.BOLD>)
-const PriceTotal = ({ price, quantity, classNames }) => (<Text.BOLD classNames={classNames}>€{(price * quantity).toFixed(2)}</Text.BOLD>)
+const PriceTotal = ({ price, quantity }) => (<Text.BOLD>€{(price * quantity).toFixed(2)}</Text.BOLD>)
 
 export const CartRow = ({ item }) => {
   const { id, details, quantity } = item
-  const { price, title, isbn } = details
   const dispatch = useDispatch();
   const remove = () => {
     dispatch(removeFromCart(id))
@@ -28,13 +33,13 @@ export const CartRow = ({ item }) => {
     <StyledCart>
       <StyledHalfBlock className="first-half">
         <ProductImage {...details} width="80" height="130" />
-        <ProductInformation {...details} />
+        <ProductInformation {...details} classNames="product-information"/>
         <UnitPrice {...details} />
       </StyledHalfBlock>
 
       <StyledHalfBlock className="second-half">
         <QuantityInput {...item} />
-        <PriceTotal quantity={quantity} {...details} classNames="price-total"/>
+        <PriceTotal quantity={quantity} {...details} />
         <TrashButton remove={remove} /> 
       </StyledHalfBlock>
     </StyledCart>
