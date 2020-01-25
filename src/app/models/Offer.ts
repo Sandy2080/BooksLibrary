@@ -1,4 +1,3 @@
-
 class Offer {
     type: string;
     value: number;

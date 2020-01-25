@@ -1,27 +1,21 @@
 import React from "react";
-import { ProductImage } from "../../atoms/image/Image";
 import { useDispatch } from "react-redux";
-import { updateCart, removeFromCart } from "../../../lib/actions/shoppingCart";
+import { ProductImage } from "../../atoms/image/Image";
+import { removeFromCart } from "../../../lib/actions/shoppingCart";
 import { Text } from "../../atoms/text"; 
 import { StyledCart, StyledHalfBlock } from './styles'
 import { CardHeader } from '../Card'
-import { TrashButton } from './_components'
-import Input, { InputSize } from "../../atoms/input"
+import { TrashButton, QuantityInput } from './_components'
 
-const QuantityInput = ({ id, quantity }) => {
-  const dispatch = useDispatch();
-  const update = e => dispatch(updateCart(id, e.target.value))
-  const attributes = { 'min': '2', 'max': '100', 'stepValue': '1', 'defaultValue': quantity }
-  return (
-  <div>
-    <Input.STEPPER
-      classNames="stepper-input"
-      action={e => update(e)}
-      size={InputSize.SMALL}
-      {...attributes}>
-    </Input.STEPPER>
-    </div>)
-}
+
+const ProductInformation = ({ title , isbn }) => (<CardHeader
+  title={title}
+  subTitle={isbn}
+  margin="5"
+  fontSize="18" />)
+const UnitPrice = ({ price }) => (<Text.BOLD>€{price.toFixed(2)}</Text.BOLD>)
+const PriceTotal = ({ price, quantity, classNames }) => (<Text.BOLD classNames={classNames}>€{(price * quantity).toFixed(2)}</Text.BOLD>)
+
 export const CartRow = ({ item }) => {
   const { id, details, quantity } = item
   const { price, title, isbn } = details
@@ -29,21 +23,18 @@ export const CartRow = ({ item }) => {
   const remove = () => {
     dispatch(removeFromCart(id))
   }
+
   return (
     <StyledCart>
       <StyledHalfBlock className="first-half">
-        <ProductImage {...details} width="80" height="130"  />
-        <CardHeader 
-          title={title}
-          subTitle={isbn}
-          margin="5" 
-          fontSize="18" />
-        <Text.BOLD>€{price.toFixed(2)}</Text.BOLD>
+        <ProductImage {...details} width="80" height="130" />
+        <ProductInformation {...details} />
+        <UnitPrice {...details} />
       </StyledHalfBlock>
 
       <StyledHalfBlock className="second-half">
         <QuantityInput {...item} />
-        <Text.BOLD>€{(price * quantity).toFixed(2)}</Text.BOLD>
+        <PriceTotal quantity={quantity} {...details} classNames="price-total"/>
         <TrashButton remove={remove} /> 
       </StyledHalfBlock>
     </StyledCart>

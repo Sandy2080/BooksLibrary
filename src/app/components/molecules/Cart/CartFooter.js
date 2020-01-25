@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setDiscount } from "../../../lib/actions/shoppingCart";
 import {
   CartButtons,
-  CartTotalRow
+  CartTotal
 } from "./_components"
 
 export const CartFooter = () => {
@@ -14,12 +14,13 @@ export const CartFooter = () => {
   useEffect(() => {
     dispatch(setDiscount())
   }, []) 
-return (
-  <Fragment>
-    {!isPending &&
-      <StyledFooter>
-        <CartTotalRow {...props} />
-        <CartButtons />
-      </StyledFooter>}
-   </Fragment>
+
+  return (
+    <Fragment>
+      {!isPending &&
+        <StyledFooter>
+          <CartTotal {...props} />
+          <CartButtons />
+        </StyledFooter>}
+    </Fragment>
 )}

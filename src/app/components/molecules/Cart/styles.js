@@ -12,10 +12,7 @@ export const StyledCartRow = styled.div`
 `;
 export const StyledCart = styled.div`
   display: flex;
-  .stepper-input {
-    width: 40%;
-    margin: 0 auto;
-  }
+  
   .trash-button {
     display: inline;
   }
@@ -31,11 +28,21 @@ export const StyledHalfBlock = styled.div`
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    margin: 20px 20px 0 0;
-    div:first-child {
-      margin-right: 20px!important;
+    margin: 20px auto;
+    &.first-half {
+      margin-right: 20px!important; 
+    }
+    &.second-half {
+      div: first-child {
+        margin: 0 auto
+      }
       p {
-        font-size: 12px;
+        width: 100%;
+        text-align: center;
+      }
+      .stepper-input {
+        width: 60%;
+        margin: 0 0 0 80px;
       }
     }
     @media screen and (max-width: 768px) {
@@ -47,18 +54,9 @@ export const StyledFooter = styled.div`
     .footer {
       display: flex;
       justify-content: space-between;
-      spadding: 5px 15px;
-      div {
+      padding: 5px 15px;
+      div, p {
         margin-bottom: 16px;
-      }
-      p {
-        margin-bottom: 16px;
-      }
-    }
-    a, button {
-      display: inline-table;
-      .btn-info {
-        vertical-align: bottom;
       }
     }
     ul {
@@ -72,15 +70,16 @@ export const StyledFooter = styled.div`
          margin-left: 0;
        }
     }
-    @media screen and (max-width: 768px) {
-    .footer {
-      display: block;
-      text-align: center;
-    }
   }
 `;
 export const StyledCartButtons = styled.div` 
 display: flex; justify-content: 
 space-between; 
 padding-bottom: 20px;
+ a, button {
+      display: inline-table;
+      .btn-info {
+        vertical-align: bottom;
+      }
+  }
 `

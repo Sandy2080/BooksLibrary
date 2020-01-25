@@ -1,6 +1,5 @@
 import React from "react";
 import { CardHeader } from './CardHeader'
-import { CardBody } from "./CardBody";
 import { StyledCard } from './styles'
 
 const Card = ({ children }) => (
@@ -10,8 +9,5 @@ const Card = ({ children }) => (
         </div>
     </StyledCard>
 )
-export {
-    CardHeader,
-    CardBody
-}
+export { CardHeader }
 export default Card;

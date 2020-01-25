@@ -1,7 +1,6 @@
 import { calculateTotal,  checkout, calculateBestOffer } from "./helpers"
 import { Offer } from "../models/Offer"
 import * as MOCKS from './mocks'
-
 const { data } = MOCKS
 const { books, offers } = data
 const quantity = 1
