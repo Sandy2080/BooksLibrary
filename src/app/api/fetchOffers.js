@@ -5,13 +5,15 @@ import {
   setTotalCart,
   setDiscount
 } from "../lib/actions/shoppingCart";
-import { get, Endpoint } from "./service";
 import { store } from "../lib/store";
+import { Request, Endpoint } from "./service";
+const { Offer } = Endpoint
 
 export function fetchOffers(items) {
-  let isbns = items.map(item => item.details.isbn);
   store.dispatch(fetchOffersPending());
-  get(Endpoint.Offer, isbns)
+  let isbns = items.map(item => item.details.isbn);
+  let request = new Request(Offer, isbns)
+  request.get()
     .then(res => {
       const offers = res['offers']
       store.dispatch(fetchOffersSuccess(offers))

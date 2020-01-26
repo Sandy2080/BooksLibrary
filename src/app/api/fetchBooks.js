@@ -1,10 +1,12 @@
 import {  fetchBooksPending, fetchBooksSuccess, fetchBooksError } from '../lib/actions/bookStore'
-import { get, Endpoint } from './service'
-import { store } from "../lib/store"
+import { store } from "../lib/store";
+import { Request, Endpoint } from "./service";
+const { Book, Offer } = Endpoint;
 
 export function fetchBooks() {
     store.dispatch(fetchBooksPending());
-    get(Endpoint.Book, [])
+    let request = new Request(Book, []);
+    request.get()
         .then(res => {
             store.dispatch(fetchBooksSuccess(res));
         })
