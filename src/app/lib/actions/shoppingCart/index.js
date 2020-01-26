@@ -6,6 +6,7 @@ export const actions = {
          SAVE_CART: "SAVE_CART",
          SET_CART_TOTAL: "SET_CART_TOTAL",
          SET_DISCOUNT: "SET_DISCOUNT",
+         CHECKOUT: "CHECKOUT",
          FETCH_OFFERS_PENDING: "FETCH_OFFERS_PENDING",
          FETCH_OFFERS_SUCCESS: "FETCH_OFFERS_SUCCESS",
          FETCH_OFFERS_ERROR: "FETCH_OFFERS_ERROR"
@@ -47,6 +48,11 @@ export const saveCart = items => {
   return {
     type: actions.SAVE_CART,
     payload: { items: items }
+  };
+};
+export const checkout = () => {
+  return {
+    type: actions.CHECKOUT
   };
 };
 

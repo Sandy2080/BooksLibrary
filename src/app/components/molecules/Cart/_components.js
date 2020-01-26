@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { updateCart } from "../../../lib/actions/shoppingCart";
+import { updateCart, checkout } from "../../../lib/actions/shoppingCart";
 import { Text } from "../../atoms/text"
 import Button, { ButtonTheme, ButtonSize } from "../../atoms/button";
 import Icon from "../../atoms/icon"
@@ -18,7 +18,11 @@ const ShoppingButton = () => (
     </Link>
 ); 
 const CheckoutButton = () => { 
-    const handleCheckout = e => e.preventDefault() 
+    const dispatch = useDispatch()
+    const handleCheckout = e => {
+        dispatch(checkout())
+        e.preventDefault() 
+    }
     return (<Button.SUCCESS theme={ButtonTheme.ROUNDED} action={handleCheckout}> 
                 Checkout&nbsp; <Icon.CHEVRON_RIGHT /> 
             </Button.SUCCESS>) 

@@ -7,6 +7,7 @@ const {
   REMOVE_FROM_CART,
   SET_CART_TOTAL, 
   SET_DISCOUNT,
+  CHECKOUT,
   FETCH_OFFERS_PENDING,
   FETCH_OFFERS_SUCCESS,
   FETCH_OFFERS_ERROR
@@ -15,6 +16,7 @@ const {
 const ITEMS_KEY = "items"
 const initialState = {
   isPending: false, 
+  isConfirmed: false,
   hasError: null,
   total_cart: 0, 
   discountedOffer: {},
@@ -26,7 +28,8 @@ const shoppingCartReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
       return {
-        ...state,
+        ...state, 
+        isConfirmed: false,
         items: [...state.items, action.payload]
         };
       case UPDATE_CART:
@@ -62,6 +65,15 @@ const shoppingCartReducer = (state = initialState, action) => {
         ...state,
         isPending: true
       };
+    case CHECKOUT:
+      helpers.saveToLocalStorage(ITEMS_KEY, [])
+      return {
+        total_cart: 0,
+        discountedOffer: {},
+        offers: [],
+        items: [], 
+        isConfirmed: true
+      }
     case FETCH_OFFERS_SUCCESS:
       return {
         ...state,
