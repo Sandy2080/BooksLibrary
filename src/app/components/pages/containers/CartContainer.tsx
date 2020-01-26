@@ -5,7 +5,7 @@ import Cart from "../presentation/Cart";
 
 const mapStateToProps = (state: any) => ({
   items: state.shoppingCartReducer.items, 
-  cartStatus: state.shoppingCartReducer.cartStatus
+  status: state.shoppingCartReducer.cartStatus
 });
 const mapDispatchToProps = (dispatch: any) => ({
   getOffers: (items: any[]) => fetchOffers(items),

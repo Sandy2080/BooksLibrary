@@ -1,12 +1,35 @@
-import React, { useEffect, useLayoutEffect, useCallback, Fragment  } from "react";
+import React, { useEffect, useState, useLayoutEffect, useCallback, Fragment } from "react";
 import { ShoppingCart } from '../../organismes/ShoppingCart'
+import { Text } from "../../atoms/text" 
 import Alert, { AlertColor } from "../../molecules/Alert"
-import { approveCart } from "../../../lib/actions/shoppingCart";
 import { cartStatus } from "../../../lib/reducers/shoppingCart";
+const { COMPLETE, APPROVED } = cartStatus
+
+const Loading = () => {
+  const [index, setIndex] = useState(0)
+  const [loadingDots, set] = useState(".")
+  const dots = [".", "..", "..."]
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex(index < dots.length - 1 ? index + 1 : 0)
+      set(dots[index])
+    }, 500);
+    console.log(index)
+    return () => clearTimeout(timer); 
+  }, [index])
+
+  return (<Fragment>
+            <br />
+            <Text.NORMAL fontSize="25">Loading {loadingDots}</Text.NORMAL>
+          </Fragment>)
+}
+  
 
 const StatusAlert = (props: any) => {
   const { status, approveConfirmOrder}  = props
-  const { COMPLETE, APPROVED } = cartStatus
+
+
   if (status == COMPLETE) {
     return (<Alert.CONFIRM
       color={AlertColor.INFO}
@@ -15,21 +38,23 @@ const StatusAlert = (props: any) => {
   }
   if (status == APPROVED) {
     return (<Alert.DISMISSIBLE
-      color={AlertColor.INFO}
-      message="Thank you for your order" />)
+      color={AlertColor.SUCCESS}
+      message="Thank you for your order"
+      secondary="You will be redirected to the Homepage is a few seconds ..." />)
   }
   return (<span></span>)
 }
 
 export interface ICartProps {
   items: [];
-  cartStatus: any
+  status: any
+  history: any
 }
 const Cart = (props: ICartProps & { 
   getOffers: (items: any[]) => void, 
   approveCart: () => void,
   reset: () => void }) => {
-  const { items, getOffers, reset, cartStatus } = props;
+  const { items, getOffers, reset, status, approveCart, history } = props;
   const loadOffers = useCallback(() => getOffers(items), [items, getOffers]);
   
   useEffect(() => {
@@ -41,19 +66,21 @@ const Cart = (props: ICartProps & {
   }, [cartStatus])
 
   const approveConfirmOrder = () => {
-      approveCart()
+    approveCart()
+    const timer = setTimeout(() => {
       reset()
+      history.push('/')
+    }, 5000);
+    return () => clearTimeout(timer); 
   }
  
   return (
     <Fragment>
-      <Alert.CONFIRM
-        color={AlertColor.INFO}
-        message="Do you wish to confirm your order ?"
-        action={{ name: approveConfirmOrder, text: "confirm order" }} />
-      <StatusAlert status={cartStatus} approveConfirmOrder={approveConfirmOrder} />
-      <ShoppingCart {...props} />
-
+      <StatusAlert status={status} approveConfirmOrder={approveConfirmOrder} />
+       {status == cartStatus.APPROVED ? 
+         <Loading /> :
+        <ShoppingCart {...props} />
+      }
     </Fragment>
   );
 };

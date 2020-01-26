@@ -9,24 +9,26 @@ const Alert  = props => {
     const {
     children,
     message,
+    secondary,
     color, 
     classNames
     } = props;
     const classProps = classnames(color, classNames);
     return (<StyledAlert className={`alert ${classProps}`} role="alert">
                 <Text.SEMIBOLD fontSize="20">{message}</Text.SEMIBOLD>
+                {secondary && <Text.SMALL>{secondary}</Text.SMALL>}
                 {children}
             </StyledAlert>)
 }
 
 Alert.CONFIRM = props => {
-    const { action } = props
+    const { action, secondary } = props
     return (<Alert {...props} classNames="fade show">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <Button.LINK action={action.name}>{action.text}</Button.LINK>
-    </ Alert>)
+                <Button.INFO action={action.name}>{action.text}</Button.INFO>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </ Alert>)
 }
 
 Alert.DISMISSIBLE = props => (

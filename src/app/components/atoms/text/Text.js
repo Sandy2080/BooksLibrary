@@ -23,6 +23,7 @@ export const Text = props => {
             </StyledText>)
 }
 
+Text.NORMAL = props => <StyledText fontWeight="400" {...props}>{props.children}</StyledText >;
 Text.SEMIBOLD = props => <StyledText fontWeight="600" {...props}>{props.children}</StyledText >;
 Text.BOLD = props => <StyledText fontWeight="700" {...props}>{props.children}</StyledText >;
 Text.SUPERBOLD = props => <StyledText fontWeight="800" {...props}>{props.children}</StyledText >;
