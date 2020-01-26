@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
-import { fetchBooks } from "../../../api/fetchBooks";
-import { fetchOffers } from "../../../api/fetchOffers";
-import { Book } from "../../../models/Book"
+import { fetchBooks, fetchOffers } from "../../../api";
+import { Book } from "../../../models"
 import Home from "../presentation/Home";
 
 const showFiltered = (input: string, books: Book[]) => {

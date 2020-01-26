@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setFilter, visibilityFilters } from '../../../lib/actions/visibilityFilter'
 import { StyledSearchBar } from './styles'
-import Input, { InputTheme } from "../../atoms/input"
+import { Input, InputTheme } from "../../atoms"
 
 const SearchBar = () => {
     const dispatch = useDispatch()

@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import useWindowDimensions from '../../utils/hooks/useWindowDimensions';
-import Navbar, { NavbarPlacement } from "../atoms/nav"
+import { Link } from "react-router-dom";
 import { saveCart } from "../../lib/actions/shoppingCart";
-import { ShoppingBag } from "../molecules/ShoppingBag"
-import { SubTitle, Text } from "../atoms/text" 
+import { ShoppingBag } from "../molecules"
+import { 
+  Navbar, 
+  NavbarPlacement,
+  SubTitle, 
+  Text 
+} from "../atoms" 
 
-export const TopNavbar =  (props) => {
+const TopNavbar =  (props) => {
   const { items } = useSelector(state => ({ ...state.shoppingCartReducer}));
   const dispatch = useDispatch();
   const { isMobile } = useWindowDimensions();
@@ -28,3 +32,4 @@ export const TopNavbar =  (props) => {
     </Navbar.LIGHT>
   );
 };
+export default TopNavbar;

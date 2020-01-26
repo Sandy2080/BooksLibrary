@@ -1,13 +1,9 @@
-
 import { actions } from "../../actions/shoppingCart/commercialOffers";
-import * as helpers from "../../../utils/helpers"
 const {
     FETCH_OFFERS_PENDING,
     FETCH_OFFERS_SUCCESS,
     FETCH_OFFERS_ERROR
 } = actions;
-
-const ITEMS_KEY = "items"
 const initialState = {
     isPending: false,
     hasError: null,

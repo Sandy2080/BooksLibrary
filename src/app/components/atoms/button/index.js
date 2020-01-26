@@ -25,7 +25,6 @@ const Button = props => {
       className={`btn ${classProps}`}
       customColor={customColor}
       size={size}
-      customColor={customColor}
       theme={theme}>
       {children}
     </StyledButton>

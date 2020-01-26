@@ -2,11 +2,15 @@ import React, { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 import { isMobile } from '../../utils/hooks/useWindowDimensions';
 import { addToCart } from "../../lib/actions/shoppingCart";
-import Card, { CardHeader, BadgeLabel } from '../molecules/Card/index'
-import Button, { ButtonSize, ButtonTheme } from '../atoms/button/index'
-import { ProductImage } from '../atoms/image/Image'
-import { Text } from "../atoms/text"
 import { StyledProductCard } from "./styles"
+import Card, { CardHeader, BadgeLabel } from '../molecules/Card/index'
+import {
+  Button, 
+  ButtonSize, 
+  ButtonTheme,
+  ProductImage, 
+  Text 
+} from "../atoms"
 
 const AddToCartButton = ({ item, children, isVisible }) => {
   const dispatch = useDispatch()
@@ -38,7 +42,7 @@ const ProductInformation = ({ item }) => {
             <Text.TRUNCATED>{synopsis}</Text.TRUNCATED>
           </Fragment>)
 }
-export const ProductCard = ({ item }) => {
+const ProductCard = ({ item }) => {
   const [isVisible, setVisible] = useState(false)
   const handleOnHover = (bool) => setVisible(bool)
   return (<Card>
@@ -50,5 +54,6 @@ export const ProductCard = ({ item }) => {
             </StyledProductCard>
           </Card>)
 }
+export default ProductCard;
 
 

@@ -2,11 +2,13 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { removeFromCart } from "../../../lib/actions/shoppingCart";
 import { isMobile } from '../../../utils/hooks/useWindowDimensions';
-import { ProductImage } from "../../atoms/image/Image";
-import { Text } from "../../atoms/text"; 
 import { StyledCart, StyledHalfBlock } from './styles'
 import { CardHeader } from '../Card'
 import { TrashButton, QuantityStepper } from './_components'
+import {
+  ProductImage,
+  Text, 
+} from "../../atoms"; 
 
 const ProductInformation = ({ title, isbn, classNames }) =>  {
   return (<CardHeader

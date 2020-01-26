@@ -1,9 +1,11 @@
 import React from "react";
 import classnames from "classnames";
-import Button from "../../atoms/button";
 import { StyledAlert } from "./styles";
 import { AlertColor } from "./types"
-import { Text } from "../../atoms/text";
+import {
+    Text, 
+    Button
+} from "../../atoms";
 
 const Alert  = props => {
     const {

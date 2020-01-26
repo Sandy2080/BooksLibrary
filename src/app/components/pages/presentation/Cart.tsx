@@ -1,11 +1,10 @@
-import React, { useEffect, useState, useLayoutEffect, useCallback, Fragment } from "react";
-import { Text } from "../../atoms/text" 
+import React, { useEffect, useState, useCallback, Fragment } from "react";
 import { cartStatus } from "../../../lib/reducers/shoppingCart";
+import { Text } from "../../atoms" 
 import {
   ShoppingCart,
   StatusAlert
 } from '../../organismes'
-
 
 const Loading = () => {
   const [index, setIndex] = useState(0)
@@ -16,9 +15,8 @@ const Loading = () => {
       setIndex(index < dots.length - 1 ? index + 1 : 0)
       set(dots[index])
     }, 500);
-    console.log(index)
     return () => clearTimeout(timer); 
-  }, [index])
+  }, [index, dots])
 
   return (<Fragment>
             <br />
@@ -41,9 +39,6 @@ const Cart = (props: ICartProps & {
   useEffect(() => {
       loadOffers()
   }, [items, loadOffers]);
-  useLayoutEffect(() => {
-    console.log(`re-rendered on cart status change ${cartStatus}`)
-  }, [cartStatus])
 
   const approveConfirmOrder = () => {
     approveCart()
@@ -60,7 +55,7 @@ const Cart = (props: ICartProps & {
         status={status} 
         approveConfirmOrder={approveConfirmOrder} 
         cancelCheckout={cancelCheckout}/>
-          {status == cartStatus.APPROVED ? 
+          {status === cartStatus.APPROVED ? 
           <Loading /> :
         <ShoppingCart {...props} />
       }
