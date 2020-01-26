@@ -6,6 +6,10 @@ export const StyledProductCard = styled.div`
     flex-direction: column;
     justify-content: space-between;
     .add-cart-button {
+        float: right;
+    }
+    @media screen and (min-width: 1024px) {
+         .add-cart-button {
         position: absolute;
         opacity: 0;
         bottom: -20px;
@@ -16,7 +20,8 @@ export const StyledProductCard = styled.div`
         opacity: 1;
         bottom: 0px;
     }
-    @media screen and (max-width: 640px) {
+    }
+    @media screen and (max-width: 768px) {
         div:first-child {
             margin: 20px 0;
             text-align: center;
