@@ -67,6 +67,15 @@ Button.LIGHT = (props) => {
     ></Button>
   );
 }
+Button.SECONDARY = (props) => {
+  return (
+    <Button
+      type={ButtonType.BUTTON}
+      color={ButtonColor.SECONDARY}
+      {...props}
+    ></Button>
+  );
+}
 Button.INFO = props => {
   return (
     <Button

@@ -1,4 +1,5 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { isMobile } from "../../../utils/hooks/useWindowDimensions"
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateCart, checkout } from "../../../lib/actions/shoppingCart";
@@ -10,9 +11,13 @@ import Divider from "../../atoms/divider";
 import { StyledCartRow } from './styles'
 import { StyledCartButtons } from "./styles"
 
+const { SMALL } = ButtonSize
+
 const ShoppingButton = () => (
     <Link to="/"> 
-        <Button.INFO theme={ButtonTheme.ROUNDED}> 
+        <Button.INFO 
+            theme={ButtonTheme.ROUNDED} 
+            size={isMobile && SMALL}> 
             <Icon.CHEVRON_LEFT /> &nbsp; Continue Shopping 
         </Button.INFO> 
     </Link>
@@ -23,7 +28,10 @@ const CheckoutButton = () => {
         dispatch(checkout())
         e.preventDefault() 
     }
-    return (<Button.SUCCESS theme={ButtonTheme.ROUNDED} action={handleCheckout}> 
+    return (<Button.SUCCESS 
+                size={isMobile && SMALL} 
+                theme={ButtonTheme.ROUNDED} 
+                action={handleCheckout} >
                 Checkout&nbsp; <Icon.CHEVRON_RIGHT /> 
             </Button.SUCCESS>) 
 }
@@ -70,9 +78,9 @@ const QuantityStepper = ({ id, quantity }) => {
     }, [qty])
     return (
     <div className="stepper-buttons">
-        <Button.LIGHT action={increment}>-</Button.LIGHT>
+            <Button.SECONDARY action={increment} customColor="lightGray">-</Button.SECONDARY>
             <span className="btn btn-ligth">{qty}</span>
-        <Button.LIGHT action={decrement}>+</Button.LIGHT>
+            <Button.SECONDARY action={decrement} customColor="lightGray">+</Button.SECONDARY>
     </div>)
 }
 const CartTotal = ({ total_cart, discountedOffer }) => {

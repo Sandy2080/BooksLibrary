@@ -10,11 +10,11 @@ import { TrashButton, QuantityStepper } from './_components'
 
 const ProductInformation = ({ title, isbn, classNames }) =>  {
   return (<CardHeader
-    classNames={classNames}
-    title={title}
-    subTitle={isbn}
-    titleFontSize={isMobile ? "14" : "19"}
-    subTitleFontSize={isMobile ? "9" : "12"} />)
+            classNames={classNames}
+            title={title}
+            subTitle={isbn}
+            titleFontSize={isMobile ? "14" : "19"}
+            subTitleFontSize={isMobile ? "9" : "12"} />)
 }
 
 const UnitPrice = ({ price }) => (<Text.SEMIBOLD>€{price.toFixed(2)}</Text.SEMIBOLD>)
@@ -30,7 +30,7 @@ export const CartRow = ({ item }) => {
   return (
     <StyledCart>
       <StyledHalfBlock className="first-half">
-        <ProductImage {...details} width="80"  />
+        <ProductImage {...details} width="80" />
         <ProductInformation {...details}/>
         <UnitPrice {...details} />
       </StyledHalfBlock>

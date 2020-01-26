@@ -14,7 +14,8 @@ export const ButtonTheme = {
 export const ButtonColor = {
   PRIMARY: 'primary', 
   SUCCESS: 'success', 
-  LIGHT: 'LIGHT', 
+  SECONDARY: 'secondary', 
+  LIGHT: 'light', 
   INFO: 'info', 
   WARNING: 'warning',
   DANGER: 'danger',

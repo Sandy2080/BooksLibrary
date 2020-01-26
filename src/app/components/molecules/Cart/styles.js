@@ -25,7 +25,7 @@ export const StyledCart = styled.div`
 export const StyledHalfBlock = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-direction: row;
     margin: 20px auto;
     .stepper-input {
