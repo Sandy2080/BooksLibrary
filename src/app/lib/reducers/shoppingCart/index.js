@@ -1,6 +1,5 @@
 import { actions } from "../../actions/shoppingCart";
 import * as helpers from "../../../utils/helpers"
-
 const {
     ADD_TO_CART,
     SAVE_CART,
@@ -9,14 +8,24 @@ const {
     SET_CART_TOTAL,
     SET_DISCOUNT,
     CHECKOUT,
+    APPROVE_CART,
+    RESET_CART
 } = actions
-
+export const cartStatus = {
+    PENDING: "PENDING",
+    COMPLETE: "COMPLETE", 
+    APPROVED: "APPROVED", 
+    EMPTY: "EMPTY"
+};
 const ITEMS_KEY = "items"
+const items = helpers.getLocalStorage(ITEMS_KEY)
+const isEmpty = items.length < 0
+
 const initialState = {
-    isConfirmed: false,
+    cartStatus: isEmpty ? cartStatus.EMPTY : cartStatus.PENDING,
     total_cart: 0,
     discountedOffer: {},
-    items: helpers.getLocalStorage(ITEMS_KEY)
+    items: items
 };
 
 const shoppingCartReducer = (state = initialState, action) => {
@@ -24,6 +33,7 @@ const shoppingCartReducer = (state = initialState, action) => {
         case ADD_TO_CART:
             return {
                 ...state,
+                cartStatus: cartStatus.PENDING,
                 isConfirmed: false,
                 items: [...state.items, action.payload]
             };
@@ -57,15 +67,25 @@ const shoppingCartReducer = (state = initialState, action) => {
             helpers.saveToLocalStorage(ITEMS_KEY, action.payload.items)
             return { ...state, items: action.payload.items };
         case CHECKOUT:
+            return {
+                ...state, 
+                cartStatus: cartStatus.COMPLETE,
+        }
+        case APPROVE_CART:
+            return {
+                ...state,
+                cartStatus: cartStatus.APPROVED,
+            }
+        case RESET_CART:
             helpers.saveToLocalStorage(ITEMS_KEY, [])
             return {
+                ...state,
+                cartStatus: cartStatus.EMPTY,
                 total_cart: 0,
                 discountedOffer: {},
-                offers: [],
                 items: [],
-                isConfirmed: true
             }
-        default:
+        default:    
             return state;
     }
 };

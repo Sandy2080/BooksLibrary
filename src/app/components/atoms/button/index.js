@@ -97,6 +97,10 @@ Button.DANGER = props => {
   );
 };
 
+Button.LINK = props => {
+  return (<Button classNames="link" {...props}></Button>);
+};
+
 export {
   ButtonSize, 
   ButtonTheme

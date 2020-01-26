@@ -6,6 +6,8 @@ export const actions = {
     SET_CART_TOTAL: "SET_CART_TOTAL",
     SET_DISCOUNT: "SET_DISCOUNT",
     CHECKOUT: "CHECKOUT",
+    APPROVE_CART: "APPROVE_CART",
+    RESET_CART: "RESET_CART"
 };
 export const addToCart = item => {
     const uid = () =>
@@ -35,8 +37,6 @@ export const setTotalCart = () => {
     };
 };
 export const setDiscount = offers => {
-    console.log(`OFFERS ${offers}`)
-    debugger;
     return {
         type: actions.SET_DISCOUNT, 
         payload: { offers : offers }
@@ -51,5 +51,15 @@ export const saveCart = items => {
 export const checkout = () => {
     return {
         type: actions.CHECKOUT
+    };
+};
+export const approveCart = () => {
+    return {
+        type: actions.APPROVE_CART
+    };
+};
+export const resetCart = () => {
+    return {
+        type: actions.RESET_CART
     };
 };
