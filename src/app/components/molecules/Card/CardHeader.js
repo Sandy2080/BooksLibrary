@@ -12,19 +12,27 @@ const SubTitle = props => {
     const { subTitle, subTitleFontSize } = props
     return (<Text.SMALL color="gray" classNames="card-subtitle mb-2" fontSize={subTitleFontSize}>isbn: {subTitle}</Text.SMALL>)
 }
-export const CardHeader = props => {
+const PriceLabel = props => {
+    const { badge } = props
+    return (<Badge.INFO classNames="price-button"><Text.SEMIBOLD fontSize="20" className="price-badge">€{badge}</Text.SEMIBOLD></Badge.INFO>)
+}
+const CardHeader = props => {
     const { margin, badge } = props
     return (<StyledCardHeader margin={margin}>
                 <div className="row">
                     <div className="col-sm-1">
                         {badge != null && !isMobile && 
-                        <Badge.INFO><Text.SEMIBOLD fontSize="20" className="price-badge">€{badge}</Text.SEMIBOLD></Badge.INFO>}
+                        <PriceLabel {...props}/>}
                     </div>
                     <div className="col-sm-11">
                         <Title {...props} />
                         <SubTitle  {...props} />
                     </div>
                 </div>
-            </StyledCardHeader>)
+    </StyledCardHeader>)
+}
+export {
+    PriceLabel, 
+    CardHeader
 }
 

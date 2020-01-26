@@ -1,5 +1,5 @@
 import React from "react";
-import { CardHeader } from './CardHeader'
+import { CardHeader, PriceLabel } from './CardHeader'
 import { StyledCard } from './styles'
 
 const Card = ({ children }) => (
@@ -9,5 +9,5 @@ const Card = ({ children }) => (
         </div>
     </StyledCard>
 )
-export { CardHeader }
+export { CardHeader, PriceLabel }
 export default Card;

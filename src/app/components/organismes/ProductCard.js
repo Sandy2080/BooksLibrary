@@ -4,7 +4,7 @@ import { ProductImage } from '../atoms/image/Image'
 import Button, { ButtonSize, ButtonTheme } from '../atoms/button/index'
 import { isMobile } from '../../utils/hooks/useWindowDimensions';
 import { Text } from "../atoms/text"
-import Card, { CardHeader } from '../molecules/Card/index'
+import Card, { CardHeader, PriceLabel } from '../molecules/Card/index'
 import { addToCart } from "../../lib/actions/shoppingCart";
 import { StyledProductCard } from "./styles"
 
@@ -42,12 +42,13 @@ const ProductCard = ({ item }) => {
   const [isVisible, setVisible] = useState(false)
   const handleOnHover = (bool) => setVisible(bool)
   return (<Card>
+            {isMobile && <PriceLabel badge={item.price}/>}
             <ProductImage {...item} grid="col-sm-2" />
             <StyledProductCard className="col-sm " onMouseOver={() => handleOnHover(true)} onMouseLeave={() => handleOnHover(false)}>
               <ProductInformation item={item} />
               <AddToCartButton item={item} isVisible={isVisible}>Add to Cart</AddToCartButton>
             </StyledProductCard>
-        </Card>)
+          </Card>)
 }
 export default ProductCard;
 
