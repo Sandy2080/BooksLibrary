@@ -101,6 +101,12 @@ Button.LINK = props => {
   return (<Button classNames="link" {...props}></Button>);
 };
 
+Button.DISMISSIBLE = props => {
+  return (<Button type="button" classNames="close" data-dismiss="alert" aria-label="Close" {...props}>
+            <span aria-hidden="true">&times;</span>
+          </Button>)
+}
+
 export {
   ButtonSize, 
   ButtonTheme

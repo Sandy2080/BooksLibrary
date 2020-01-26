@@ -27,17 +27,16 @@ const Loading = () => {
   
 
 const StatusAlert = (props: any) => {
-  const { status, approveConfirmOrder}  = props
-
-
+  const { status, approveConfirmOrder, cancelCheckout }  = props
   if (status == COMPLETE) {
-    return (<Alert.CONFIRM
+    return (<Alert.DISMISSIBLE
       color={AlertColor.INFO}
       message="Do you wish to confirm your order ?"
-      action={{ name: approveConfirmOrder, text: "confirm order" }} />)
+      action={{ name: approveConfirmOrder, text: "confirm order" }}
+      dismissAction={cancelCheckout} />)
   }
   if (status == APPROVED) {
-    return (<Alert.DISMISSIBLE
+    return (<Alert.CONFIRM
       color={AlertColor.SUCCESS}
       message="Thank you for your order"
       secondary="You will be redirected to the Homepage is a few seconds ..." />)
@@ -53,8 +52,9 @@ export interface ICartProps {
 const Cart = (props: ICartProps & { 
   getOffers: (items: any[]) => void, 
   approveCart: () => void,
+  cancelCheckout: () => void,
   reset: () => void }) => {
-  const { items, getOffers, reset, status, approveCart, history } = props;
+  const { items, getOffers, reset, status, approveCart, cancelCheckout, history } = props;
   const loadOffers = useCallback(() => getOffers(items), [items, getOffers]);
   
   useEffect(() => {
@@ -76,9 +76,12 @@ const Cart = (props: ICartProps & {
  
   return (
     <Fragment>
-      <StatusAlert status={status} approveConfirmOrder={approveConfirmOrder} />
-       {status == cartStatus.APPROVED ? 
-         <Loading /> :
+      <StatusAlert 
+        status={status} 
+        approveConfirmOrder={approveConfirmOrder} 
+        cancelCheckout={cancelCheckout}/>
+          {status == cartStatus.APPROVED ? 
+          <Loading /> :
         <ShoppingCart {...props} />
       }
     </Fragment>

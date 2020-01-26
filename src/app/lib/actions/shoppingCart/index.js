@@ -6,6 +6,7 @@ export const actions = {
     SET_CART_TOTAL: "SET_CART_TOTAL",
     SET_DISCOUNT: "SET_DISCOUNT",
     CHECKOUT: "CHECKOUT",
+    CANCEL_CHECKOUT: "CANCEL_CHECKOUT",
     APPROVE_CART: "APPROVE_CART",
     RESET_CART: "RESET_CART"
 };
@@ -53,6 +54,11 @@ export const checkout = () => {
         type: actions.CHECKOUT
     };
 };
+export const cancelCheckout = () => {
+    return {
+        type: actions.CANCEL_CHECKOUT
+    }
+}
 export const approveCart = () => {
     return {
         type: actions.APPROVE_CART

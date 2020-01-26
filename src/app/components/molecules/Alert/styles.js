@@ -5,5 +5,7 @@ div {
     display: flex;
     justify-content: flex-start;
 }
-
+.close {
+    color: #34495e;
+}
 ` 

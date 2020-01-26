@@ -21,22 +21,17 @@ const Alert  = props => {
             </StyledAlert>)
 }
 
-Alert.CONFIRM = props => {
-    const { action, secondary } = props
+Alert.DISMISSIBLE = props => {
+    const { action, dismissAction} = props
     return (<Alert {...props} classNames="fade show">
                 <Button.INFO action={action.name}>{action.text}</Button.INFO>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <Button.DISMISSIBLE action={dismissAction}/>
             </ Alert>)
 }
 
-Alert.DISMISSIBLE = props => (
-    <Alert {...props} classNames="alert-dismissible fade show">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </Alert>
-)
+Alert.CONFIRM = props => {
+    return (<Alert {...props} classNames="alert-dismissible fade show"></Alert>)
+}
+
 export { AlertColor }
 export default Alert;

@@ -8,6 +8,7 @@ const {
     SET_CART_TOTAL,
     SET_DISCOUNT,
     CHECKOUT,
+    CANCEL_CHECKOUT,
     APPROVE_CART,
     RESET_CART
 } = actions
@@ -69,12 +70,17 @@ const shoppingCartReducer = (state = initialState, action) => {
         case CHECKOUT:
             return {
                 ...state, 
-                cartStatus: cartStatus.COMPLETE,
-        }
+                cartStatus: cartStatus.COMPLETE
+            }
+        case CANCEL_CHECKOUT:
+            return {
+                ...state,
+                cartStatus: cartStatus.PENDING
+            }
         case APPROVE_CART:
             return {
                 ...state,
-                cartStatus: cartStatus.APPROVED,
+                cartStatus: cartStatus.APPROVED
             }
         case RESET_CART:
             helpers.saveToLocalStorage(ITEMS_KEY, [])

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { fetchOffers } from "../../../api/fetchOffers";
-import { approveCart, resetCart } from "../../../lib/actions/shoppingCart"
+import { approveCart, cancelCheckout, resetCart } from "../../../lib/actions/shoppingCart"
 import Cart from "../presentation/Cart";
 
 const mapStateToProps = (state: any) => ({
@@ -10,6 +10,7 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: any) => ({
   getOffers: (items: any[]) => fetchOffers(items),
   approveCart: () => dispatch(approveCart()),
+  cancelCheckout: () => dispatch(cancelCheckout()),
   reset: () => dispatch(resetCart()), 
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
