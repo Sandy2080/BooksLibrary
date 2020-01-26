@@ -8,6 +8,12 @@ export const StyledCardHeader = styled.div`
         width: 80%;
         margin: 0 auto!important; 
     }
+    .price-badge {
+        margin: 10px 0;
+    }
+    p {
+       margin-top: -5px;
+    }
     @media screen and (max-width: 375px) {
         padding: 0 10px;
         .product-information {

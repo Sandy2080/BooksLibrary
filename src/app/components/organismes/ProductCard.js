@@ -26,12 +26,13 @@ const AddToCartButton = ({ item, children, isVisible }) => {
     </div>
   );
 }
-const ProductInformation = ({ item, fontSize }) => {
-  const { title, isbn, synopsis } = item
+const ProductInformation = ({ item }) => {
+  const { title, isbn, price, synopsis } = item
   return (<Fragment>
             <CardHeader 
               title={title} 
               subTitle={isbn} 
+              badge={price}
               titleFontSize={isMobile ? "17" : "32"} 
               subTitleFontSize={isMobile ? "11" : "13"} />
             <Text.TRUNCATED>{synopsis}</Text.TRUNCATED>
@@ -41,13 +42,12 @@ const ProductCard = ({ item }) => {
   const [isVisible, setVisible] = useState(false)
   const handleOnHover = (bool) => setVisible(bool)
   return (<Card>
-    <ProductImage {...item} grid="col-sm-2" />
-    <StyledProductCard className="col-sm " onMouseOver={() => handleOnHover(true)} onMouseLeave={() => handleOnHover(false)}>
-      <ProductInformation item={item} />
-      <AddToCartButton item={item} isVisible={isVisible}>Add to Cart</AddToCartButton>
-    </StyledProductCard>
-  </Card>)
+            <ProductImage {...item} grid="col-sm-2" />
+            <StyledProductCard className="col-sm " onMouseOver={() => handleOnHover(true)} onMouseLeave={() => handleOnHover(false)}>
+              <ProductInformation item={item} />
+              <AddToCartButton item={item} isVisible={isVisible}>Add to Cart</AddToCartButton>
+            </StyledProductCard>
+        </Card>)
 }
-
 export default ProductCard;
 
