@@ -35,12 +35,18 @@ const Cart = (props: ICartProps & {
   reset: () => void }) => {
   const { items, getOffers, reset, status, approveCart, cancelCheckout, history } = props;
   const loadOffers = useCallback(() => getOffers(items), [items, getOffers]);
-  
+  const scrollToTop = (bool: Boolean) => {
+    if (bool) {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }
+  }
   useEffect(() => {
       loadOffers()
-      if (status === cartStatus.COMPLETE) {
-        window.scrollTo(0, 0);
-      }
+      scrollToTop(status === cartStatus.COMPLETE);
   }, [items, loadOffers, status]);
 
   const approveConfirmOrder = () => {

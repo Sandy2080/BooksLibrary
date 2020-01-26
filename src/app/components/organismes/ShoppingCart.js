@@ -1,10 +1,16 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom" 
 import { CartBody } from "../molecules/Cart/CartBody";
 import { CartFooter }  from "../molecules/Cart/CartFooter";
 import { StyledCard } from "../molecules/Card/styles"
 import { Title } from "../atoms";
 
-const CartEmpty = () => <Title.BOLD color="#666">Your cart is empty</Title.BOLD>
+const CartEmpty = () => (
+  <Fragment>
+    <Title.BOLD color="#666">Your cart is empty</Title.BOLD>
+    <Link to="/">Back to Homepage</Link>
+  </Fragment>
+);
 const ShoppingCart = ({ items }) => {
    const isEmpty = items.length === 0
 
