@@ -6,7 +6,7 @@ import { removeFromCart } from "../../../lib/actions/shoppingCart";
 import { Text } from "../../atoms/text"; 
 import { StyledCart, StyledHalfBlock } from './styles'
 import { CardHeader } from '../Card'
-import { TrashButton, QuantityInput } from './_components'
+import { TrashButton, QuantityInput, QuantityStepper } from './_components'
 
 const ProductInformation = ({ title, isbn, classNames }) =>  {
   return (<CardHeader
@@ -36,7 +36,8 @@ export const CartRow = ({ item }) => {
       </StyledHalfBlock>
 
       <StyledHalfBlock className="second-half">
-        <QuantityInput {...item} />
+        {/* <QuantityInput {...item} /> */}
+        <QuantityStepper {...item} /> 
         <PriceTotal quantity={quantity} {...details} />
         <TrashButton remove={remove} /> 
       </StyledHalfBlock>

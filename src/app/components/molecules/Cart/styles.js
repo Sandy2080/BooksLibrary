@@ -25,11 +25,14 @@ export const StyledCart = styled.div`
 export const StyledHalfBlock = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-direction: row;
     margin: 20px auto;
     .stepper-input {
       width: 60%; 
+    }
+    .stepper-buttons { 
+      width: 100%;
     }
     &.second-half { 
       p {
@@ -40,20 +43,21 @@ export const StyledHalfBlock = styled.div`
     
     @media screen and (min-width: 1024px) {
     &.first-half {
-      margin-right: 20px!important; 
+      margin-right: 40px!important; 
     }
     &.second-half {
-      div: first-child {
-        margin: 0 auto
-      }
       .stepper-input {
          margin: 0 0 0 80px;
       }
+      .stepper-buttons {
+        width: 60%;
+        display: inline-block;
+        margin: 0 auto;
+        text-align: center;
+      }
     }
     @media screen and (max-width: 768px) {
-      &.first-half { 
-        margin : 0 20px;
-      }
+     
       margin-top: 20px;
     }
 `
@@ -90,4 +94,7 @@ padding-bottom: 20px;
         vertical-align: bottom;
       }
   }
+`
+export const StyledStepperButtons = styled.div` 
+  display
 `

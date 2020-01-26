@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateCart, checkout } from "../../../lib/actions/shoppingCart";
@@ -58,6 +58,28 @@ const QuantityInput = ({ id, quantity }) => {
             </Input.STEPPER>
         </div>)
 }
+
+const QuantityStepper = ({ id, quantity }) => {
+    const dispatch = useDispatch();
+    const update = () => dispatch(updateCart(id, qty))
+    const [qty, setQty] = useState(quantity)
+    useEffect(() => {
+        update()
+    }, [qty])
+    return (
+        <div className="stepper-buttons">
+        <button
+            type="button"
+                className="btn btn-light qty"
+            onClick={() => qty >= 2 && setQty(qty - 1)}>-</button>
+        <span className="btn btn-ligth">{qty}</span>
+        <button
+            type="button"
+            className="btn btn-light"
+            onClick={() => setQty(qty + 1)}
+        >+</button>
+        </div>)
+}
 const CartTotal = ({ total_cart, discountedOffer }) => {
     const { type, value, discountValue } = discountedOffer
     const isMinus = type === "minus", isSlice = type === "slice"
@@ -80,5 +102,6 @@ export {
     CartTotal, 
     TrashButton,
     CartButtons,    
-    QuantityInput
+    QuantityInput, 
+    QuantityStepper
 }
