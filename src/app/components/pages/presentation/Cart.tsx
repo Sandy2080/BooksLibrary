@@ -38,7 +38,10 @@ const Cart = (props: ICartProps & {
   
   useEffect(() => {
       loadOffers()
-  }, [items, loadOffers]);
+      if (status === cartStatus.COMPLETE) {
+        window.scrollTo(0, 0);
+      }
+  }, [items, loadOffers, status]);
 
   const approveConfirmOrder = () => {
     approveCart()

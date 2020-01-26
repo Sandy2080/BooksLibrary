@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { isMobile } from "../../../utils/hooks/useWindowDimensions"
@@ -11,13 +11,13 @@ import { Text } from "../../atoms/text"
 import { StyledCartRow } from './styles'
 import { StyledCartButtons } from "./styles"
 
-const { SMALL } = ButtonSize
+const { SMALL, MEDIUM } = ButtonSize
 
 const ShoppingButton = () => (
     <Link to="/"> 
         <Button.INFO 
             theme={ButtonTheme.ROUNDED} 
-            size={isMobile && SMALL}> 
+            size={isMobile ? SMALL : MEDIUM}> 
             <Icon.CHEVRON_LEFT /> &nbsp; Continue Shopping 
         </Button.INFO> 
     </Link>
@@ -29,7 +29,7 @@ const CheckoutButton = () => {
         e.preventDefault() 
     }
     return (<Button.SUCCESS 
-                size={isMobile && SMALL} 
+                size={isMobile ? SMALL : MEDIUM} 
                 theme={ButtonTheme.ROUNDED} 
                 action={handleCheckout} >
                 Checkout&nbsp; <Icon.CHEVRON_RIGHT /> 
@@ -69,13 +69,15 @@ const QuantityInput = ({ id, quantity }) => {
 const QuantityStepper = ({ id, quantity }) => {
     const dispatch = useDispatch();
     const [qty, setQty] = useState(quantity)
-    const update = () => dispatch(updateCart(id, qty))
+    const update = useCallback(() => {
+        dispatch(updateCart(id, qty))
+    }, [qty, dispatch, id])
     const increment = () => qty >= 2 && setQty(qty - 1)
     const decrement = () => setQty(qty + 1)
     
     useEffect(() => {
-        update()
-    }, [qty])
+      update();
+    }, [qty, update]);
     return (
     <div className="stepper-buttons">
             <Button.SECONDARY action={increment} customColor="lightGray">-</Button.SECONDARY>

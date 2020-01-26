@@ -1,0 +1,54 @@
+{
+    "extends": [
+        "airbnb",
+        "plugin:prettier/recommended",
+        "prettier/react"
+    ],
+    "env": {
+        "browser": true,
+        "jest/globals": true
+    },
+    "plugins": [
+        "jest",
+        "prettier",
+        "react-hooks"
+    ],
+    "rules": {
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "func-names": [
+            "error",
+            "never"
+        ],
+        "import/prefer-default-export": "off",
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": true
+            }
+        ],
+        "react/destructuring-assignment": "off",
+        "prettier/prettier": "error",
+        "react/jsx-props-no-spreading": 0
+    },
+    "overrides": [
+        {
+            "rules": {
+                "react/prop-types": "off"
+            }
+        }
+    ],
+    "globals": {
+        "renderWithRedux": true,
+        "resizeWindow": true
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": [
+                    "src"
+                ]
+            }
+        }
+    }
+}

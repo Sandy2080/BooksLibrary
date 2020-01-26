@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 let isMobile;
 export default function useWindowDimensions() {
 
     const hasWindow = typeof window !== 'undefined';
-    function getWindowDimensions() {
+    const getWindowDimensions = useCallback(() => {
         const width = hasWindow ? window.innerWidth : null;
         const height = hasWindow ? window.innerHeight : null;
         isMobile = width < 640
@@ -11,8 +11,8 @@ export default function useWindowDimensions() {
             width,
             height,
             isMobile
-        };
-    }
+        }
+    },[hasWindow])
    
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     useEffect(() => {
@@ -24,7 +24,7 @@ export default function useWindowDimensions() {
             window.addEventListener('resize', handleResize);
             return () => window.removeEventListener('resize', handleResize);
         }
-    }, [hasWindow]);
+    }, [hasWindow, getWindowDimensions]);
 
     return windowDimensions;
 }

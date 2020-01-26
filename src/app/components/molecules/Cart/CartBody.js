@@ -8,11 +8,11 @@ export const CartBody = ({ items }) => {
     <StyledCard className="card-body">
         {items.map((item, index) => {
             return (
-            <Fragment>
-                <CartRow key={index} item={item} />
+              <Fragment key={index}>
+                <CartRow item={item} />
                 <Divider spacing="20" />
-            </Fragment>
-            )
+              </Fragment>
+            );
         })}
      </StyledCard>)
 }

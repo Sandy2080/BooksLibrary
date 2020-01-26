@@ -1,14 +1,13 @@
 class Offer {
-    type: string;
-    value: number;
-    sliceValue?: number;
-    constructor(obj: any) {
-      this.type = obj.type;
-      this.value = obj.value;
-      this.sliceValue = obj.sliceValue && obj.sliceValue;
-    }
+  type: string;
+  value: number;
+  sliceValue?: number;
+  constructor(protected obj: any) {
+    this.type = obj.type;
+    this.value = obj.value;
+    this.sliceValue = obj.sliceValue && obj.sliceValue;
+  }
 }
-
 class CommercialOffer extends Offer {
   discountValue: number = 0
   constructor(offer: Offer) { 
