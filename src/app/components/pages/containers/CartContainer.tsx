@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { fetchOffers } from "../../../api/fetchOffers";
-import { checkout } from "../../../lib/actions/shoppingCart/cart"
+import { checkout } from "../../../lib/actions/shoppingCart"
 import Cart from "../presentation/Cart";
 
 const mapStateToProps = (state: any) => ({

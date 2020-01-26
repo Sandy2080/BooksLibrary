@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import useWindowDimensions from '../../utils/hooks/useWindowDimensions';
-import { saveCart } from "../../lib/actions/shoppingCart/cart";
+import { saveCart } from "../../lib/actions/shoppingCart";
 import { ShoppingBag } from "../molecules/ShoppingBag"
 import Navbar, { NavbarPlacement } from "../atoms/nav"
 import { SubTitle, Text } from "../atoms/text" 

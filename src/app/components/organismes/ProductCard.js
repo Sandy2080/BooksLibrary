@@ -5,7 +5,7 @@ import Button, { ButtonSize, ButtonTheme } from '../atoms/button/index'
 import { isMobile } from '../../utils/hooks/useWindowDimensions';
 import { Text } from "../atoms/text"
 import Card, { CardHeader } from '../molecules/Card/index'
-import { addToCart } from "../../lib/actions/shoppingCart/cart";
+import { addToCart } from "../../lib/actions/shoppingCart";
 import { StyledProductCard } from "./styles"
 
 const AddToCartButton = ({ item, children }) => {

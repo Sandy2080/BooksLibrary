@@ -1,7 +1,7 @@
 import {
   setTotalCart,
   setDiscount
-} from "../lib/actions/shoppingCart/cart";
+} from "../lib/actions/shoppingCart";
 import {
   fetchOffersPending,
   fetchOffersSuccess,
@@ -19,10 +19,11 @@ export function fetchOffers(items) {
     .then(res => {
       const offers = res['offers']
       store.dispatch(fetchOffersSuccess(offers))
+      return offers
     })
-    .then(() => {
+    .then(offers => {
       store.dispatch(setTotalCart());
-      store.dispatch(setDiscount())
+      store.dispatch(setDiscount(offers))
     })
     .catch(error => dispatch => dispatch(fetchOffersError(error)));
   }
