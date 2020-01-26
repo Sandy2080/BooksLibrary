@@ -1,7 +1,15 @@
-import {  fetchBooksPending, fetchBooksSuccess, fetchBooksError } from '../lib/actions/bookStore'
 import { store } from "../lib/store";
-import { Request, Endpoint } from "./service";
-const { Book, Offer } = Endpoint;
+import {  
+    fetchBooksPending, 
+    fetchBooksSuccess, 
+    fetchBooksError 
+} from '../lib/actions/bookStore'
+import { 
+    Request, 
+    Endpoint 
+} from "./service";
+
+const { Book } = Endpoint;
 
 export function fetchBooks() {
     store.dispatch(fetchBooksPending());

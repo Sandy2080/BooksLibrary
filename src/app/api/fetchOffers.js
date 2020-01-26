@@ -1,3 +1,8 @@
+import { store } from "../lib/store";
+import { 
+  Request, 
+  Endpoint 
+} from "./service";
 import {
   setTotalCart,
   setDiscount
@@ -7,8 +12,7 @@ import {
   fetchOffersSuccess,
   fetchOffersError,
 } from "../lib/actions/shoppingCart/commercialOffers";
-import { store } from "../lib/store";
-import { Request, Endpoint } from "./service";
+
 const { Offer } = Endpoint
 
 export function fetchOffers(items) {

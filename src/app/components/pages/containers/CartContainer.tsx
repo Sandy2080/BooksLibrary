@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchOffers } from "../../../api/fetchOffers";
+import { fetchOffers } from "../../../api/fetchOffers"; 
 import { approveCart, cancelCheckout, resetCart } from "../../../lib/actions/shoppingCart"
 import Cart from "../presentation/Cart";
 

@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import * as React from "react";
+import PropTypes from "prop-types";
 import classnames from "classnames";
 import { NavbarColor, NavbarTheme, NavbarPlacement } from "./types";
 import { StyledNavbar } from "./styles"
@@ -26,16 +26,8 @@ const Navbar = props => {
             <div class="collapse navbar-collapse" id={id}>
                 {children}
             </div>
-        </StyledNavbar>
-    );
+        </StyledNavbar>);
 }
-
-Navbar.propTypes = {
-    id: PropTypes.string,
-    theme: PropTypes.string,
-    color: PropTypes.string,
-    placement: PropTypes.string,
-};
 
 Navbar.LIGHT = (props) => {
     return (
@@ -46,7 +38,6 @@ Navbar.LIGHT = (props) => {
         ></Navbar>
     );
 }
-
 Navbar.DARK = (props) => {
     return (
         <Navbar
@@ -56,6 +47,13 @@ Navbar.DARK = (props) => {
         ></Navbar>
     );
 }
+Navbar.propTypes = {
+    id: PropTypes.string,
+    theme: PropTypes.string,
+    color: PropTypes.string,
+    placement: PropTypes.string,
+};
+
 export {
     NavbarColor, 
     NavbarTheme, 

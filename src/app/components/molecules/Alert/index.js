@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
-import { StyledAlert } from "./styles";
 import Button from "../../atoms/button";
+import { StyledAlert } from "./styles";
 import { AlertColor } from "./types"
 import { Text } from "../../atoms/text";
 
@@ -28,10 +28,8 @@ Alert.DISMISSIBLE = props => {
                 <Button.DISMISSIBLE action={dismissAction}/>
             </ Alert>)
 }
-
 Alert.CONFIRM = props => {
     return (<Alert {...props} classNames="alert-dismissible fade show"></Alert>)
 }
-
 export { AlertColor }
 export default Alert;

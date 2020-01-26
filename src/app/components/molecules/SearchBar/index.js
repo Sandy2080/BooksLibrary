@@ -8,7 +8,7 @@ const SearchBar = () => {
     const dispatch = useDispatch()
     const { SHOW_ALL, SHOW_FILTERED } = visibilityFilters
     const handleInputChange = input => dispatch(setFilter(!input.length ? SHOW_ALL : SHOW_FILTERED, input))
-    const attributes = { 'placeholder': 'Search ...', 'type': 'text', 'aria': 'searcg' }
+    const attributes = { 'placeholder': 'Search ...', 'type': 'text', 'aria': 'search' }
     return (
     <StyledSearchBar>
         <Input.LARGE 
@@ -19,5 +19,4 @@ const SearchBar = () => {
         </Input.LARGE> 
     </StyledSearchBar>)
  }
-
 export default SearchBar;

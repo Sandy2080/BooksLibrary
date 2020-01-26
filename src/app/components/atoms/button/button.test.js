@@ -8,7 +8,6 @@ describe('Button Primary', () => {
     expect(tree).toMatchSnapshot();
   });
 });
-
 describe("Button Rounded", () => {
   it("renders correctly when button is ROUNDED and LARGE", () => {
     const tree = renderer

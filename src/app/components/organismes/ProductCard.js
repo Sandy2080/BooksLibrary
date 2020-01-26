@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
-import { ProductImage } from '../atoms/image/Image'
-import Button, { ButtonSize, ButtonTheme } from '../atoms/button/index'
 import { isMobile } from '../../utils/hooks/useWindowDimensions';
-import { Text } from "../atoms/text"
-import Card, { CardHeader, PriceLabel } from '../molecules/Card/index'
 import { addToCart } from "../../lib/actions/shoppingCart";
+import Card, { CardHeader, BadgeLabel } from '../molecules/Card/index'
+import Button, { ButtonSize, ButtonTheme } from '../atoms/button/index'
+import { ProductImage } from '../atoms/image/Image'
+import { Text } from "../atoms/text"
 import { StyledProductCard } from "./styles"
 
 const AddToCartButton = ({ item, children, isVisible }) => {
@@ -38,11 +38,11 @@ const ProductInformation = ({ item }) => {
             <Text.TRUNCATED>{synopsis}</Text.TRUNCATED>
           </Fragment>)
 }
-const ProductCard = ({ item }) => {
+export const ProductCard = ({ item }) => {
   const [isVisible, setVisible] = useState(false)
   const handleOnHover = (bool) => setVisible(bool)
   return (<Card>
-            {isMobile && <PriceLabel badge={item.price}/>}
+            {isMobile && <BadgeLabel badge={item.price}/>}
             <ProductImage {...item} grid="col-sm-2" />
             <StyledProductCard className="col-sm " onMouseOver={() => handleOnHover(true)} onMouseLeave={() => handleOnHover(false)}>
               <ProductInformation item={item} />
@@ -50,5 +50,5 @@ const ProductCard = ({ item }) => {
             </StyledProductCard>
           </Card>)
 }
-export default ProductCard;
+
 

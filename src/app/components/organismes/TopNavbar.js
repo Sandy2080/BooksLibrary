@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import useWindowDimensions from '../../utils/hooks/useWindowDimensions';
+import Navbar, { NavbarPlacement } from "../atoms/nav"
 import { saveCart } from "../../lib/actions/shoppingCart";
 import { ShoppingBag } from "../molecules/ShoppingBag"
-import Navbar, { NavbarPlacement } from "../atoms/nav"
 import { SubTitle, Text } from "../atoms/text" 
 
 export const TopNavbar =  (props) => {

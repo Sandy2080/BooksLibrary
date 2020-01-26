@@ -13,16 +13,16 @@ export const StyledCard = styled.div`
    }
 `
 export const StyledCardHeader = styled.div`
-    .product-information {
+   p {
+      margin-top: -5px;
+   } 
+   .product-information {
       width: 80%;
       margin: 0 auto!important; 
-    }
-    .price-badge {
+   }
+   .price-badge {
       margin: 10px 0;
-    }
-    p {
-      margin-top: -5px;
-    }
+   }
     @media screen and (max-width: 375px) {
       .row {
          margin: 0 

@@ -1,4 +1,3 @@
-
 export const IconType = {
   DEFAULT: "fa-question",
   SHOPPING_BAG: "fa-shopping-bag",
@@ -6,7 +5,6 @@ export const IconType = {
   CHEVRON_RIGHT: "fa-chevron-right", 
   TRASH: "fa-trash"
 };
-
 export const IconSize = {
     XSMALL: "fa-xs",
     SMALL: "fa-sm",

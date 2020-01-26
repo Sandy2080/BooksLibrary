@@ -11,7 +11,6 @@ export const CartFooter = () => {
     ...state.shoppingCartReducer
    }));
   const { isPending } = props
-
   return (
     <Fragment>
       {!isPending &&

@@ -1,8 +1,10 @@
 import React, { Fragment, useEffect, useCallback } from "react";
-import Library from "../../organismes/Library";
 import SearchBar from "../../molecules/SearchBar"
-import { Book } from "../../../models/Book";
-import { Offer } from "../../../models/Offer";
+import { Library } from "../../organismes/";
+import {
+  Book, 
+  Offer
+} from "../../../models/"
 
 export interface IHomeProps { 
   items: any; 

@@ -34,13 +34,10 @@ export class Request {
             statusText: string | undefined;
             json: () => unknown;
           }) => {
-            if (response.ok) {
-              onSuccess(response.json());
-            }
-            throw Error(response.statusText);
+            if (!response.ok) { throw Error(response.statusText);  }
+            onSuccess(response.json());
           }
-        )
-        .catch((e: any) => onFailure(e));
+        ).catch((e: any) => onFailure(e));
     });
   };
 }

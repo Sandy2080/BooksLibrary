@@ -32,31 +32,14 @@ const Button = props => {
   );
 };
 
-Button.propTypes = {
-  type: PropTypes.string.isRequired,
-  theme: PropTypes.string,
-  color: PropTypes.string,
-  customColor: PropTypes.string,
-  size: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
-  disabled: PropTypes.bool.isRequired
-};
-
-Button.defaultProps = {
-  type: ButtonType.BUTTON,
-  disabled: false,
-  theme: ButtonTheme.DEFAULT,
-  onClick: () => { }
-};
-
 Button.PRIMARY = (props) => {
-    return (
-      <Button
-        type={ButtonType.BUTTON}
-        color={ButtonColor.PRIMARY}
-        {...props}
-      ></Button>
-    );
+  return (
+    <Button
+      type={ButtonType.BUTTON}
+      color={ButtonColor.PRIMARY}
+      {...props}
+    ></Button>
+  );
 }
 Button.LIGHT = (props) => {
   return (
@@ -103,8 +86,7 @@ Button.WARNING = props => {
       {...props}
     ></Button>
   );
-};
-
+}
 Button.DANGER = props => {
   return (
     <Button
@@ -114,16 +96,30 @@ Button.DANGER = props => {
     ></Button>
   );
 };
-
 Button.LINK = props => {
   return (<Button classNames="link" {...props}></Button>);
 };
-
 Button.DISMISSIBLE = props => {
   return (<Button type="button" classNames="close" data-dismiss="alert" aria-label="Close" {...props}>
-            <span aria-hidden="true">&times;</span>
-          </Button>)
+    <span aria-hidden="true">&times;</span>
+  </Button>)
 }
+
+Button.propTypes = {
+  type: PropTypes.string.isRequired,
+  theme: PropTypes.string,
+  color: PropTypes.string,
+  customColor: PropTypes.string,
+  size: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+  disabled: PropTypes.bool.isRequired
+};
+Button.defaultProps = {
+  type: ButtonType.BUTTON,
+  disabled: false,
+  theme: ButtonTheme.DEFAULT,
+  onClick: () => { }
+};
 
 export {
   ButtonSize, 

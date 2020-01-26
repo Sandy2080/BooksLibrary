@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import { CartRow } from "../../molecules/Cart/CartRow";
 import Divider from "../../atoms/divider"
+import { CartRow } from "../../molecules/Cart/CartRow";
 import { StyledCard } from "../Card/styles";
 
 export const CartBody = ({ items }) => {

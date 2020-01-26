@@ -33,10 +33,10 @@ Icon.TRASH = props => {
 
 Icon.propTypes = {
   color: PropTypes.string, 
+  classNames: PropTypes.string, 
   type: PropTypes.string.isRequired, 
   size: IconSize.isRequired
 };
-
 Icon.defaultProps = {   
   type: IconType.DEFAULT,
   size: IconSize.LARGE, 

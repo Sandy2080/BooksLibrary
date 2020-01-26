@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { isMobile } from "../../../utils/hooks/useWindowDimensions"
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { isMobile } from "../../../utils/hooks/useWindowDimensions"
 import { updateCart, checkout } from "../../../lib/actions/shoppingCart";
-import { Text } from "../../atoms/text"
 import Button, { ButtonTheme, ButtonSize } from "../../atoms/button";
 import Icon from "../../atoms/icon"
 import Input, { InputSize } from "../../atoms/input"
 import Divider from "../../atoms/divider";
+import { Text } from "../../atoms/text"
 import { StyledCartRow } from './styles'
 import { StyledCartButtons } from "./styles"
 

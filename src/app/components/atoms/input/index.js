@@ -1,8 +1,8 @@
 import * as React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { InputSize, InputTheme } from "./types";
 import { StyledInput } from "./styles"
+import { InputSize, InputTheme } from "./types";
 
 const Input = props => {
     const {
@@ -15,8 +15,6 @@ const Input = props => {
         placeholder,
         aria,
         defaultValue,
-        max,
-        min,
     } = props;
     const classProps = classnames(size, classNames);
     return (
@@ -28,22 +26,9 @@ const Input = props => {
             placeholder={placeholder}
             aria-label={aria}
             defaultValue={defaultValue}
-            min="1"
             border={border}>
         </StyledInput>
     );
-};
-
-Input.propTypes = {
-    border: PropTypes.string,
-    theme: PropTypes.string,
-    size: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
-};
-Input.defaultProps = {
-    disabled: false,
-    theme: InputTheme.DEFAULT,
-    onChange: () => { }
 };
 
 Input.SMALL = (props) => {
@@ -69,9 +54,20 @@ Input.STEPPER = props => {
             type="number"
             {...props}
             >
-        </Input>
-    )
+        </Input>)
 }
+
+Input.propTypes = {
+    border: PropTypes.string,
+    theme: PropTypes.string,
+    size: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+};
+Input.defaultProps = {
+    disabled: false,
+    theme: InputTheme.DEFAULT,
+    onChange: () => { }
+};
 
 export {
    InputTheme, 

@@ -22,7 +22,6 @@ export const Title = props => {
 Title.SEMIBOLD = props => <StyledTitle fontWeight="600" {...props}>{props.children}</StyledTitle >;
 Title.BOLD = props => <StyledTitle fontWeight="700" {...props}>{props.children}</StyledTitle >;
 Title.SUPERBOLD = props => <StyledTitle fontWeight="800" {...props}>{props.children}</StyledTitle >;
-
 Text.propTypes = {
     color: PropTypes.string,
     fontSize: PropTypes.string,

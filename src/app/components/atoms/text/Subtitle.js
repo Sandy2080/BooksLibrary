@@ -13,7 +13,6 @@ export const SubTitle = props => {
     const classProps = classnames(classNames);
     return (<StyledSubtitle margin={margin} className={classProps} color={color}>{children}</StyledSubtitle >)
 }
-
 SubTitle.propTypes = {
     color: PropTypes.string,
 };

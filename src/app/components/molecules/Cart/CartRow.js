@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { removeFromCart } from "../../../lib/actions/shoppingCart";
 import { isMobile } from '../../../utils/hooks/useWindowDimensions';
 import { ProductImage } from "../../atoms/image/Image";
-import { removeFromCart } from "../../../lib/actions/shoppingCart";
 import { Text } from "../../atoms/text"; 
 import { StyledCart, StyledHalfBlock } from './styles'
 import { CardHeader } from '../Card'
@@ -16,7 +16,6 @@ const ProductInformation = ({ title, isbn, classNames }) =>  {
             titleFontSize={isMobile ? "14" : "19"}
             subTitleFontSize={isMobile ? "9" : "12"} />)
 }
-
 const UnitPrice = ({ price }) => (<Text.SEMIBOLD>€{price.toFixed(2)}</Text.SEMIBOLD>)
 const PriceTotal = ({ price, quantity }) => (<Text.BOLD>€{(price * quantity).toFixed(2)}</Text.BOLD>)
 
@@ -26,7 +25,6 @@ export const CartRow = ({ item }) => {
   const remove = () => {
     dispatch(removeFromCart(id))
   }
-
   return (
     <StyledCart>
       <StyledHalfBlock className="first-half">
