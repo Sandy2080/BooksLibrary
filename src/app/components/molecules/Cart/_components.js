@@ -58,27 +58,22 @@ const QuantityInput = ({ id, quantity }) => {
             </Input.STEPPER>
         </div>)
 }
-
 const QuantityStepper = ({ id, quantity }) => {
     const dispatch = useDispatch();
-    const update = () => dispatch(updateCart(id, qty))
     const [qty, setQty] = useState(quantity)
+    const update = () => dispatch(updateCart(id, qty))
+    const increment = () => qty >= 2 && setQty(qty - 1)
+    const decrement = () => setQty(qty + 1)
+    
     useEffect(() => {
         update()
     }, [qty])
     return (
-        <div className="stepper-buttons">
-        <button
-            type="button"
-                className="btn btn-light qty"
-            onClick={() => qty >= 2 && setQty(qty - 1)}>-</button>
-        <span className="btn btn-ligth">{qty}</span>
-        <button
-            type="button"
-            className="btn btn-light"
-            onClick={() => setQty(qty + 1)}
-        >+</button>
-        </div>)
+    <div className="stepper-buttons">
+        <Button.LIGHT action={increment}>-</Button.LIGHT>
+            <span className="btn btn-ligth">{qty}</span>
+        <Button.LIGHT action={decrement}>+</Button.LIGHT>
+    </div>)
 }
 const CartTotal = ({ total_cart, discountedOffer }) => {
     const { type, value, discountValue } = discountedOffer

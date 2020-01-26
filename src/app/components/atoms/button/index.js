@@ -58,6 +58,15 @@ Button.PRIMARY = (props) => {
       ></Button>
     );
 }
+Button.LIGHT = (props) => {
+  return (
+    <Button
+      type={ButtonType.BUTTON}
+      color={ButtonColor.LIGHT}
+      {...props}
+    ></Button>
+  );
+}
 Button.INFO = props => {
   return (
     <Button

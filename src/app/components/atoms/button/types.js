@@ -12,11 +12,12 @@ export const ButtonTheme = {
 }
 
 export const ButtonColor = {
-    PRIMARY: 'primary', 
-    SUCCESS: 'success', 
-    INFO: 'info', 
-    WARNING: 'warning',
-    DANGER: 'danger',
+  PRIMARY: 'primary', 
+  SUCCESS: 'success', 
+  LIGHT: 'LIGHT', 
+  INFO: 'info', 
+  WARNING: 'warning',
+  DANGER: 'danger',
 }
 
 export const ButtonSize = {

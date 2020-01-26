@@ -40,7 +40,6 @@ export const StyledHalfBlock = styled.div`
         text-align: center;
       }
     }
-    
     @media screen and (min-width: 1024px) {
     &.first-half {
       margin-right: 40px!important; 
@@ -57,7 +56,6 @@ export const StyledHalfBlock = styled.div`
       }
     }
     @media screen and (max-width: 768px) {
-     
       margin-top: 20px;
     }
 `
@@ -94,7 +92,4 @@ padding-bottom: 20px;
         vertical-align: bottom;
       }
   }
-`
-export const StyledStepperButtons = styled.div` 
-  display
 `
