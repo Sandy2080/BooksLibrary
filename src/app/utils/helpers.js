@@ -8,8 +8,8 @@ export const checkout = items => {
 
 export const calculateBestOffer = (subTotal, offers) => {
     let commercialOffers = offers.map(offer => {
-        let commercialOffer = new CommercialOffer(offer)
-        commercialOffer.calculate(subTotal, offer)
+        let commercialOffer = new CommercialOffer(offer, subTotal)
+
         return commercialOffer
     });
     commercialOffers = commercialOffers.filter(offer => offer.discountValue !== 0)

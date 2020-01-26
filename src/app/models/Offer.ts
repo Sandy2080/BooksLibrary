@@ -9,31 +9,37 @@ class Offer {
   }
 }
 class CommercialOffer extends Offer {
-  discountValue: number = 0
-  constructor(offer: Offer) { 
-    super(offer); 
+  discountValue: number = 0;
+  constructor(offer: Offer, total: number) {
+    super(offer);
+    this.calculate(total);
   }
-  calculate = (total: number, offer: Offer) => {
-    switch (offer.type) {
-      case "percentage": return this.percentage(total) 
-      case "minus": return this.minus()
-      case "slice": return this.slice(total)
-      default: return false
+  protected calculate = (total: number) => {
+    switch (this.type) {
+      case 'percentage':
+        return this.percentage(total);
+      case 'minus':
+        return this.minus();
+      case 'slice':
+        return this.slice(total);
+      default:
+        return false;
     }
-  }
-  percentage = (price: number) => {
+  };
+  protected percentage = (price: number) => {
     this.discountValue = (price * this.value) / 100;
-  }
-  minus = () => {
-    this.discountValue = this.value
-  }
-  slice = (price: number) => {
-    if (!this.sliceValue || price < this.sliceValue) { return }
+  };
+  protected minus = () => {
+    this.discountValue = this.value;
+  };
+  protected slice = (price: number) => {
+    if (!this.sliceValue || price < this.sliceValue) {
+      return;
+    }
     const slices = price / this.sliceValue;
-    this.discountValue = slices * this.value
+    this.discountValue = slices * this.value;
   };
 }
-
 export {
   Offer, 
   CommercialOffer
