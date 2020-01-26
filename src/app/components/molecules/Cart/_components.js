@@ -31,8 +31,12 @@ const CartButtons = () =>
 
 const TrashButton = ({ remove }) => 
     (<div>
-        <Button.DANGER action={remove} size={ButtonSize.SMALL} classNames="float-right trash-button">
-            <Icon.TRASH color="#dc3545" />
+        <Button.DANGER 
+            customColor="tomato"
+            action={remove} 
+            size={ButtonSize.SMALL} 
+            classNames="float-right trash-button">
+            <Icon.TRASH />
         </Button.DANGER>
     </div>)
 
