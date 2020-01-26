@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { updateCart, checkout } from "../../../lib/actions/shoppingCart";
+import { updateCart, checkout } from "../../../lib/actions/shoppingCart/cart";
 import { Text } from "../../atoms/text"
 import Button, { ButtonTheme, ButtonSize } from "../../atoms/button";
 import Icon from "../../atoms/icon"

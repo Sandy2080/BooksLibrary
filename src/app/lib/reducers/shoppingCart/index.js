@@ -1,17 +1,20 @@
-import { actions } from "../../actions/shoppingCart";
+import { cartActions } from "../../actions/shoppingCart/cart";
+import { actions } from "../../actions/shoppingCart/commercialOffers";
 import * as helpers from "../../../utils/helpers"
+const {
+  FETCH_OFFERS_PENDING,
+  FETCH_OFFERS_SUCCESS,
+  FETCH_OFFERS_ERROR
+} = actions;
 const {
   ADD_TO_CART,
   SAVE_CART,
   UPDATE_CART,
   REMOVE_FROM_CART,
-  SET_CART_TOTAL, 
+  SET_CART_TOTAL,
   SET_DISCOUNT,
   CHECKOUT,
-  FETCH_OFFERS_PENDING,
-  FETCH_OFFERS_SUCCESS,
-  FETCH_OFFERS_ERROR
-} = actions;
+} = cartActions
 
 const ITEMS_KEY = "items"
 const initialState = {

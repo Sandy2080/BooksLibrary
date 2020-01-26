@@ -1,10 +1,12 @@
 import {
+  setTotalCart,
+  setDiscount
+} from "../lib/actions/shoppingCart/cart";
+import {
   fetchOffersPending,
   fetchOffersSuccess,
   fetchOffersError,
-  setTotalCart,
-  setDiscount
-} from "../lib/actions/shoppingCart";
+} from "../lib/actions/shoppingCart/commercialOffers";
 import { store } from "../lib/store";
 import { Request, Endpoint } from "./service";
 const { Offer } = Endpoint

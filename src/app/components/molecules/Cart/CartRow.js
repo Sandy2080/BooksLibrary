@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { isMobile } from '../../../utils/hooks/useWindowDimensions';
 import { ProductImage } from "../../atoms/image/Image";
-import { removeFromCart } from "../../../lib/actions/shoppingCart";
+import { removeFromCart } from "../../../lib/actions/shoppingCart/cart";
 import { Text } from "../../atoms/text"; 
 import { StyledCart, StyledHalfBlock } from './styles'
 import { CardHeader } from '../Card'

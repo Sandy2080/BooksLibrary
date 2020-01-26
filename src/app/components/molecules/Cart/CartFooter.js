@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect  } from "react";
 import { StyledFooter } from './styles'
 import { useDispatch, useSelector } from "react-redux";
-import { setDiscount } from "../../../lib/actions/shoppingCart";
+import { setDiscount } from "../../../lib/actions/shoppingCart/cart";
 import {
   CartButtons,
   CartTotal
