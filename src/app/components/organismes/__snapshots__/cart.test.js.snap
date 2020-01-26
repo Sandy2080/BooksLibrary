@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Empty Cart renders correctly when cart is empty 1`] = `
+<h1
+  className="sc-AykKD fKiges"
+  color="#666"
+  fontWeight="700"
+>
+  Your cart is empty
+</h1>
+`;
