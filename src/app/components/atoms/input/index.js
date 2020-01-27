@@ -31,10 +31,11 @@ const Input = props => {
     );
 };
 
+const { SMALL, LARGE } = InputSize;
 Input.SMALL = (props) => {
     return (
         <Input
-            size={InputSize.SMALL}
+            size={SMALL}
             {...props}
         ></Input>
     );
@@ -42,7 +43,7 @@ Input.SMALL = (props) => {
 Input.LARGE = (props) => {
     return (
         <Input
-            size={InputSize.LARGE}
+            size={LARGE}
             {...props}
         ></Input>
     );

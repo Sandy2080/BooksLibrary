@@ -18,18 +18,24 @@ const Icon = (props) => {
       </StyledIcon>
     );
 }
+const { 
+  SHOPPING_BAG,
+  CHEVRON_LEFT,
+  CHEVRON_RIGHT,
+  TRASH
+} = IconType
+
 Icon.SHOPPING_BAG = props => (
-    <Icon type={IconType.SHOPPING_BAG} {...props}></Icon>
+    <Icon type={SHOPPING_BAG} {...props}></Icon>
 )
 Icon.CHEVRON_RIGHT = props => (
-  <Icon type={IconType.CHEVRON_RIGHT} {...props}></Icon>
+  <Icon type={CHEVRON_RIGHT} {...props}></Icon>
 )
 Icon.CHEVRON_LEFT = props => (
-<Icon type={IconType.CHEVRON_LEFT} {...props}></Icon>
+<Icon type={CHEVRON_LEFT} {...props}></Icon>
 )
-
 Icon.TRASH = props => (
-  <Icon type={IconType.TRASH} {...props}></Icon>
+  <Icon type={TRASH} {...props}></Icon>
 )
 
 Icon.propTypes = {

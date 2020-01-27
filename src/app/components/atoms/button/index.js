@@ -30,30 +30,31 @@ const Button = props => {
   );
 };
 
+const { PRIMARY, LIGHT, SECONDARY, INFO, SUCCESS, WARNING, DANGER, LINK } = ButtonColor
+const { BUTTON } = ButtonType
 Button.PRIMARY = (props) => {
-  return <Button type={ButtonType.BUTTON} color={ButtonColor.PRIMARY} {...props}></Button>;
+  return <Button type={BUTTON} color={PRIMARY} {...props}></Button>;
 }
 Button.LIGHT = (props) => {
-  return <Button type={ButtonType.BUTTON} color={ButtonColor.LIGHT} {...props}></Button>;
+  return <Button type={BUTTON} color={LIGHT} {...props}></Button>;
 }
 Button.SECONDARY = (props) => {
-  return <Button type={ButtonType.BUTTON} color={ButtonColor.SECONDARY} {...props}></Button>;
+  return <Button type={BUTTON} color={SECONDARY} {...props}></Button>;
 }
 Button.INFO = props => {
-  return <Button type={ButtonType.BUTTON} color={ButtonColor.INFO} {...props}></Button>;
+  return <Button type={BUTTON} color={INFO} {...props}></Button>;
 };
-
 Button.SUCCESS = props => {
-  return <Button type={ButtonType.BUTTON} color={ButtonColor.SUCCESS} {...props}></Button>;
+  return <Button type={BUTTON} color={SUCCESS} {...props}></Button>;
 };
 Button.WARNING = props => {
-  return <Button type={ButtonType.BUTTON} color={ButtonColor.WARNING} {...props}></Button>;
+  return <Button type={BUTTON} color={WARNING} {...props}></Button>;
 }
 Button.DANGER = props => {
-  return <Button type={ButtonType.BUTTON} color={ButtonColor.DANGER} {...props}></Button>;
+  return <Button type={BUTTON} color={DANGER} {...props}></Button>;
 };
 Button.LINK = props => {
-  return <Button type={ButtonType.BUTTON} color={ButtonColor.LINK} {...props}></Button>;
+  return <Button type={BUTTON} color={LINK} {...props}></Button>;
 };
 Button.DISMISSIBLE = props => {
   return (<Button type="button" classNames="close" data-dismiss="alert" aria-label="Close" {...props}>

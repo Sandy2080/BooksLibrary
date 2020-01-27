@@ -28,12 +28,13 @@ const Navbar = props => {
             </div>
         </StyledNavbar>);
 }
-
+const { BG_DARK, BG_LIGHT} = NavbarColor
+const { DARK, LIGHT} = NavbarTheme
 Navbar.LIGHT = (props) => {
     return (
         <Navbar
-            theme={NavbarTheme.LIGHT}
-            color={NavbarColor.BG_LIGHT}
+            theme={LIGHT}
+            color={BG_LIGHT}
             {...props}
         ></Navbar>
     );
@@ -41,8 +42,8 @@ Navbar.LIGHT = (props) => {
 Navbar.DARK = (props) => {
     return (
         <Navbar
-            theme={NavbarTheme.DARK}
-            color={NavbarColor.BG_DARK}
+            theme={DARK}
+            color={BG_DARK}
             {...props}
         ></Navbar>
     );

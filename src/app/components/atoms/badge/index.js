@@ -15,11 +15,14 @@ const Badge = props => {
     const classProps = classnames(color, theme, classNames);
     return (<StyledBadge customColor={customColor} className={`badge ${classProps}`} theme={theme}>{children}</StyledBadge>)
 }
-Badge.PRIMARY = props => <Badge color={BadgeColor.PRIMARY} {...props}></Badge>
-Badge.SUCCESS = props => <Badge color={BadgeColor.SUCCESS} {...props}></Badge>
-Badge.WARNING = props => <Badge color={BadgeColor.WARNING} {...props}></Badge>
-Badge.INFO = props => <Badge color={BadgeColor.INFO} {...props}></Badge>
-Badge.DANGER = props => <Badge color={BadgeColor.DANGER} {...props}></Badge>
+const { PRIMARY, SECONDARY, INFO, SUCCESS, WARNING, DANGER } = BadgeColor
+const { DEFAULT } = BadgeTheme
+Badge.PRIMARY = props => <Badge color={PRIMARY} {...props}></Badge>
+Badge.SUCCESS = props => <Badge color={SUCCESS} {...props}></Badge>
+Badge.WARNING = props => <Badge color={WARNING} {...props}></Badge>
+Badge.INFO = props => <Badge color={INFO} {...props}></Badge>
+Badge.DANGER = props => <Badge color={DANGER} {...props}></Badge>
+Badge.SECONDARY = props => <Badge color={SECONDARY} {...props}></Badge>;
 
 Badge.propTypes = {
     theme: PropTypes.string,
@@ -28,8 +31,8 @@ Badge.propTypes = {
     customColor: PropTypes.string,
 };
 Badge.defaultProps = {
-    theme: BadgeTheme.DEFAULT,
-    color: BadgeColor.SECONDARY,
+    theme: DEFAULT,
+    color: SECONDARY,
 };
 
 export { BadgeTheme }
