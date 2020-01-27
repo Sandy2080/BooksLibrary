@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom" 
-import { CartBody } from "../molecules/Cart/CartBody";
-import { CartFooter }  from "../molecules/Cart/CartFooter";
-import { StyledCard } from "../molecules/Card/styles"
-import { Title } from "../atoms";
+import { CartBody } from "../../molecules/Cart/CartBody";
+import { CartFooter }  from "../../molecules/Cart/CartFooter";
+import { StyledCard } from "../../molecules/Card/styles"
+import { Title } from "../../atoms";
 
 const CartEmpty = () => (
   <Fragment>

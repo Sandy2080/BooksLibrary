@@ -1,6 +1,6 @@
 import React from "react";
-import Alert, { AlertColor } from "../molecules/Alert"
-import { cartStatus } from "../../lib/reducers/shoppingCart"
+import Alert, { AlertColor } from "../../molecules/Alert"
+import { cartStatus } from "../../../lib/reducers/shoppingCart"
 const { COMPLETE, APPROVED } = cartStatus
 
 const StatusAlert = props => {

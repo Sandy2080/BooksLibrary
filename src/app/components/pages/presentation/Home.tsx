@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useCallback } from "react";
 import { SearchBar } from "../../molecules"
-import { Library } from "../../organismes";
+import Library from "../../organismes/Library";
 import {
   Book, 
   Offer

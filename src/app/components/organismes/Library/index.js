@@ -1,6 +1,6 @@
 import React from "react";
-import ProductCard from "./ProductCard";
-import { Text } from "../atoms/";
+import { ProductCard } from '..';
+import { Text } from "../../atoms";
 
 const EmptyResults = () => <Text.NORMAL>No Results</Text.NORMAL>;
 const Library = ({ items }) => (

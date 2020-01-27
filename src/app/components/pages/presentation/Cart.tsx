@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useCallback, Fragment } from "react";
 import { cartStatus } from "../../../lib/reducers/shoppingCart";
 import { Text } from "../../atoms" 
-import {
-  ShoppingCart,
-  StatusAlert
-} from '../../organismes'
+import ShoppingCart from '../../organismes/ShoppingCart';
+import StatusAlert from '../../organismes/StatusAlert';
 
 const Loading = () => {
   const [index, setIndex] = useState(0)

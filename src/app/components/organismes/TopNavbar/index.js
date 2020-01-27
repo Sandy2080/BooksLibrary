@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import useWindowDimensions from '../../utils/hooks/useWindowDimensions';
+import useWindowDimensions from '../../../utils/hooks/useWindowDimensions';
 import { Link } from "react-router-dom";
-import { saveCart } from "../../lib/actions/shoppingCart";
-import { ShoppingBag } from "../molecules"
+import { saveCart } from "../../../lib/actions/shoppingCart";
+import { ShoppingBag } from "../../molecules"
 import { 
   Navbar, 
   NavbarPlacement,
   SubTitle, 
   Text 
-} from "../atoms" 
+} from "../../atoms" 
 
 const TopNavbar =  (props) => {
   const { items } = useSelector(state => ({ ...state.shoppingCartReducer}));

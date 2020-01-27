@@ -12,20 +12,14 @@ const Styles = {
 };
 const Toast = props => {
   const { title, label, message } = props
-  useEffect(() => {
-    window.$('.toast').on('show.bs.toast', function() {
-      console.log('show');
-      const timer = setTimeout(() => {
-        window.$('.toast').toast('hide');
-      }, 5000);
-      return () => clearTimeout(timer); 
-    });
-    window.$('.toast').on('hide.bs.toast', function() {
-      console.log('hide');
-    });
-  }, [])
   return (
-    <StyledToast aria-live="polite" aria-atomic="true" style={Styles} className="toast">
+    <StyledToast
+      aria-live="polite"
+      aria-atomic="true"
+      style={Styles}
+      className="toast"
+      id="toast"
+      data-autohide="true">
       <div>
         <div className="toast-header">
           <strong className="mr-auto">{message}</strong>
