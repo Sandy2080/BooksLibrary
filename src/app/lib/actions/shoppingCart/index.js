@@ -1,3 +1,4 @@
+
 export const actions = {
     ADD_TO_CART: "ADD_TO_CART",
     UPDATE_CART: "UPDATE_CART",
@@ -10,6 +11,8 @@ export const actions = {
     APPROVE_CART: "APPROVE_CART",
     RESET_CART: "RESET_CART"
 };
+
+
 export const addToCart = item => {
     const uid = () =>
         Math.random()

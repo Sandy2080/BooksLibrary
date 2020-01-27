@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { ToastsContainer, ToastsStore, ToastsContainerPosition } from 'react-toasts';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { isMobile } from '../../utils/hooks/useWindowDimensions';
-import { addToCart } from "../../lib/actions/shoppingCart";
+import { addToCart, updateCart } from "../../lib/actions/shoppingCart";
 import { StyledProductCard } from "./styles"
 import Card, { CardHeader, BadgeLabel } from '../molecules/Card/index'
 import {
@@ -15,9 +15,21 @@ import {
 
 const AddToCartButton = ({ item, children, isVisible }) => {
   const dispatch = useDispatch()
-  const addCart = () => {
-    ToastsStore.info(`${item.title} added to cart`)
+  const props = useSelector(state => ({
+    ...state.shoppingCartReducer,
+  }));
+
+  const add = () => {
     dispatch(addToCart(item));
+  }
+  const update = included => {
+    dispatch(updateCart(included[0].id, included[0].quantity + 1));
+  }
+  const addCart = () => {
+    const included = props.items.filter(i => i.details.isbn === item.isbn);
+    if (included.length > 0) { return update(included) }
+    add(item);
+    ToastsStore.info(`${item.title} added to cart`);
   }
   const { SMALL, LARGE } = ButtonSize
   const { ROUNDED } = ButtonTheme
