@@ -1,6 +1,5 @@
 {
   "name": "harry-potter-books-library",
-  "homepage": "https://sandyUdemy.github.io/HenriPotierBooksLibrary",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

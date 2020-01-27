@@ -25,10 +25,9 @@ const TopNavbar =  (props) => {
       <Link className="navbar-brand" to="/">
         {isMobile ?
           <Text.SEMIBOLD fontSize="20" className="title">{title}</Text.SEMIBOLD> :
-          <SubTitle>{title}</SubTitle>
-        }
+          <SubTitle>{title}</SubTitle>}
       </Link>
-        <ShoppingBag items={items} />
+      <ShoppingBag items={items} />
     </Navbar.LIGHT>
   );
 };

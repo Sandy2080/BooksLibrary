@@ -16,7 +16,7 @@ const StatusAlert = props => {
         return (<Alert.CONFIRM
             color={AlertColor.SUCCESS}
             message="Thank you for your order"
-            secondary="You will be redirected to the Homepage is a few seconds ..." />)
+            secondary="You will be redirected to the Homepage in a few seconds ..." />)
     }
     return (<span></span>)
 }

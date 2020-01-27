@@ -10,11 +10,16 @@ const showFiltered = (input: string, books: Book[]) => {
       return itemData.indexOf(textData) > -1
    })
 } 
-const mapStateToProps = (state: any) => ({
-  search: state.visibilityFilterReducer.text,
-  items: state.shoppingCartReducer.items,
-  books: state.visibilityFilterReducer.option === "SHOW_ALL" ? state.bookstoreReducer.books : showFiltered(state.visibilityFilterReducer.text, state.bookstoreReducer.books)
-});
+const mapStateToProps = (state: any) =>  {
+  const { items } = state.shoppingCartReducer 
+  const { text, option } = state.visibilityFilterReducer
+  const { books } = state.bookstoreReducer
+  return {
+    search: text,
+    items: items,
+    books: option === "SHOW_ALL" ? books : showFiltered(text, books)
+  }
+}
 const mapDispatchToProps = (dispatch: any) => ({
   getBooks: () => fetchBooks(),
   getOffers: (items: any[]) => fetchOffers(items),

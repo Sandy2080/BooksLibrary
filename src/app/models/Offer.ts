@@ -2,7 +2,7 @@ class Offer {
   type: string;
   value: number;
   sliceValue?: number;
-  constructor(protected obj: any) {
+  constructor(obj: any) {
     this.type = obj.type;
     this.value = obj.value;
     this.sliceValue = obj.sliceValue && obj.sliceValue;

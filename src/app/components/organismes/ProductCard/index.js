@@ -8,7 +8,7 @@ import { AddToCartButton } from "./AddCartButton"
 import { ProductInformation } from "./ProductInformation" 
 import '../../../utils/scripts';
 
-const ProductCard = ({ item, value }) => {
+const ProductCard = ({ item }) => {
   const [isVisible, setVisible] = useState(false);
   const handleOnHover = bool => setVisible(bool);
   return (
@@ -16,19 +16,17 @@ const ProductCard = ({ item, value }) => {
       {isMobile && <BadgeLabel badge={item.price} />}
       <ProductImage {...item} grid="col-sm-2" />
       <StyledProductCard
-        className="col-sm "
+        className="col-sm"
         onMouseOver={() => handleOnHover(true)}
-        onMouseLeave={() => handleOnHover(false)}
-      >
-        <ProductInformation item={item} />
-
-        <ToastContext.Consumer>
-          {value => (
-            <AddToCartButton item={item} isVisible={isVisible} value={value}>
-              Add to Cart
-            </AddToCartButton>
-          )}
-        </ToastContext.Consumer>
+        onMouseLeave={() => handleOnHover(false)}>
+          <ProductInformation item={item} />
+          <ToastContext.Consumer>
+            {value => (
+              <AddToCartButton item={item} isVisible={isVisible} value={value}>
+                Add to Cart
+              </AddToCartButton>
+            )}
+          </ToastContext.Consumer>
       </StyledProductCard>
     </Card>
   );

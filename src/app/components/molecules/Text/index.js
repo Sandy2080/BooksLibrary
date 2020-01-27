@@ -24,7 +24,6 @@ Text.TRUNCATED = props => {
       </Fragment>
     );
 }
-
 TextTruncate.propTypes = {
   action: () => {},
   limit: PropTypes.string,
