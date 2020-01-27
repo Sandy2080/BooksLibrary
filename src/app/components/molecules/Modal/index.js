@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from "../../atoms" 
 import { ModalSize } from "./types"
 
 const Modal = props => {
@@ -11,16 +10,16 @@ const Modal = props => {
         id
     } = props
     return (
-      <div class="modal fade" id={`${id}`} role="dialog" aria-hidden="true">
+      <div className="modal fade" id={`${id}`} role="dialog" aria-hidden="true">
         <div className={`modal-dialog ${size}`} role="document">
-          <div class="modal-content">
-            <div class="modal-header">
+          <div className="modal-content">
+            <div className="modal-header">
               <h5 className="modal-title">{title}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">{children}</div>
+            <div className="modal-body">{children}</div>
           </div>
         </div>
       </div>

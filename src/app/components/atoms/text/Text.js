@@ -10,7 +10,7 @@ export const Text = props => {
         fontWeight,
         margin,
         classNames, 
-        color
+        color,
     } = props
     const classProps = classnames(classNames);
     return (<StyledText
