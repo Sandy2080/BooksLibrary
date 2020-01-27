@@ -1,4 +1,4 @@
-import React, { useEffect }  from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledToast } from './styles';
 import { Badge, Text } from '../../atoms'
