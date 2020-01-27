@@ -12,5 +12,4 @@ export const StyledButton = styled.button`
             default: return
         }
     }};
-    color: white;
 `;

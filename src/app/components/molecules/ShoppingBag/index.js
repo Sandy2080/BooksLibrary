@@ -9,7 +9,6 @@ import {
   IconSize 
 } from '../../atoms/'
 
-
 const ShoppingBag = ({ items }) =>  {
   const cartLength = items.map(item => item.quantity).reduce(calculateTotal, 0);
   return (

@@ -31,76 +31,34 @@ const Button = props => {
 };
 
 Button.PRIMARY = (props) => {
-  return (
-    <Button
-      type={ButtonType.BUTTON}
-      color={ButtonColor.PRIMARY}
-      {...props}
-    ></Button>
-  );
+  return <Button type={ButtonType.BUTTON} color={ButtonColor.PRIMARY} {...props}></Button>;
 }
 Button.LIGHT = (props) => {
-  return (
-    <Button
-      type={ButtonType.BUTTON}
-      color={ButtonColor.LIGHT}
-      {...props}
-    ></Button>
-  );
+  return <Button type={ButtonType.BUTTON} color={ButtonColor.LIGHT} {...props}></Button>;
 }
 Button.SECONDARY = (props) => {
-  return (
-    <Button
-      type={ButtonType.BUTTON}
-      color={ButtonColor.SECONDARY}
-      {...props}
-    ></Button>
-  );
+  return <Button type={ButtonType.BUTTON} color={ButtonColor.SECONDARY} {...props}></Button>;
 }
 Button.INFO = props => {
-  return (
-    <Button
-      type={ButtonType.BUTTON}
-      color={ButtonColor.INFO}
-      {...props}
-    ></Button>
-  );
+  return <Button type={ButtonType.BUTTON} color={ButtonColor.INFO} {...props}></Button>;
 };
 
 Button.SUCCESS = props => {
-  return (
-    <Button
-      type={ButtonType.BUTTON}
-      color={ButtonColor.SUCCESS}
-      {...props}
-    ></Button>
-  );
+  return <Button type={ButtonType.BUTTON} color={ButtonColor.SUCCESS} {...props}></Button>;
 };
 Button.WARNING = props => {
-  return (
-    <Button
-      type={ButtonType.BUTTON}
-      color={ButtonColor.WARNING}
-      {...props}
-    ></Button>
-  );
+  return <Button type={ButtonType.BUTTON} color={ButtonColor.WARNING} {...props}></Button>;
 }
 Button.DANGER = props => {
-  return (
-    <Button
-      type={ButtonType.BUTTON}
-      color={ButtonColor.DANGER}
-      {...props}
-    ></Button>
-  );
+  return <Button type={ButtonType.BUTTON} color={ButtonColor.DANGER} {...props}></Button>;
 };
 Button.LINK = props => {
-  return (<Button classNames="link" {...props}></Button>);
+  return <Button type={ButtonType.BUTTON} color={ButtonColor.LINK} {...props}></Button>;
 };
 Button.DISMISSIBLE = props => {
   return (<Button type="button" classNames="close" data-dismiss="alert" aria-label="Close" {...props}>
-    <span aria-hidden="true">&times;</span>
-  </Button>)
+            <span aria-hidden="true">&times;</span>
+          </Button>)
 }
 
 Button.propTypes = {

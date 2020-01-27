@@ -5,6 +5,7 @@ import { isMobile } from '../../utils/hooks/useWindowDimensions';
 import { addToCart, updateCart } from "../../lib/actions/shoppingCart";
 import { StyledProductCard } from "./styles"
 import Card, { CardHeader, BadgeLabel } from '../molecules/Card/index'
+import { TextTruncate } from "../molecules/"
 import {
   Button, 
   ButtonSize, 
@@ -51,15 +52,23 @@ const AddToCartButton = ({ item, children, isVisible }) => {
 }
 const ProductInformation = ({ item }) => {
   const { title, isbn, price, synopsis } = item
-  return (<Fragment>
-            <CardHeader 
-              title={title} 
-              subTitle={isbn} 
-              badge={price}
-              titleFontSize={isMobile ? "17" : "32"} 
-              subTitleFontSize={isMobile ? "11" : "13"} />
-            <Text.TRUNCATED>{synopsis}</Text.TRUNCATED>
-          </Fragment>)
+  const readMore = () => {
+    console.log('read more')
+  }
+  return (
+    <Fragment>
+      <CardHeader
+        title={title}
+        subTitle={isbn}
+        badge={price}
+        titleFontSize={isMobile ? '17' : '32'}
+        subTitleFontSize={isMobile ? '11' : '13'}
+      />
+      <TextTruncate action={readMore} limit="100" characterLength="250">
+        {synopsis}
+      </TextTruncate>
+    </Fragment>
+  );
 }
 const ProductCard = ({ item }) => {
   const [isVisible, setVisible] = useState(false)

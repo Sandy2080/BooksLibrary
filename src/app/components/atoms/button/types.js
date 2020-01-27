@@ -16,6 +16,7 @@ export const ButtonColor = {
   SUCCESS: 'success', 
   SECONDARY: 'secondary', 
   LIGHT: 'light', 
+  LINK: 'link', 
   INFO: 'info', 
   WARNING: 'warning',
   DANGER: 'danger',

@@ -15,20 +15,20 @@ export const StyledCard = styled.div`
 export const StyledCardHeader = styled.div`
    p {
       margin-top: -5px;
-   } 
+   }
    .product-information {
       width: 80%;
-      margin: 0 auto!important; 
+      margin: 0 auto !important;
    }
    .price-badge {
       margin: 10px 0;
    }
-    @media screen and (max-width: 375px) {
+   @media screen and (max-width: 375px) {
       .row {
-         margin: 0 
-      } 
-      p {
-         margin-botttom: 5px!important;
+         margin: 0;
       }
-    }
-`
+      p {
+         margin-botttom: 5px !important;
+      }
+   }
+   `;
