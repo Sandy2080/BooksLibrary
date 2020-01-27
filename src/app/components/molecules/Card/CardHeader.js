@@ -14,22 +14,29 @@ const SubTitle = props => {
 }
 const BadgeLabel = props => {
     const { badge } = props
-    return (<Badge.INFO classNames="price-button"><Text.SEMIBOLD fontSize="20" className="price-badge">€{badge}</Text.SEMIBOLD></Badge.INFO>)
+    return (
+      <Badge.INFO classNames="price-button" customColor="#2980b9">
+        <Text.SEMIBOLD fontSize="20" className="price-badge">
+          €{badge}
+        </Text.SEMIBOLD>
+      </Badge.INFO>
+    );
 }
 const CardHeader = props => {
     const { margin, badge } = props
-    return (<StyledCardHeader margin={margin}>
-                <div className="row">
-                    <div className="col-sm-1">
-                        {badge != null && !isMobile && 
-                        <BadgeLabel {...props}/>}
-                    </div>
-                    <div className="col-sm-11">
-                        <Title {...props} />
-                        <SubTitle  {...props} />
-                    </div>
-                </div>
-            </StyledCardHeader>)
+    return (
+      <StyledCardHeader margin={margin}>
+        <div className="row">
+          <div className="col-sm-1">
+            {badge != null && !isMobile && <BadgeLabel {...props} />}
+          </div>
+          <div className="col-sm-11">
+            <Title {...props} />
+            <SubTitle {...props} />
+          </div>
+        </div>
+      </StyledCardHeader>
+    );
 }
 export {
     BadgeLabel, 

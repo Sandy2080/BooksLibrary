@@ -1,12 +1,12 @@
-import React, { Fragment, useState } from "react";
-import "../../utils/assets"
-import { ToastsContainer, ToastsStore, ToastsContainerPosition } from 'react-toasts';
+import React, { Fragment, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { isMobile } from '../../utils/hooks/useWindowDimensions';
 import { addToCart, updateCart } from "../../lib/actions/shoppingCart";
+import { CartContext } from '../../lib/cart-context';
 import { StyledProductCard } from "./styles"
 import Card, { CardHeader, BadgeLabel } from '../molecules/Card/index'
 import { TextTruncate, Modal } from "../molecules/"
+import '../../utils/scripts';
 import {
   Text,
   Button, 
@@ -15,11 +15,14 @@ import {
   ProductImage, 
 } from "../atoms"
 
-const AddToCartButton = ({ item, children, isVisible }) => {
+const AddToCartButton = ({ item, children, isVisible, value }) => {
   const dispatch = useDispatch()
-  const props = useSelector(state => ({
-    ...state.shoppingCartReducer,
-  }));
+  const props = useSelector(state => ({ ...state.shoppingCartReducer }));
+  const { setCartContext } = value
+  useEffect(() => {
+    console.log(value)
+  }, [value])
+
   const add = () => {
     dispatch(addToCart(item));
   }
@@ -27,16 +30,15 @@ const AddToCartButton = ({ item, children, isVisible }) => {
     dispatch(updateCart(included[0].id, included[0].quantity + 1));
   }
   const addCart = () => {
+    setCartContext({ title: item.title, label: `€${item.price}`, message: '1 Book added to cart' })
     const included = props.items.filter(i => i.details.isbn === item.isbn);
     if (included.length > 0) { return update(included) }
     add(item);
-    ToastsStore.info(`${item.title} added to cart`);
   }
   const { SMALL, LARGE } = ButtonSize
   const { ROUNDED } = ButtonTheme
   return (
     <div>
-      <ToastsContainer store={ToastsStore} position={ToastsContainerPosition.BOTTOM_RIGHT} />
       <Button.INFO
         theme={ROUNDED}
         size={isMobile ? LARGE : SMALL}
@@ -80,17 +82,30 @@ const ProductInformation = ({ item }) => {
   );
 }
 
-const ProductCard = ({ item }) => {
+const ProductCard = ({ item, value }) => {
   const [isVisible, setVisible] = useState(false)
   const handleOnHover = (bool) => setVisible(bool)
-  return (<Card>
-            {isMobile && <BadgeLabel badge={item.price}/>}
-            <ProductImage {...item} grid="col-sm-2" />
-            <StyledProductCard className="col-sm " onMouseOver={() => handleOnHover(true)} onMouseLeave={() => handleOnHover(false)}>
-              <ProductInformation item={item} />
-              <AddToCartButton item={item} isVisible={isVisible}>Add to Cart</AddToCartButton>
-            </StyledProductCard>
-          </Card>)
+  return (
+    <Card>
+      {isMobile && <BadgeLabel badge={item.price} />}
+      <ProductImage {...item} grid="col-sm-2" />
+      <StyledProductCard
+        className="col-sm "
+        onMouseOver={() => handleOnHover(true)}
+        onMouseLeave={() => handleOnHover(false)}>
+        <ProductInformation item={item} />
+
+        <CartContext.Consumer>
+          {value => (
+            <AddToCartButton item={item} isVisible={isVisible} value={value}>
+              Add to Cart
+            </AddToCartButton>
+          )}
+        </CartContext.Consumer>
+        
+      </StyledProductCard>
+    </Card>
+  );
 }
 export default ProductCard;
 

@@ -4,7 +4,7 @@ import { StyledText } from "../../atoms/text/styles"
 import { Text } from "../../atoms/text"
 import Button, { ButtonSize } from '../../atoms/button';
 
-export const TextTruncate = props => {
+const TextTruncate = props => {
   const { action, limit, characterLength, children } = props;
 return <Text.TRUNCATED length={characterLength} limit={limit} actions={action}>{children}</Text.TRUNCATED>;
 };
@@ -30,3 +30,4 @@ TextTruncate.propTypes = {
   limit: PropTypes.string,
   characterLength: PropTypes.string,
 };
+export default TextTruncate;

@@ -1,8 +1,8 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-import { SubTitle } from "../atoms/";
+import { Text } from "../atoms/";
 
-const EmptyResults = () => <SubTitle>No Results</SubTitle>;
+const EmptyResults = () => <Text.NORMAL>No Results</Text.NORMAL>;
 const Library = ({ items }) => (
 <div>
     {items && items.length ? (

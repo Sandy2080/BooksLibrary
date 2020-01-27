@@ -57,7 +57,6 @@ Input.STEPPER = props => {
             >
         </Input>)
 }
-
 Input.propTypes = {
     border: PropTypes.string,
     theme: PropTypes.string,
