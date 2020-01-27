@@ -1,11 +1,9 @@
-
 import { CommercialOffer } from "../models/Offer" 
 
 export const calculateTotal = ($0, $1) => $0 + $1;
 export const checkout = items => {
     return items.map(item => item.details.price * item.quantity).reduce(calculateTotal, 0)
 };
-
 export const calculateBestOffer = (subTotal, offers) => {
     let commercialOffers = offers.map(offer => {
         let commercialOffer = new CommercialOffer(offer, subTotal)
@@ -17,6 +15,7 @@ export const calculateBestOffer = (subTotal, offers) => {
     return sorted[0]
 };
 
+//Local Storal
 export const saveToLocalStorage = (key, object) => localStorage.setItem(key, JSON.stringify(object));
 
 export const getLocalStorage = (key) => {

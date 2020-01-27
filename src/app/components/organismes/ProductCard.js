@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import { ToastsContainer, ToastsStore, ToastsContainerPosition } from 'react-toasts';
 import { useDispatch } from "react-redux";
 import { isMobile } from '../../utils/hooks/useWindowDimensions';
 import { addToCart } from "../../lib/actions/shoppingCart";
@@ -14,19 +15,25 @@ import {
 
 const AddToCartButton = ({ item, children, isVisible }) => {
   const dispatch = useDispatch()
-  const addCart = () => dispatch(addToCart(item))
+  const addCart = () => {
+    ToastsStore.info(`${item.title} added to cart`)
+    dispatch(addToCart(item));
+  }
   const { SMALL, LARGE } = ButtonSize
   const { ROUNDED } = ButtonTheme
   return (
     <div>
+      <ToastsContainer store={ToastsStore} position={ToastsContainerPosition.BOTTOM_RIGHT} />
       <Button.INFO
         theme={ROUNDED}
         size={isMobile ? LARGE : SMALL}
         action={addCart}
         customColor="#2980b9"
-        classNames={`float-right add-cart-button ${isMobile && `btn-block`} ${isVisible && 'visible'}`}>
+        classNames={`float-right add-cart-button ${isMobile && `btn-block`} ${isVisible &&
+          'visible'}`}
+      >
         {children}
-      </Button.INFO >
+      </Button.INFO>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { ToastsContainer, ToastsStore, ToastsContainerPosition } from 'react-toasts';
 import { removeFromCart } from "../../../lib/actions/shoppingCart";
 import { isMobile } from '../../../utils/hooks/useWindowDimensions';
 import { StyledCart, StyledHalfBlock } from './styles'
@@ -25,21 +26,23 @@ export const CartRow = ({ item }) => {
   const { id, details, quantity } = item
   const dispatch = useDispatch();
   const remove = () => {
+    ToastsStore.error(`item removed from cart`);
     dispatch(removeFromCart(id))
   }
   return (
     <StyledCart>
       <StyledHalfBlock className="first-half">
         <ProductImage {...details} width="80" />
-        <ProductInformation {...details}/>
+        <ProductInformation {...details} />
         <UnitPrice {...details} />
       </StyledHalfBlock>
 
       <StyledHalfBlock className="second-half">
-        <QuantityStepper {...item} /> 
+        <QuantityStepper {...item} />
         <PriceTotal quantity={quantity} {...details} />
-        <TrashButton remove={remove} /> 
+        <TrashButton remove={remove} />
       </StyledHalfBlock>
+      <ToastsContainer store={ToastsStore} position={ToastsContainerPosition.BOTTOM_RIGHT} />
     </StyledCart>
   );
 }
