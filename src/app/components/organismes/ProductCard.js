@@ -1,17 +1,18 @@
 import React, { Fragment, useState } from "react";
+import "../../utils/assets"
 import { ToastsContainer, ToastsStore, ToastsContainerPosition } from 'react-toasts';
 import { useDispatch, useSelector } from "react-redux";
 import { isMobile } from '../../utils/hooks/useWindowDimensions';
 import { addToCart, updateCart } from "../../lib/actions/shoppingCart";
 import { StyledProductCard } from "./styles"
 import Card, { CardHeader, BadgeLabel } from '../molecules/Card/index'
-import { TextTruncate } from "../molecules/"
+import { TextTruncate, Modal } from "../molecules/"
 import {
+  Text,
   Button, 
   ButtonSize, 
   ButtonTheme,
   ProductImage, 
-  Text 
 } from "../atoms"
 
 const AddToCartButton = ({ item, children, isVisible }) => {
@@ -19,7 +20,6 @@ const AddToCartButton = ({ item, children, isVisible }) => {
   const props = useSelector(state => ({
     ...state.shoppingCartReducer,
   }));
-
   const add = () => {
     dispatch(addToCart(item));
   }
@@ -50,10 +50,18 @@ const AddToCartButton = ({ item, children, isVisible }) => {
     </div>
   );
 }
+const ModalInformation = ({ item }) => {
+  const { title, isbn, synopsis } = item
+  return (
+    <Modal.LARGE id={isbn} title={title}>
+      <Text.NORMAL>{synopsis}</Text.NORMAL>
+    </Modal.LARGE>
+  );
+};
 const ProductInformation = ({ item }) => {
   const { title, isbn, price, synopsis } = item
   const readMore = () => {
-    console.log('read more')
+    window.$(`#${isbn}`).modal('show');
   }
   return (
     <Fragment>
@@ -67,9 +75,11 @@ const ProductInformation = ({ item }) => {
       <TextTruncate action={readMore} limit="100" characterLength="250">
         {synopsis}
       </TextTruncate>
+      <ModalInformation item={item} />
     </Fragment>
   );
 }
+
 const ProductCard = ({ item }) => {
   const [isVisible, setVisible] = useState(false)
   const handleOnHover = (bool) => setVisible(bool)
