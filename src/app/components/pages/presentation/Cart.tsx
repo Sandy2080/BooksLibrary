@@ -1,26 +1,9 @@
-import React, { useEffect, useState, useCallback, Fragment } from "react";
+import React, { useEffect, useCallback, Fragment } from "react";
 import { cartStatus } from "../../../lib/reducers/shoppingCart";
-import { Text } from "../../atoms" 
+import { Loading } from "../../molecules/Text"
 import ShoppingCart from '../../organismes/ShoppingCart';
 import StatusAlert from '../../organismes/StatusAlert';
 
-const Loading = () => {
-  const [index, setIndex] = useState(0)
-  const [loadingDots, set] = useState(".")
-  const dots = [".", "..", "..."]
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex(index < dots.length - 1 ? index + 1 : 0)
-      set(dots[index])
-    }, 500);
-    return () => clearTimeout(timer); 
-  }, [index, dots])
-
-  return (<Fragment>
-            <br />
-            <Text.NORMAL fontSize="25">Loading {loadingDots}</Text.NORMAL>
-          </Fragment>)
-}
 export interface ICartProps {
   items: [];
   status: any
@@ -33,6 +16,12 @@ const Cart = (props: ICartProps & {
   reset: () => void }) => {
   const { items, getOffers, reset, status, approveCart, cancelCheckout, history } = props;
   const loadOffers = useCallback(() => getOffers(items), [items, getOffers]);
+
+  useEffect(() => {
+      loadOffers()
+      scrollToTop(status === cartStatus.COMPLETE);
+  }, [items, loadOffers, status]);
+
   const scrollToTop = (bool: Boolean) => {
     if (bool) {
       window.scrollTo({
@@ -42,12 +31,7 @@ const Cart = (props: ICartProps & {
       });
     }
   }
-  useEffect(() => {
-      loadOffers()
-      scrollToTop(status === cartStatus.COMPLETE);
-  }, [items, loadOffers, status]);
-
-  const approveConfirmOrder = () => {
+  const confirmOrder = () => {
     approveCart()
     const timer = setTimeout(() => {
       reset()
@@ -55,12 +39,11 @@ const Cart = (props: ICartProps & {
     }, 5000);
     return () => clearTimeout(timer); 
   }
- 
   return (
     <Fragment>
       <StatusAlert 
         status={status} 
-        approveConfirmOrder={approveConfirmOrder} 
+        approveConfirmOrder={confirmOrder} 
         cancelCheckout={cancelCheckout}/>
           {status === cartStatus.APPROVED ? 
           <Loading /> :

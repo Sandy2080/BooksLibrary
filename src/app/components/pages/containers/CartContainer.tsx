@@ -3,10 +3,13 @@ import { fetchOffers } from "../../../api/fetchOffers";
 import { approveCart, cancelCheckout, resetCart } from "../../../lib/actions/shoppingCart"
 import Cart from "../presentation/Cart";
 
-const mapStateToProps = (state: any) => ({
-  items: state.shoppingCartReducer.items, 
-  status: state.shoppingCartReducer.cartStatus
-});
+const mapStateToProps = (state: any) => {
+  const { items, cartStatus } = state.shoppingCartReducer
+  return {
+    items: items,
+    status: cartStatus
+  }
+};
 const mapDispatchToProps = (dispatch: any) => ({
   getOffers: (items: any[]) => fetchOffers(items),
   approveCart: () => dispatch(approveCart()),

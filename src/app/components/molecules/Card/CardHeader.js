@@ -1,5 +1,5 @@
 import React from "react";
-import { isMobile } from '../../../utils/hooks/useWindowDimensions';
+import { isMobile, isTablet } from '../../../utils/hooks/useWindowDimensions';
 import { Text } from "../../atoms/text";
 import Badge from "../../atoms/button"
 import { StyledCardHeader } from "./styles"
@@ -23,14 +23,15 @@ const BadgeLabel = props => {
     );
 }
 const CardHeader = props => {
-    const { margin, badge } = props
+  const { margin, badge } = props
+ 
     return (
       <StyledCardHeader margin={margin}>
         <div className="row">
-          <div className="col-sm-1">
-            {badge != null && !isMobile && <BadgeLabel {...props} />}
+          <div className="col-md-1">
+            {badge != null && !isMobile  && <BadgeLabel {...props} />}
           </div>
-          <div className="col-sm-11">
+          <div className="col-md-11">
             <Title {...props} />
             <SubTitle {...props} />
           </div>

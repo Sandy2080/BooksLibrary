@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Loading from "./Loading"
+import Button, { ButtonSize } from '../../atoms/button';
 import { StyledText } from "../../atoms/text/styles"
 import { Text } from "../../atoms/text"
-import Button, { ButtonSize } from '../../atoms/button';
+
 
 const TextTruncate = props => {
   const { action, limit, characterLength, children } = props;
@@ -29,4 +31,5 @@ TextTruncate.propTypes = {
   limit: PropTypes.string,
   characterLength: PropTypes.string,
 };
+export { Loading }
 export default TextTruncate;

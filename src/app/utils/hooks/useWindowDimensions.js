@@ -1,12 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 let isMobile;
+let isTablet;
 export default function useWindowDimensions() {
 
     const hasWindow = typeof window !== 'undefined';
     const getWindowDimensions = useCallback(() => {
         const width = hasWindow ? window.innerWidth : null;
         const height = hasWindow ? window.innerHeight : null;
-        isMobile = width < 640
+        isTablet = width <= 1024 && width > 640
+        isMobile = width <= 640
         return {
             width,
             height,
@@ -28,4 +30,4 @@ export default function useWindowDimensions() {
 
     return windowDimensions;
 }
-export { isMobile }
+export { isMobile, isTablet }
