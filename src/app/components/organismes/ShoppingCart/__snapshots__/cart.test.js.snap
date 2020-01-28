@@ -2,7 +2,7 @@
 
 exports[`Empty Cart renders correctly when cart is empty 1`] = `
 <h1
-  className="sc-AykKD fKiges"
+  className="sc-AykKD gRjISY"
   color="#666"
   fontWeight="700"
 >
