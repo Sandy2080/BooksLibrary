@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 export const StyledIcon = styled.span`
-  a, i {
+  a,
+  i {
     color: ${props => props.color}!important;
   }
 `;

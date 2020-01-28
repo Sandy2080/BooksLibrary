@@ -1,25 +1,28 @@
-import React, { useEffect, useCallback, Fragment } from "react";
-import { cartStatus } from "../../../lib/reducers/shoppingCart";
-import { Loading } from "../../molecules/Text"
+import React, { useEffect, useCallback, Fragment } from 'react';
+import { cartStatus } from '../../../lib/reducers/shoppingCart';
+import { Loading } from '../../molecules/Text';
 import ShoppingCart from '../../organismes/ShoppingCart';
 import StatusAlert from '../../organismes/StatusAlert';
 
 export interface ICartProps {
   items: [];
-  status: any
-  history: any
+  status: any;
+  history: any;
 }
-const Cart = (props: ICartProps & { 
-  getOffers: (items: any[]) => void, 
-  approveCart: () => void,
-  cancelCheckout: () => void,
-  reset: () => void }) => {
+const Cart = (
+  props: ICartProps & {
+    getOffers: (items: any[]) => void;
+    approveCart: () => void;
+    cancelCheckout: () => void;
+    reset: () => void;
+  },
+) => {
   const { items, getOffers, reset, status, approveCart, cancelCheckout, history } = props;
   const loadOffers = useCallback(() => getOffers(items), [items, getOffers]);
 
   useEffect(() => {
-      loadOffers()
-      scrollToTop(status === cartStatus.COMPLETE);
+    loadOffers();
+    scrollToTop(status === cartStatus.COMPLETE);
   }, [items, loadOffers, status]);
 
   const scrollToTop = (bool: Boolean) => {
@@ -30,25 +33,23 @@ const Cart = (props: ICartProps & {
         behavior: 'smooth',
       });
     }
-  }
+  };
   const confirmOrder = () => {
-    approveCart()
+    approveCart();
     const timer = setTimeout(() => {
-      reset()
-      history.push('/')
+      reset();
+      history.push('/');
     }, 5000);
-    return () => clearTimeout(timer); 
-  }
+    return () => clearTimeout(timer);
+  };
   return (
     <Fragment>
-      <StatusAlert 
-        status={status} 
-        approveConfirmOrder={confirmOrder} 
-        cancelCheckout={cancelCheckout}/>
-          {status === cartStatus.APPROVED ? 
-          <Loading /> :
-        <ShoppingCart {...props} />
-      }
+      <StatusAlert
+        status={status}
+        approveConfirmOrder={confirmOrder}
+        cancelCheckout={cancelCheckout}
+      />
+      {status === cartStatus.APPROVED ? <Loading /> : <ShoppingCart {...props} />}
     </Fragment>
   );
 };

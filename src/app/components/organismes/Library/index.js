@@ -1,12 +1,15 @@
-import React from "react";
+import React from 'react';
 import { ProductCard } from '..';
-import { Text } from "../../atoms";
+import { Text } from '../../atoms';
 
 const EmptyResults = () => <Text.NORMAL>No Results</Text.NORMAL>;
 const Library = ({ items }) => (
-<div>
+  <div>
     {items && items.length ? (
-        items.map((result, index)=> <ProductCard key={index} item={result} />)
-    ) : (<EmptyResults />)}
-</div>);
+      items.map((result, index) => <ProductCard key={index} item={result} />)
+    ) : (
+      <EmptyResults />
+    )}
+  </div>
+);
 export default Library;

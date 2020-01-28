@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 export const StyledSearchBar = styled.div`
   margin: 0 0 20px 0;
   form {
@@ -11,4 +11,4 @@ export const StyledSearchBar = styled.div`
   button {
     width: 60% !important;
   }
-`
+`;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
     margin-top: ${props => props.margin}px !important;
@@ -8,4 +8,4 @@ export const StyledContainer = styled.div`
         }
     }
 }
-`
+`;

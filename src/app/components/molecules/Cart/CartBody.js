@@ -1,18 +1,19 @@
-import React, { Fragment } from "react";
-import Divider from "../../atoms/divider"
-import { StyledCard } from "../Card/styles";
-import { CartRow } from "../../molecules/Cart/CartRow";
+import React, { Fragment } from 'react';
+import Divider from '../../atoms/divider';
+import { StyledCard } from '../Card/styles';
+import { CartRow } from '../../molecules/Cart/CartRow';
 
 export const CartBody = ({ items }) => {
-    return(
+  return (
     <StyledCard className="card-body">
-        {items.map((item, index) => {
-            return (
-              <Fragment key={index}>
-                <CartRow item={item} />
-                <Divider spacing="20" />
-              </Fragment>
-            );
-        })}
-     </StyledCard>)
-}
+      {items.map((item, index) => {
+        return (
+          <Fragment key={index}>
+            <CartRow item={item} />
+            <Divider spacing="20" />
+          </Fragment>
+        );
+      })}
+    </StyledCard>
+  );
+};

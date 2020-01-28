@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isMobile } from '../../../utils/hooks/useWindowDimensions';
 import { addToCart, updateCart } from '../../../lib/actions/shoppingCart';
-import {  Button, ButtonSize, ButtonTheme } from '../../atoms';
+import { Button, ButtonSize, ButtonTheme } from '../../atoms';
 
 export const AddToCartButton = ({ item, children, isVisible, value }) => {
   const dispatch = useDispatch();

@@ -40,7 +40,4 @@ class CommercialOffer extends Offer {
     this.discountValue = slices * this.value;
   };
 }
-export {
-  Offer, 
-  CommercialOffer
-}
+export { Offer, CommercialOffer };

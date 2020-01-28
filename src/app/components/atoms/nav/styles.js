@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledNavbar = styled.nav`
     background-color: ${props => props.customColor}!important;
@@ -6,4 +6,4 @@ export const StyledNavbar = styled.nav`
         margin: 0
     }
 }
-`
+`;

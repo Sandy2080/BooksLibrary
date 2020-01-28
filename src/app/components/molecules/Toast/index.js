@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledToast } from './styles';
-import { Badge, Text } from '../../atoms'
+import { Badge, Text } from '../../atoms';
 
 const Styles = {
   position: 'fixed',
@@ -11,7 +11,7 @@ const Styles = {
   zIndex: '1',
 };
 const Toast = props => {
-  const { title, label, message } = props
+  const { title, label, message } = props;
   return (
     <StyledToast
       aria-live="polite"
@@ -19,7 +19,8 @@ const Toast = props => {
       style={Styles}
       className="toast"
       id="toast"
-      data-autohide="true">
+      data-autohide="true"
+    >
       <div>
         <div className="toast-header">
           <strong className="mr-auto">{message}</strong>
@@ -36,6 +37,6 @@ const Toast = props => {
 Toast.propTypes = {
   title: PropTypes.string,
   message: PropTypes.string,
-  label: PropTypes.string
+  label: PropTypes.string,
 };
 export default Toast;

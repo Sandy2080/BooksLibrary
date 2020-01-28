@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
-import { Link } from "react-router-dom" 
-import { CartBody } from "../../molecules/Cart/CartBody";
-import { CartFooter }  from "../../molecules/Cart/CartFooter";
-import { StyledCard } from "../../molecules/Card/styles"
-import { Title } from "../../atoms";
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import { CartBody } from '../../molecules/Cart/CartBody';
+import { CartFooter } from '../../molecules/Cart/CartFooter';
+import { StyledCard } from '../../molecules/Card/styles';
+import { Title } from '../../atoms';
 
 const CartEmpty = () => (
   <Fragment>
@@ -12,12 +12,16 @@ const CartEmpty = () => (
   </Fragment>
 );
 const ShoppingCart = ({ items }) => {
-   const isEmpty = items.length === 0
+  const isEmpty = items.length === 0;
 
-   if (isEmpty) { return <CartEmpty /> }
-   return (<StyledCard className="card">
-            <CartBody items={items} />
-            <CartFooter />
-         </StyledCard>)
+  if (isEmpty) {
+    return <CartEmpty />;
+  }
+  return (
+    <StyledCard className="card">
+      <CartBody items={items} />
+      <CartFooter />
+    </StyledCard>
+  );
 };
 export default ShoppingCart;
