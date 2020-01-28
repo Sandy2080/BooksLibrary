@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { Title } from "../atoms/text";
+import { Title } from "../../atoms/text";
 
 describe("Empty Cart", () => {
   it("renders correctly when cart is empty", () => {
@@ -10,4 +10,3 @@ describe("Empty Cart", () => {
     expect(tree).toMatchSnapshot();
   });
 });
-

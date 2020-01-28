@@ -2,15 +2,14 @@
 
 exports[`Button Primary renders correctly when button is PRIMARY   1`] = `
 <button
-  className="sc-AykKC ifcwsQ btn btn-primary"
+  className="sc-AykKC enGpRZ btn btn-primary"
   disabled={false}
 />
 `;
 
 exports[`Button Rounded renders correctly when button is ROUNDED and LARGE 1`] = `
 <button
-  className="sc-AykKC nBkZa btn btn-primary btn-lg"
+  className="sc-AykKC dusrxT btn btn-primary btn-lg"
   disabled={false}
-  size="btn-lg"
 />
 `;
