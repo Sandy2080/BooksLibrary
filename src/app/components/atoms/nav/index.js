@@ -15,18 +15,29 @@ const Navbar = props => {
         margin
     } = props;
     const classProps = classnames(theme, color, placement);
+
     return (
-        <StyledNavbar 
-            margin={margin}
-            className={`navbar navbar-expand-lg ${classProps}`}
-            customColor={customColor}>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target={`#${id}`} aria-controls={id} aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id={id}>
-                {children}
-            </div>
-        </StyledNavbar>);
+      <StyledNavbar
+        margin={margin}
+        className={`navbar navbar-expand-lg ${classProps}`}
+        customColor={customColor}
+      >
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target={`#${id}`}
+          aria-controls={id}
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id={id}>
+          {children}
+        </div>
+      </StyledNavbar>
+    );
 }
 const { BG_DARK, BG_LIGHT} = NavbarColor
 const { DARK, LIGHT} = NavbarTheme

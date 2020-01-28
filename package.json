@@ -13,7 +13,6 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-redux": "^7.1.6",
     "@types/react-router-dom": "^5.1.3",
-    "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
     "jquery": "^3.4.1",
     "lodash.merge": "^4.6.2",
@@ -36,8 +35,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject", 
-    "predeploy": "npm run build",  
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {

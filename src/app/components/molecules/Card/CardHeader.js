@@ -1,5 +1,5 @@
 import React from "react";
-import { isMobile, isTablet } from '../../../utils/hooks/useWindowDimensions';
+import { isMobile  } from '../../../utils/hooks/useWindowDimensions';
 import { Text } from "../../atoms/text";
 import Badge from "../../atoms/button"
 import { StyledCardHeader } from "./styles"

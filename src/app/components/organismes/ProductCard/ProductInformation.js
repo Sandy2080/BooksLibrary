@@ -3,7 +3,6 @@ import { isMobile, isTablet } from '../../../utils/hooks/useWindowDimensions';
 import { CardHeader } from '../../molecules/Card/index';
 import { TextTruncate } from '../../molecules';
 import { ModalInformation } from "./Modalnformation"
-import '../../../utils/scripts';
 
 export const ProductInformation = ({ item }) => {
   const { title, isbn, price, synopsis } = item;
@@ -22,7 +21,7 @@ export const ProductInformation = ({ item }) => {
         title={title}
         subTitle={isbn}
         badge={price}
-        titleFontSize={fontSize}
+        titleFontSize={fontSize()}
         subTitleFontSize={isMobile ? '11' : '13'}
       />
       <TextTruncate action={readMore} limit="100" characterLength="250">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, Fragment } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { Text } from "../../atoms"
 
 const Loading = () => {

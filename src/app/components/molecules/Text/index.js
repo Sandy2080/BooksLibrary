@@ -5,12 +5,10 @@ import Button, { ButtonSize } from '../../atoms/button';
 import { StyledText } from "../../atoms/text/styles"
 import { Text } from "../../atoms/text"
 
-
 const TextTruncate = props => {
   const { action, limit, characterLength, children } = props;
 return <Text.TRUNCATED length={characterLength} limit={limit} actions={action}>{children}</Text.TRUNCATED>;
 };
-
 Text.TRUNCATED = props => { 
     const { actions, limit, length, children } = props;
     return (

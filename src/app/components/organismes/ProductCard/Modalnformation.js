@@ -1,8 +1,6 @@
 import React from 'react';
 import {  Modal } from '../../molecules';
 import { Text } from '../../atoms';
-import '../../../utils/scripts';
-
 export const ModalInformation = ({ item }) => {
   const { title, isbn, synopsis } = item;
   return (

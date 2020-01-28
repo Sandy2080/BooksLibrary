@@ -6,8 +6,6 @@ import Card, {  BadgeLabel } from '../../molecules/Card/index';
 import { ProductImage } from '../../atoms';
 import { AddToCartButton } from "./AddCartButton"
 import { ProductInformation } from "./ProductInformation" 
-import '../../../utils/scripts';
-
 const ProductCard = ({ item }) => {
   const [isVisible, setVisible] = useState(false);
   const handleOnHover = bool => setVisible(bool);
