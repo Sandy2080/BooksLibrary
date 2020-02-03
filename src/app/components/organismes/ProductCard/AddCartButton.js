@@ -4,7 +4,12 @@ import { isMobile } from '../../../utils/hooks/useWindowDimensions';
 import { addToCart, updateCart } from '../../../lib/actions/shoppingCart';
 import { Button, ButtonSize, ButtonTheme } from '../../atoms';
 
-export const AddToCartButton = ({ item, children, isVisible, value }) => {
+export const AddToCartButton = React.memo(function AddToCartButton({
+  item,
+  children,
+  isVisible,
+  value,
+}) {
   const dispatch = useDispatch();
   const props = useSelector(state => ({ ...state.shoppingCartReducer }));
   const { setToastContext } = value;
@@ -50,4 +55,4 @@ export const AddToCartButton = ({ item, children, isVisible, value }) => {
       </Button.INFO>
     </div>
   );
-};
+});

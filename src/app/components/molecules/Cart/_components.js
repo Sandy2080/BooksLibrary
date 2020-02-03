@@ -36,12 +36,15 @@ const CheckoutButton = () => {
     </Button.SUCCESS>
   );
 };
-const CartButtons = () => (
-  <StyledCartButtons>
-    <ShoppingButton />
-    <CheckoutButton />
-  </StyledCartButtons>
-);
+
+const CartButtons = React.memo(function CartButtons(props) {
+  return (
+    <StyledCartButtons>
+      <ShoppingButton />
+      <CheckoutButton />
+    </StyledCartButtons>
+  );
+});
 
 const TrashButton = ({ remove }) => (
   <div>
@@ -64,7 +67,7 @@ const QuantityInput = ({ id, quantity }) => {
     <div>
       <Input.STEPPER
         classNames="stepper-input"
-        action={e => update(e)}
+        action={update}
         size={InputSize.SMALL}
         {...attributes}
       ></Input.STEPPER>
