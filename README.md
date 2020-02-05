@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Xebia - La Bibliothèque d'Henri Potier
+# La Bibliothèque d'Henri Potier
 
 A React.js project
 ## Available Scripts
