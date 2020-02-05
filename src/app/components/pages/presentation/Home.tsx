@@ -14,7 +14,7 @@ const Home = (props: IHomeProps & { getBooks: () => void; getOffers: (items: any
 
   useEffect(() => {
     getBooks();
-  }, [books, getBooks]);
+  }, [getBooks]);
 
   return (
     <Fragment>
