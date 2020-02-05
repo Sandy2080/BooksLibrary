@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useCallback } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { SearchBar } from '../../molecules';
 import Library from '../../organismes/Library';
 import { Book, Offer } from '../../../models/';
@@ -10,13 +10,11 @@ export interface IHomeProps {
   search: string;
 }
 const Home = (props: IHomeProps & { getBooks: () => void; getOffers: (items: any[]) => void }) => {
-  const { items, books, getOffers, getBooks } = props;
-  const loadBooks = useCallback(() => getBooks(), [getBooks]);
-  const loadOffers = useCallback(() => getOffers(items), [items, getOffers]);
+  const { books, getBooks } = props;
 
   useEffect(() => {
-    loadBooks();
-  }, [loadOffers, loadBooks]);
+    getBooks();
+  }, [books, getBooks]);
 
   return (
     <Fragment>

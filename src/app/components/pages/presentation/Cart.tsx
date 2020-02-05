@@ -22,8 +22,10 @@ const Cart = (
 
   useEffect(() => {
     loadOffers();
+  }, [items, loadOffers]);
+  useEffect(() => {
     scrollToTop(status === cartStatus.COMPLETE);
-  }, [items, loadOffers, status]);
+  }, [status]);
 
   const scrollToTop = (bool: Boolean) => {
     if (bool) {
