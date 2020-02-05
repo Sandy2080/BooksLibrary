@@ -18,13 +18,25 @@ const Cart = (
   },
 ) => {
   const { items, getOffers, reset, status, approveCart, cancelCheckout, history } = props;
-  const loadOffers = useCallback(() => getOffers(items), [items, getOffers]);
+  const loadOffers = () => getOffers(items);
 
   useEffect(() => {
     loadOffers();
-  }, [items, loadOffers]);
+  }, [loadOffers]);
+
   useEffect(() => {
     scrollToTop(status === cartStatus.COMPLETE);
+  }, [status]);
+
+  useEffect(() => {
+    if (status === cartStatus.APPROVED) {
+      const timer = setTimeout(() => {
+        reset();
+        history.push('/');
+      }, 5000);
+      debugger;
+      return () => clearTimeout(timer);
+    }
   }, [status]);
 
   const scrollToTop = (bool: Boolean) => {
@@ -38,11 +50,6 @@ const Cart = (
   };
   const confirmOrder = () => {
     approveCart();
-    const timer = setTimeout(() => {
-      reset();
-      history.push('/');
-    }, 5000);
-    return () => clearTimeout(timer);
   };
   return (
     <Fragment>
